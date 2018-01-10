@@ -158,6 +158,86 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-git-error" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/10/git-error/">git命令行下clone提示error setting certificate verify locations解决办法</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/10/git-error/" class="archive-article-date">
+  	<time datetime="2018-01-10T13:33:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用git bash进行clone操作时出现问题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fatal: unable to access &apos;https://github.com/konsumer/arduinoscope.git/&apos;: error setting certificate verify locations:</div><div class="line">CAfile: E:\Program Files\Git\mingw64\bin\curl-ca-bundle.crt</div><div class="line">CApath: none</div></pre></td></tr></table></figure>
+<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>在stackoverflow中找到类似问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config --system http.sslcainfo &quot; E:\Program Files\Git\mingw64\bin\curl-ca-bundle.crt&quot;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config --system http.sslverify false</div></pre></td></tr></table></figure>
+<p>参考地址:<br><a href="https://stackoverflow.com/questions/3778042/github-error-cloning-my-private-repository" target="_blank" rel="external">https://stackoverflow.com/questions/3778042/github-error-cloning-my-private-repository</a></p>
+<p>没找到第一种方式中路径对应的文件， 所以采取的第二种方式并解决了问题。</p>
+<p>猜想原因可能是昨天重装了系统导致的， 具体原因有待探索。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/10/git-error/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-memory-18-01-07" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -473,93 +553,10 @@
 
 
   
-    <article id="post-welcome" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/12/welcome/">MarkDown</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/12/welcome/" class="archive-article-date">
-  	<time datetime="2017-08-12T05:11:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这是我的第一篇博客：</p>
-<ul>
-<li><strong>markdown的快捷键</strong></li>
-<li><strong>markdown语法及学习</strong></li>
-<li><strong>markdown表格</strong></li>
-<li><strong>markdown定义列表</strong></li>
-<li><strong>markdown代码块</strong></li>
-<li><strong>markdown脚注</strong></li>
-<li><strong>markdown目录</strong></li>
-<li><strong>markdown数学公式</strong></li>
-<li><strong>markdown UML图</strong></li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/08/12/welcome/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/12/welcome/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 

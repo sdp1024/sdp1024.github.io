@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Jyo的个人博客">
 <meta property="og:description" content="JSP(JavaServer Pages )是什么? JavaServer Pages(JSP)是一种支持动态内容开发的网页技术它可以帮助开发人员通过利用特殊的JSP标签，其中大部分以&amp;lt;%开始并以%&amp;gt;作为结束标志插入Java代码到HTML页面。 JavaServer Pages组件是一个Java servlet的类型，旨在满足Java Web应用程序用户界面的一个角色。Web开发人员编">
 <meta property="og:image" content="http://www.xujie1993.club/2018/01/15/jsp-fn-function/img/jsp生命周期.jpg">
-<meta property="og:updated_time" content="2018-01-22T15:37:53.762Z">
+<meta property="og:updated_time" content="2018-01-22T15:41:24.004Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSP和JSP中的JSTL">
 <meta name="twitter:description" content="JSP(JavaServer Pages )是什么? JavaServer Pages(JSP)是一种支持动态内容开发的网页技术它可以帮助开发人员通过利用特殊的JSP标签，其中大部分以&amp;lt;%开始并以%&amp;gt;作为结束标志插入Java代码到HTML页面。 JavaServer Pages组件是一个Java servlet的类型，旨在满足Java Web应用程序用户界面的一个角色。Web开发人员编">
@@ -203,7 +203,8 @@
 <p>(3) 处理请求<br>当 Servlet 容器接收到一个 Servlet 请求时，便运行与之对应的 Servlet 实例的 service() 方法，service() 方法根据用户的请求调用相对应的doGet或doPost 方法来处理用户请求。然后再进入对应的方法中调用逻辑层的方法，实现对客户的响应。</p>
 <p>(4) 销毁<br>当 Servlet 容器决定将一个 Servlet 从服务器中移除时 ( 如 Servlet 文件被更新 )，便调用该 Servlet 实例的 destroy() 方法，在销毁该 Servlet 实例之前，来做一些其他的工作。</p>
 <p>其中，(1)(2)(4) 在 Servlet 的整个生命周期中只会被执行一次。</p>
-<p>servlet一旦被加载，一般不会从容器中删除，直至应用服务器关闭或重新启动。但当容器做内存回收动作时，servlet有可能被删除。也正是因为这个原因，第一次访问servlet所用的时间要大大多于以后访问所用的时间。<br><img src="/2018/01/15/jsp-fn-function/img/jsp生命周期.jpg" alt="这里写图片描述"></p>
+<p>servlet一旦被加载，一般不会从容器中删除，直至应用服务器关闭或重新启动。但当容器做内存回收动作时，servlet有可能被删除。也正是因为这个原因，第一次访问servlet所用的时间要大大多于以后访问所用的时间。</p>
+<p><img src="/2018/01/15/jsp-fn-function/img/jsp生命周期.jpg" alt="jsp执行过程图"></p>
 <hr>
 <h2 id="JSP中的El、JSTL"><a href="#JSP中的El、JSTL" class="headerlink" title="JSP中的El、JSTL"></a><strong>JSP中的El、JSTL</strong></h2><p><strong>jsp中的El表达式：</strong><br>${} ：可以自动获取域中对象，request，session，application，pageContext，EL找不到返回空白字符串。</p>
 <ul>

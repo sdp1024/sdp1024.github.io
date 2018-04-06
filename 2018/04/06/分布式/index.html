@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.xujie1993.club">
-  <title>Archives | Jyo的个人博客</title>
+  <title>JAVA分布式缓存 | Jyo的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="程序猿,程序猿,搭建,前端,后端,js,javascript,java,python,html,编程,代码,博客,教程,jquery,spring,spring mvc,mybatis,mysql">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jyo的个人博客">
-<meta property="og:url" content="http://www.xujie1993.club/archives/index.html">
+  <meta name="description" content="通常情况下我们运行程序的过程中会产生一些中间数据,这些中间数据需要在将来的某个时间读取。这就要求我们要把它存在一个提供高速存取的地方,最好的选择就是内存中。基于这个以及多个原因需要我们把这部分存储到其他机器上,这样就产生了分布式缓存的问题。  实际上分布式缓存根本上就是提供一个附加内存让另一台机器帮忙存储和查找数据。">
+<meta name="keywords" content="博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA分布式缓存">
+<meta property="og:url" content="http://www.xujie1993.club/2018/04/06/分布式/index.html">
 <meta property="og:site_name" content="Jyo的个人博客">
-<meta property="og:description" content="程序猿,程序猿,搭建,前端,后端,js,javascript,java,python,html,编程,代码,博客,教程,jquery,spring,spring mvc,mybatis,mysql">
+<meta property="og:description" content="通常情况下我们运行程序的过程中会产生一些中间数据,这些中间数据需要在将来的某个时间读取。这就要求我们要把它存在一个提供高速存取的地方,最好的选择就是内存中。基于这个以及多个原因需要我们把这部分存储到其他机器上,这样就产生了分布式缓存的问题。  实际上分布式缓存根本上就是提供一个附加内存让另一台机器帮忙存储和查找数据。">
+<meta property="og:updated_time" content="2018-04-06T13:20:56.421Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jyo的个人博客">
-<meta name="twitter:description" content="程序猿,程序猿,搭建,前端,后端,js,javascript,java,python,html,编程,代码,博客,教程,jquery,spring,spring mvc,mybatis,mysql">
+<meta name="twitter:title" content="JAVA分布式缓存">
+<meta name="twitter:description" content="通常情况下我们运行程序的过程中会产生一些中间数据,这些中间数据需要在将来的某个时间读取。这就要求我们要把它存在一个提供高速存取的地方,最好的选择就是内存中。基于这个以及多个原因需要我们把这部分存储到其他机器上,这样就产生了分布式缓存的问题。  实际上分布式缓存根本上就是提供一个附加内存让另一台机器帮忙存储和查找数据。">
   
     <link rel="alternative" href="/atom.xml" title="Jyo的个人博客" type="application/atom+xml">
   
@@ -156,36 +158,77 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-分布式" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      JAVA分布式缓存
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/06/分布式/" class="archive-article-date">
+
+        
+        <a href="/2018/04/06/分布式/" class="archive-article-date">
   	<time datetime="2018-04-06T13:02:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-06</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/06/分布式/">JAVA分布式缓存</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> 　　通常情况下我们运行程序的过程中会产生一些中间数据,这些中间数据需要在将来的某个时间读取。这就要求我们要把它存在一个提供高速存取的地方,最好的选择就是内存中。基于这个以及多个原因需要我们把这部分存储到其他机器上,这样就产生了分布式缓存的问题。 </p>
+<p>实际上分布式缓存根本上就是提供一个附加内存让另一台机器帮忙存储和查找数据。</p>
+<a id="more"></a>
+<p>首先建立一个集合对象,该集合对象应保证线程安全。代码如下所示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">public static class MemObject </div><div class="line">    &#123; </div><div class="line">        static MemObject() </div><div class="line">        &#123; </div><div class="line">            MemObjl = new Dictionary&lt;string, object&gt;(); </div><div class="line">        &#125; </div><div class="line"></div><div class="line">        public static Dictionary&lt;string, object&gt; Get() </div><div class="line">        &#123; </div><div class="line">            if (MemObjl == null) </div><div class="line">                MemObjl = new Dictionary&lt;string, object&gt;(); </div><div class="line">            return MemObjl; </div><div class="line">        &#125; </div><div class="line"></div><div class="line">        public static void Add(string key, object obj) </div><div class="line">        &#123; </div><div class="line">            Dictionary&lt;string, object&gt; obg = Get(); </div><div class="line">            if (!obg.ContainsKey(key)) </div><div class="line">                obg.Add(key, obj); </div><div class="line">        &#125; </div><div class="line"></div><div class="line">        public static void Remove(string key) </div><div class="line">        &#123; </div><div class="line">            Get().Remove(key); </div><div class="line">        &#125; </div><div class="line"></div><div class="line">        public static int Count() </div><div class="line">        &#123; </div><div class="line">            return Get().Count; </div><div class="line">        &#125; </div><div class="line"></div><div class="line">        public static object Get(string key) </div><div class="line">        &#123; </div><div class="line">            Dictionary&lt;string, object&gt; obg = Get(); </div><div class="line">            if (obg.ContainsKey(key)) </div><div class="line">                return obg[key]; </div><div class="line">            return null; </div><div class="line">        &#125; </div><div class="line"></div><div class="line">        public static bool Exits(string key) </div><div class="line">        &#123; </div><div class="line">            return Get().ContainsKey(key); </div><div class="line">        &#125; </div><div class="line"></div><div class="line">        PRivate static Dictionary&lt;string, object&gt; MemObjl; </div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>接着我们把它包装起来可以通过远程调用,代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">public class DataCatcher : MarshalByRefObject, ICarrier.ICarrier </div><div class="line">    &#123; </div><div class="line">        public void Set(string key, object value) </div><div class="line">        &#123; </div><div class="line">            //if (Exits(key)) </div><div class="line">            //    Remove(key); </div><div class="line">            //MemObjl.Add(key, value); </div><div class="line">            MemObject.Add(key, value); </div><div class="line">        &#125; </div><div class="line"></div><div class="line">        public bool Exits(string key) </div><div class="line">        &#123; </div><div class="line">            return MemObject.Exits(key); </div><div class="line">        &#125; </div><div class="line"></div><div class="line">        public void Remove(string key) </div><div class="line">        &#123; </div><div class="line">            MemObject.Remove(key); </div><div class="line">        &#125; </div><div class="line"></div><div class="line">        public int Count() </div><div class="line">        &#123; </div><div class="line">            return MemObject.Count(); </div><div class="line">        &#125; </div><div class="line"></div><div class="line">        public object Get(string key) </div><div class="line">        &#123; </div><div class="line">            return MemObject.Get(key); </div><div class="line">        &#125; </div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>为了避免我们的业务逻辑泄露我们向客户端提供接口以便调用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">public interface ICarrier </div><div class="line">&#123; </div><div class="line"> </div><div class="line">    void Remove(string key); </div><div class="line"> </div><div class="line">    bool Exits(string key); </div><div class="line"> </div><div class="line">    void Set(string key,object value); </div><div class="line"> </div><div class="line">    object Get(string key); </div><div class="line"> </div><div class="line">    int Count(); </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>好了。这样我们服务端的代码就算搞定了。 </p>
+<p>下面我们来发布服务供客户端调用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">public partial class SharpCatchedService : ServiceBase </div><div class="line">    &#123; </div><div class="line">        public SharpCatchedService() </div><div class="line">        &#123; </div><div class="line">            InitializeComponent(); </div><div class="line">        &#125; </div><div class="line"></div><div class="line">        protected override void OnStart(string[] args) </div><div class="line">        &#123; </div><div class="line">            TcpChannel channel = new TcpChannel(ConfigHelper.Port); </div><div class="line">            ChannelServices.RegisterChannel(channel, false); </div><div class="line">            RemotingConfiguration.RegisterWellKnownServiceType(typeof(DataCatcher), </div><div class="line">                &quot;SharpCatched&quot;, WellKnownObjectMode.Singleton); </div><div class="line">        &#125; </div><div class="line"></div><div class="line">        protected override void OnStop() </div><div class="line">        &#123; </div><div class="line">        &#125; </div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>这样客户端就可以通过这个接口来实现远程数据的存取 </p>
+<p>在客户端首先我们获取远程的对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">public static ICarrier Carrier() </div><div class="line">&#123; </div><div class="line">    ICarrier carrier = (ICarrier)Activator.GetObject(typeof(ICarrier), &quot;tcp://localhost:&quot; + ConfigHelper.Port + &quot;/SharpCatched&quot;); </div><div class="line">    return carrier; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>接着我们包装一下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">public class SharpCatchedAPI </div><div class="line">    &#123; </div><div class="line">        ICarrier icarrier; </div><div class="line"></div><div class="line">        public void Init() </div><div class="line">        &#123; </div><div class="line">            icarrier = DoConnect.Carrier(); </div><div class="line">        &#125; </div><div class="line"></div><div class="line">        public void Set(string key, object value) </div><div class="line">        &#123; </div><div class="line">            icarrier.Set(key, value); </div><div class="line">        &#125; </div><div class="line"></div><div class="line">        public void Remove(string key) </div><div class="line">        &#123; </div><div class="line">            icarrier.Remove(key); </div><div class="line">        &#125; </div><div class="line"></div><div class="line">        public object Get(string key) </div><div class="line">        &#123; </div><div class="line">            return icarrier.Get(key); </div><div class="line">        &#125; </div><div class="line"></div><div class="line">        public bool Exits(string key) </div><div class="line">        &#123; </div><div class="line">            return icarrier.Exits(key); </div><div class="line">        &#125; </div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>　　以上实现的是最基本的分布式缓存解决方案。其实我们可以把这个集合转化为其他集合对象,例如HashTable。在对象启动的时候开启一个守护线程,这个进程做得工作就是把到期的缓存对象追加到一个集合对象中,然后遍历该对象实现缓存对象的销毁。我们还可以把对象进行一次哈希让对像在多台缓存服务器上存储。</p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/IMG_1125.JPG">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/IMG_1124.JPG">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -197,174 +240,134 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.xujie1993.club/2018/04/06/分布式/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/12/Something-I-Can-Turn-To/" class="archive-article-date">
-  	<time datetime="2018-03-12T06:49:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-12</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/03/12/Something-I-Can-Turn-To/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Something I Can Turn To</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/12/Something-I-Can-Turn-To/">Something I Can Turn To</a>
-    </h1>
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="分布式" data-title="JAVA分布式缓存" data-url="http://www.xujie1993.club/2018/04/06/分布式/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://www.xujie1993.club/2018/04/06/分布式/", 
+    sourceId: "分布式",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/28/丑奴儿·书博山道中壁/" class="archive-article-date">
-  	<time datetime="2018-01-28T14:13:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/28/丑奴儿·书博山道中壁/">丑奴儿·书博山道中壁</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/15/jsp-fn-function/" class="archive-article-date">
-  	<time datetime="2018-01-15T14:51:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/15/jsp-fn-function/">JSP和JSP中的JSTL</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/10/git-error/" class="archive-article-date">
-  	<time datetime="2018-01-10T13:33:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/10/git-error/">git命令行下clone提示error setting certificate verify locations解决办法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -392,8 +395,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

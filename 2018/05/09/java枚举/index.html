@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.xujie1993.club">
-  <title>丑奴儿·书博山道中壁 | Jyo的个人博客</title>
+  <title>浅析枚举 | Jyo的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="少年不识愁滋味，爱上层楼。爱上层楼。为赋新词强说愁。   而今识尽愁滋味，欲说还休。欲说还休。却道天凉好个秋。  　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　–《丑奴儿·书博山道中壁》辛弃疾">
-<meta name="keywords" content="随笔">
+  <meta name="description" content="在实际编程中，往往存在着这样的“数据集”，它们的数值在程序中是稳定的，而且“数据集”中的元素是有限的。在JDK1.5 之前，我们定义常量都是： public static fianl…. 。有了枚举，可以把相关的常量分组到一个枚举类型里，而且枚举提供了比常量更多的方法。 用法一：常量123public enum Color &amp;#123;   RED, GREEN, BLANK, YELLOW">
+<meta name="keywords" content="博客">
 <meta property="og:type" content="article">
-<meta property="og:title" content="丑奴儿·书博山道中壁">
-<meta property="og:url" content="http://www.xujie1993.club/2018/01/28/丑奴儿·书博山道中壁/index.html">
+<meta property="og:title" content="浅析枚举">
+<meta property="og:url" content="http://www.xujie1993.club/2018/05/09/java枚举/index.html">
 <meta property="og:site_name" content="Jyo的个人博客">
-<meta property="og:description" content="少年不识愁滋味，爱上层楼。爱上层楼。为赋新词强说愁。   而今识尽愁滋味，欲说还休。欲说还休。却道天凉好个秋。  　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　–《丑奴儿·书博山道中壁》辛弃疾">
-<meta property="og:updated_time" content="2018-01-28T14:20:35.411Z">
+<meta property="og:description" content="在实际编程中，往往存在着这样的“数据集”，它们的数值在程序中是稳定的，而且“数据集”中的元素是有限的。在JDK1.5 之前，我们定义常量都是： public static fianl…. 。有了枚举，可以把相关的常量分组到一个枚举类型里，而且枚举提供了比常量更多的方法。 用法一：常量123public enum Color &amp;#123;   RED, GREEN, BLANK, YELLOW">
+<meta property="og:updated_time" content="2018-05-09T10:54:37.118Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="丑奴儿·书博山道中壁">
-<meta name="twitter:description" content="少年不识愁滋味，爱上层楼。爱上层楼。为赋新词强说愁。   而今识尽愁滋味，欲说还休。欲说还休。却道天凉好个秋。  　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　–《丑奴儿·书博山道中壁》辛弃疾">
+<meta name="twitter:title" content="浅析枚举">
+<meta name="twitter:description" content="在实际编程中，往往存在着这样的“数据集”，它们的数值在程序中是稳定的，而且“数据集”中的元素是有限的。在JDK1.5 之前，我们定义常量都是： public static fianl…. 。有了枚举，可以把相关的常量分组到一个枚举类型里，而且枚举提供了比常量更多的方法。 用法一：常量123public enum Color &amp;#123;   RED, GREEN, BLANK, YELLOW">
   
     <link rel="alternative" href="/atom.xml" title="Jyo的个人博客" type="application/atom+xml">
   
@@ -158,30 +158,35 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-丑奴儿·书博山道中壁" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-java枚举" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      丑奴儿·书博山道中壁
+      浅析枚举
     </h1>
   
 
         
-        <a href="/2018/01/28/丑奴儿·书博山道中壁/" class="archive-article-date">
-  	<time datetime="2018-01-28T14:13:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-28</time>
+        <a href="/2018/05/09/java枚举/" class="archive-article-date">
+  	<time datetime="2018-05-09T10:32:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>  少年不识愁滋味，爱上层楼。爱上层楼。为赋新词强说愁。</p>
-<p>  而今识尽愁滋味，欲说还休。欲说还休。却道天凉好个秋。 </p>
-<p>　　　　　　　　　　　　　　　　　　　　　　　　<br>　　　　　　　　　　　　　　　　　　　　　　–《丑奴儿·书博山道中壁》辛弃疾 </p>
+        <p>  在实际编程中，往往存在着这样的“数据集”，它们的数值在程序中是稳定的，而且“数据集”中的元素是有限的。在JDK1.5 之前，我们定义常量都是： public static fianl…. 。<br>有了枚举，可以把相关的常量分组到一个枚举类型里，而且枚举提供了比常量更多的方法。</p>
+<h4 id="用法一：常量"><a href="#用法一：常量" class="headerlink" title="用法一：常量"></a>用法一：常量</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public enum Color &#123;  </div><div class="line"> RED, GREEN, BLANK, YELLOW  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="用法二：switch"><a href="#用法二：switch" class="headerlink" title="用法二：switch"></a>用法二：switch</h4><p>JDK1.6之前的switch语句只支持int,char,enum类型，使用枚举，能让我们的代码可读性更强。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">enum Signal &#123;  </div><div class="line">   GREEN, YELLOW, RED  </div><div class="line">&#125;  </div><div class="line">public class TrafficLight &#123;  </div><div class="line">   Signal color = Signal.RED;  </div><div class="line">   public void change() &#123;  </div><div class="line">       switch (color) &#123;  </div><div class="line">       case RED:  </div><div class="line">           color = Signal.GREEN;  </div><div class="line">           break;  </div><div class="line">       case YELLOW:  </div><div class="line">           color = Signal.RED;  </div><div class="line">           break;  </div><div class="line">       case GREEN:  </div><div class="line">           color = Signal.YELLOW;  </div><div class="line">           break;  </div><div class="line">       &#125;  </div><div class="line">   &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="用法三：向枚举中添加新方法"><a href="#用法三：向枚举中添加新方法" class="headerlink" title="用法三：向枚举中添加新方法"></a>用法三：向枚举中添加新方法</h4><p>如果打算自定义自己的方法，那么必须在enum实例序列的最后添加一个分号。而且 Java 要求必须先定义 enum 实例。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">public enum Color &#123;  </div><div class="line">   RED(&quot;红色&quot;, 1), GREEN(&quot;绿色&quot;, 2), BLANK(&quot;白色&quot;, 3), YELLO(&quot;黄色&quot;, 4);  </div><div class="line">     </div><div class="line">   private String name;  </div><div class="line">   private int index;  </div><div class="line">     </div><div class="line">   private Color(String name, int index) &#123;  </div><div class="line">       this.name = name;  </div><div class="line">       this.index = index;  </div><div class="line">   &#125;  </div><div class="line">     </div><div class="line">   public static String getName(int index) &#123;  </div><div class="line">       for (Color c : Color.values()) &#123;  </div><div class="line">           if (c.getIndex() == index) &#123;  </div><div class="line">               return c.name;  </div><div class="line">           &#125;  </div><div class="line">       &#125;  </div><div class="line">       return null;  </div><div class="line">   &#125;  </div><div class="line">     </div><div class="line">   public String getName() &#123;  </div><div class="line">       return name;  </div><div class="line">   &#125;  </div><div class="line">   public void setName(String name) &#123;  </div><div class="line">       this.name = name;  </div><div class="line">   &#125;  </div><div class="line">   public int getIndex() &#123;  </div><div class="line">       return index;  </div><div class="line">   &#125;  </div><div class="line">   public void setIndex(int index) &#123;  </div><div class="line">       this.index = index;  </div><div class="line">   &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="用法四：覆盖枚举的方法"><a href="#用法四：覆盖枚举的方法" class="headerlink" title="用法四：覆盖枚举的方法"></a>用法四：覆盖枚举的方法</h4><p>下面给出一个toString()方法覆盖的例子。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">public enum Color &#123;  </div><div class="line">   RED(&quot;红色&quot;, 1), GREEN(&quot;绿色&quot;, 2), BLANK(&quot;白色&quot;, 3), YELLO(&quot;黄色&quot;, 4);  </div><div class="line">     </div><div class="line">   private String name;  </div><div class="line">   private int index;  </div><div class="line">     </div><div class="line">   private Color(String name, int index) &#123;  </div><div class="line">       this.name = name;  </div><div class="line">       this.index = index;  </div><div class="line">   &#125;  </div><div class="line">     </div><div class="line">   @Override  </div><div class="line">   public String toString() &#123;  </div><div class="line">       return this.index+&quot;_&quot;+this.name;  </div><div class="line">   &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="用法五：实现接口"><a href="#用法五：实现接口" class="headerlink" title="用法五：实现接口"></a>用法五：实现接口</h4><p>所有的枚举都继承自java.lang.Enum类。由于Java 不支持多继承，所以枚举对象不能再继承其他类。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">public interface Behaviour &#123;  </div><div class="line">   void print();  </div><div class="line">   String getInfo();  </div><div class="line">&#125;  </div><div class="line">public enum Color implements Behaviour&#123;  </div><div class="line">   RED(&quot;红色&quot;, 1), GREEN(&quot;绿色&quot;, 2), BLANK(&quot;白色&quot;, 3), YELLO(&quot;黄色&quot;, 4);  </div><div class="line">     </div><div class="line">   private String name;  </div><div class="line">   private int index;  </div><div class="line">     </div><div class="line">   private Color(String name, int index) &#123;  </div><div class="line">       this.name = name;  </div><div class="line">       this.index = index;  </div><div class="line">   &#125;  </div><div class="line"> </div><div class="line">   @Override  </div><div class="line">   public String getInfo() &#123;  </div><div class="line">       return this.name;  </div><div class="line">   &#125;  </div><div class="line">     </div><div class="line">   @Override  </div><div class="line">   public void print() &#123;  </div><div class="line">       System.out.println(this.index+&quot;:&quot;+this.name);  </div><div class="line">   &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="用法六：使用接口组织枚举"><a href="#用法六：使用接口组织枚举" class="headerlink" title="用法六：使用接口组织枚举"></a>用法六：使用接口组织枚举</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">public interface Food &#123;  </div><div class="line">   enum Coffee implements Food&#123;  </div><div class="line">       BLACK_COFFEE,DECAF_COFFEE,LATTE,CAPPUCCINO  </div><div class="line">   &#125;  </div><div class="line">   enum Dessert implements Food&#123;  </div><div class="line">       FRUIT, CAKE, GELATO  </div><div class="line">   &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="用法七：关于枚举集合的使用"><a href="#用法七：关于枚举集合的使用" class="headerlink" title="用法七：关于枚举集合的使用"></a>用法七：关于枚举集合的使用</h4><p>java.util.EnumSet和java.util.EnumMap是两个枚举集合。EnumSet保证集合中的元素不重复；EnumMap中的 key是enum类型，而value则可以是任意类型。</p>
 
       
 
@@ -226,7 +231,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
         		</li>
       		
 		</ul>
@@ -282,7 +287,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://www.xujie1993.club/2018/01/28/丑奴儿·书博山道中壁/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.xujie1993.club/2018/05/09/java枚举/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -296,18 +301,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/03/12/Something-I-Can-Turn-To/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Something I Can Turn To
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/01/15/jsp-fn-function/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JSP和JSP中的JSTL</div>
+    <a href="/2018/04/06/分布式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JAVA分布式缓存</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -335,7 +331,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="丑奴儿·书博山道中壁" data-title="丑奴儿·书博山道中壁" data-url="http://www.xujie1993.club/2018/01/28/丑奴儿·书博山道中壁/"></div>
+	<div class="ds-thread" data-thread-key="java枚举" data-title="浅析枚举" data-url="http://www.xujie1993.club/2018/05/09/java枚举/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -358,8 +354,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://www.xujie1993.club/2018/01/28/丑奴儿·书博山道中壁/", 
-    sourceId: "丑奴儿·书博山道中壁",
+    url: "http://www.xujie1993.club/2018/05/09/java枚举/", 
+    sourceId: "java枚举",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };

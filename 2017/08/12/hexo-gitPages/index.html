@@ -29,7 +29,7 @@
 <meta property="og:image" content="http://www.xujie1993.club/2017/08/12/hexo-gitPages/img/git1.PNG">
 <meta property="og:image" content="http://www.xujie1993.club/2017/08/12/hexo-gitPages/img/git2.PNG">
 <meta property="og:image" content="http://www.xujie1993.club/2017/08/12/hexo-gitPages/img/home.PNG">
-<meta property="og:updated_time" content="2018-01-10T14:07:17.154Z">
+<meta property="og:updated_time" content="2018-07-14T09:23:37.716Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="github pages + hexo 搭建个人博客站点">
 <meta name="twitter:description" content="突然很想拥有一个自己的站点博客，虽然可以写博客的地方挺多的，如CSDN，博客园，sina，简书等等，但是总觉得拥有一个自己的站点很cool，所以昨天开始着手搭建，效果如链接所示：我的个站 具体步骤可以分为 Git的下载和使用 创建github pages node.js，hexo的下载和使用 注册域名，部署站点">
@@ -230,7 +230,7 @@
 <p><img src="/2017/08/12/hexo-gitPages/img/sshkey2.PNG" alt=""></p>
 <p>选择SSH and GPG keys选项，点击New SSH key按钮，把复制内容粘贴上去</p>
 <p><img src="/2017/08/12/hexo-gitPages/img/sshkey3.png" alt=""></p>
-<p>验证是否配置成功，输入命令<code>ssh -T git@github.com</code>，如果显示Hi han1202012! You’ve successfully authenticated, but GitHub does not provide shell access. 就说明配置成功, 可以连接上GitHub。</p>
+<p>验证是否配置成功，输入命令<code>ssh -T git@github.com</code>，如果显示Hi xxxx! You’ve successfully authenticated, but GitHub does not provide shell access. 就说明配置成功, 可以连接上GitHub。</p>
 <hr>
 <h4 id="node-js，hexo的下载和使用"><a href="#node-js，hexo的下载和使用" class="headerlink" title="node.js，hexo的下载和使用"></a>node.js，hexo的下载和使用</h4><p>首先安装node.js, 这个直接下载安装，没什么好说的<a href="https://nodejs.org/en/download/" target="_blank" rel="external">下载node.js</a>,下载安装完成后，就可以安装hexo了，贴出官网教程<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">hexo教程</a>，首先创建一个文件夹,如blog,用户存放hexo的配置文件,然后进入blog里安装Hexo。在创建好的目录下运行git bash，在窗口中输入<code>npm install -g hexo-cli</code>，来试试安装成功没有，输入以下命令查看Hexo的版本信息<code>hexo -v</code>，如果出现类似内容说明安装成功啦！</p>
 <p><img src="/2017/08/12/hexo-gitPages/img/hexo-v.PNG" alt=""></p>
@@ -558,11 +558,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>

@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.xujie1993.club">
-  <title>枚举 | Jyo的个人博客</title>
+  <title>枚举的用法 | Jyo的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="用法一：常量123public enum Color &amp;#123;   RED, GREEN, BLANK, YELLOW  &amp;#125;">
 <meta name="keywords" content="博客">
 <meta property="og:type" content="article">
-<meta property="og:title" content="枚举">
+<meta property="og:title" content="枚举的用法">
 <meta property="og:url" content="http://www.xujie1993.club/2018/05/09/java枚举/index.html">
 <meta property="og:site_name" content="Jyo的个人博客">
 <meta property="og:description" content="用法一：常量123public enum Color &amp;#123;   RED, GREEN, BLANK, YELLOW  &amp;#125;">
-<meta property="og:updated_time" content="2018-06-23T07:33:20.940Z">
+<meta property="og:updated_time" content="2019-11-16T12:22:21.717Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="枚举">
+<meta name="twitter:title" content="枚举的用法">
 <meta name="twitter:description" content="用法一：常量123public enum Color &amp;#123;   RED, GREEN, BLANK, YELLOW  &amp;#125;">
   
     <link rel="alternative" href="/atom.xml" title="Jyo的个人博客" type="application/atom+xml">
@@ -165,7 +165,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      枚举
+      枚举的用法
     </h1>
   
 
@@ -185,8 +185,6 @@
 <h4 id="用法四：覆盖枚举的方法"><a href="#用法四：覆盖枚举的方法" class="headerlink" title="用法四：覆盖枚举的方法"></a>用法四：覆盖枚举的方法</h4><p>toString()方法覆盖。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">public enum Color &#123;  </div><div class="line">   RED(&quot;红色&quot;, 1), GREEN(&quot;绿色&quot;, 2), BLANK(&quot;白色&quot;, 3), YELLO(&quot;黄色&quot;, 4);  </div><div class="line">     </div><div class="line">   private String name;  </div><div class="line">   private int index;  </div><div class="line">     </div><div class="line">   private Color(String name, int index) &#123;  </div><div class="line">       this.name = name;  </div><div class="line">       this.index = index;  </div><div class="line">   &#125;  </div><div class="line">     </div><div class="line">   @Override  </div><div class="line">   public String toString() &#123;  </div><div class="line">       return this.index+&quot;_&quot;+this.name;  </div><div class="line">   &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h4 id="用法五：实现接口"><a href="#用法五：实现接口" class="headerlink" title="用法五：实现接口"></a>用法五：实现接口</h4><p>所有的枚举都继承自java.lang.Enum类。由于Java 不支持多继承，所以枚举对象不能再继承其他类。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">public interface Behaviour &#123;  </div><div class="line">   void print();  </div><div class="line">   String getInfo();  </div><div class="line">&#125;  </div><div class="line">public enum Color implements Behaviour&#123;  </div><div class="line">   RED(&quot;红色&quot;, 1), GREEN(&quot;绿色&quot;, 2), BLANK(&quot;白色&quot;, 3), YELLO(&quot;黄色&quot;, 4);  </div><div class="line">     </div><div class="line">   private String name;  </div><div class="line">   private int index;  </div><div class="line">     </div><div class="line">   private Color(String name, int index) &#123;  </div><div class="line">       this.name = name;  </div><div class="line">       this.index = index;  </div><div class="line">   &#125;  </div><div class="line"> </div><div class="line">   @Override  </div><div class="line">   public String getInfo() &#123;  </div><div class="line">       return this.name;  </div><div class="line">   &#125;  </div><div class="line">     </div><div class="line">   @Override  </div><div class="line">   public void print() &#123;  </div><div class="line">       System.out.println(this.index+&quot;:&quot;+this.name);  </div><div class="line">   &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h4 id="用法六：使用接口组织枚举"><a href="#用法六：使用接口组织枚举" class="headerlink" title="用法六：使用接口组织枚举"></a>用法六：使用接口组织枚举</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">public interface Food &#123;  </div><div class="line">   enum Coffee implements Food&#123;  </div><div class="line">       BLACK_COFFEE,DECAF_COFFEE,LATTE,CAPPUCCINO  </div><div class="line">   &#125;  </div><div class="line">   enum Dessert implements Food&#123;  </div><div class="line">       FRUIT, CAKE, GELATO  </div><div class="line">   &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="用法七：关于枚举集合的使用"><a href="#用法七：关于枚举集合的使用" class="headerlink" title="用法七：关于枚举集合的使用"></a>用法七：关于枚举集合的使用</h4><p>java.util.EnumSet和java.util.EnumMap是两个枚举集合。EnumSet保证集合中的元素不重复；EnumMap中的 key是enum类型，而value则可以是任意类型。</p>
-
       
 
       
@@ -339,7 +337,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="java枚举" data-title="枚举" data-url="http://www.xujie1993.club/2018/05/09/java枚举/"></div>
+	<div class="ds-thread" data-thread-key="java枚举" data-title="枚举的用法" data-url="http://www.xujie1993.club/2018/05/09/java枚举/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

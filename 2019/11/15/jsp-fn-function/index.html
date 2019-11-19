@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://www.xujie1024.club">
   <title>JSP及其相关技术 | Jyo的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JSP是什么?Java Server Pages(JSP)是一种支持动态内容开发的网页技术，它可以帮助开发人员通过利用特殊的JSP标签，并支持以&amp;lt;%开始并以%&amp;gt;作为结束标志插入Java代码到HTML页面。 JSP 本质是一个 Servlet，它的运行也需要容器的支持。在 JSP 和 Servlet 文件中都可以编写 Java 和 HTML 代码，不同的是，Servlet 虽然也可以动态">
+  <meta name="description" content="JSP是什么?Java Server Pages(JSP)是一种支持动态内容开发的网页技术，它可以帮助开发人员通过利用特殊的JSP标签，并支持以&amp;lt;%开始并以%&amp;gt;作为结束标志插入Java代码到HTML页面。 JSP 本质是一个 Servlet，JSP 最终被转换成 Servlet 在 jvm 中解释执行，它的运行也需要容器的支持。在 JSP 中虽然也可以编写 Java 代码，但它更加偏向">
 <meta name="keywords" content="博客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JSP及其相关技术">
 <meta property="og:url" content="https://www.xujie1024.club/2019/11/15/jsp-fn-function/index.html">
 <meta property="og:site_name" content="Jyo的个人博客">
-<meta property="og:description" content="JSP是什么?Java Server Pages(JSP)是一种支持动态内容开发的网页技术，它可以帮助开发人员通过利用特殊的JSP标签，并支持以&amp;lt;%开始并以%&amp;gt;作为结束标志插入Java代码到HTML页面。 JSP 本质是一个 Servlet，它的运行也需要容器的支持。在 JSP 和 Servlet 文件中都可以编写 Java 和 HTML 代码，不同的是，Servlet 虽然也可以动态">
+<meta property="og:description" content="JSP是什么?Java Server Pages(JSP)是一种支持动态内容开发的网页技术，它可以帮助开发人员通过利用特殊的JSP标签，并支持以&amp;lt;%开始并以%&amp;gt;作为结束标志插入Java代码到HTML页面。 JSP 本质是一个 Servlet，JSP 最终被转换成 Servlet 在 jvm 中解释执行，它的运行也需要容器的支持。在 JSP 中虽然也可以编写 Java 代码，但它更加偏向">
 <meta property="og:image" content="https://www.xujie1024.club/2019/11/15/jsp-fn-function/img/jsp生命周期.jpg">
-<meta property="og:updated_time" content="2019-11-18T12:57:10.814Z">
+<meta property="og:updated_time" content="2019-11-19T12:48:38.436Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSP及其相关技术">
-<meta name="twitter:description" content="JSP是什么?Java Server Pages(JSP)是一种支持动态内容开发的网页技术，它可以帮助开发人员通过利用特殊的JSP标签，并支持以&amp;lt;%开始并以%&amp;gt;作为结束标志插入Java代码到HTML页面。 JSP 本质是一个 Servlet，它的运行也需要容器的支持。在 JSP 和 Servlet 文件中都可以编写 Java 和 HTML 代码，不同的是，Servlet 虽然也可以动态">
+<meta name="twitter:description" content="JSP是什么?Java Server Pages(JSP)是一种支持动态内容开发的网页技术，它可以帮助开发人员通过利用特殊的JSP标签，并支持以&amp;lt;%开始并以%&amp;gt;作为结束标志插入Java代码到HTML页面。 JSP 本质是一个 Servlet，JSP 最终被转换成 Servlet 在 jvm 中解释执行，它的运行也需要容器的支持。在 JSP 中虽然也可以编写 Java 代码，但它更加偏向">
 <meta name="twitter:image" content="https://www.xujie1024.club/2019/11/15/jsp-fn-function/img/jsp生命周期.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Jyo的个人博客" type="application/atom+xml">
@@ -181,12 +181,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="JSP是什么"><a href="#JSP是什么" class="headerlink" title="JSP是什么?"></a><strong>JSP是什么?</strong></h2><p>Java Server Pages(JSP)是一种支持动态内容开发的网页技术，它可以帮助开发人员通过利用特殊的JSP标签，并支持以&lt;%开始并以%&gt;作为结束标志插入Java代码到HTML页面。</p>
-<p>JSP 本质是一个 Servlet，它的运行也需要容器的支持。在 JSP 和 Servlet 文件中都可以编写 Java 和 HTML 代码，不同的是，Servlet 虽然也可以动态的生成页面内容，但更加偏向于逻辑的控制。</p>
-<p>JSP 最终被转换成 Servlet 在 jvm 中解释执行，在 JSP 中虽然也可以编写 Java 代码，但它更加偏向于页面视图的展现。在 MVC 架构模式中，就 JSP 和 Servlet 而言，C 通常由 Servlet 充当，V 通常由 JSP 来充当。</p>
+<p>JSP 本质是一个 Servlet，JSP 最终被转换成 Servlet 在 jvm 中解释执行，它的运行也需要容器的支持。在 JSP 中虽然也可以编写 Java 代码，但它更加偏向于页面视图的展现。在 MVC 架构模式中，就 JSP 和 Servlet 而言，C 通常由 Servlet 充当，V 通常由 JSP 来充当。</p>
 <p>JSP这门技术的最大的特点在于，写jsp就像在写html，但它相比html而言，html只能为用户提供静态内容，而Jsp技术允许在页面中嵌套java代码，为用户提供动态数据。</p>
 <h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><h2 id="JSP的运行原理"><a href="#JSP的运行原理" class="headerlink" title="JSP的运行原理"></a><strong>JSP的运行原理</strong></h2><p><strong>运行原理：</strong></p>
 <p>WEB容器（Servlet引擎）接收到以.jsp为扩展名的URL的访问请求时，它将把该访问请求交给JSP引擎去处理。Tomcat中的JSP引擎就是一个Servlet程序，它负责解释和执行JSP页面。</p>
-<p>每个JSP 页面在第一次被访问时，JSP引擎将它翻译成一个Servlet源程序，接着再把这个Servlet源程序编译成Servlet的class类文件，然后再由WEB容器（Servlet引擎）像调用普通Servlet程序一样的方式来装载和解释执行这个由JSP页面翻译成的Servlet程序。</p>
 <p><strong>执行过程：</strong></p>
 <ul>
 <li>客户端发出请求。</li>
@@ -194,6 +192,7 @@
 <li>Web容器将产生的源代码进行编译。</li>
 <li>Web容器加载编译后的代码并执行。</li>
 </ul>
+<p>每个JSP 页面在第一次被访问时，JSP引擎将它翻译成一个Servlet源程序，接着再把这个Servlet源程序编译成Servlet的class类文件，然后再由WEB容器（Servlet引擎）像调用普通Servlet程序一样的方式来装载和解释执行这个由JSP页面翻译成的Servlet程序。</p>
 <p>在jsp转译时会调用servlet：1.加载 -&gt;2.初始化 - &gt; 3.调用 - 4.销毁，servlet生命周期的具体过程如下：</p>
 <p>(1) 加载和实例化<br>如果Servlet容器还没实例化一个Servlet对象，此时容器装载和实例化一个 Servlet。创建出该 Servlet 类的一个实例。如果已经存在一个Servlet对象，此时不再创建新实例。</p>
 <p>(2) 初始化<br>在产生 Servlet 实例后，容器负责调用该 Servlet 实例的 init() 方法，在处理用户请求之前，来做一些额外的初始化工作。</p>
@@ -204,8 +203,8 @@
 <p><img src="/2019/11/15/jsp-fn-function/img/jsp生命周期.jpg" alt="jsp执行过程图"></p>
 <hr>
 <h2 id="JSP中的四大作用域"><a href="#JSP中的四大作用域" class="headerlink" title="JSP中的四大作用域"></a><strong>JSP中的四大作用域</strong></h2><p><strong>四大作用域</strong><br>(1)pageContext：<br>    它的有效范围只在当前jsp页面里。 从把变量放到pageContext开始，到jsp页面结束，你都可以使用这个变量。</p>
-<p>(2)request：<br>    它的有效范围是当前请求周期。所谓请求周期，就是指从http请求发起，到服务器处理结束，返回响应的整个过程。在这个过程中可能使用forward的方式跳转了多个jsp页面，在这些页面里你都可以使用这个变量。</p>
-<p>(3)session：<br>    它的有效范围是当前会话。所谓当前会话，就是指从用户打开浏览器开始，到用户关闭浏览器这中间的过程。这个过程可能包含多个请求响应。也就是说，只要用户不关浏览器，服务器就有办法知道这些请求是一个人发起的。</p>
+<p>(2)request：<br>    它的有效范围是当前请求周期。所谓请求周期，就是指从http请求发起，到服务器处理结束，返回响应的整个过程。在这个过程中可能使用forward的方式跳转了多个jsp页面，在这些页面里你都可以获取到这个变量。</p>
+<p>(3)session：<br>    它的有效范围是当前会话。所谓当前会话，就是指从用户打开浏览器开始，到用户关闭浏览器这中间的过程。这个过程可能包含多个请求响应。也就是说，只要用户不关浏览器，在这些页面里你都可以获取到这个变量。</p>
 <p>(4)application：<br>    它的有效范围是整个应用。整个应用是指从应用启动，到应用结束。application作用域里的变量，它们的存活时间是最长的，如果不进行手工删除，它们就一直可以使用。与上述三个不同的是，application里的变量可以被所有用户共用。如果用户甲的操作修改了application中的变量，用户乙访问时得到的是修改后的值。这在其他scope中都是不会发生的，page, request, session都是完全隔离的，无论如何修改都不会影响其他。</p>
 <p><strong>九大内置对象</strong><br>request、response、application、session、page、config、out、pageContext、exception</p>
 <hr>

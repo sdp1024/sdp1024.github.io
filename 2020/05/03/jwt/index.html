@@ -6,17 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.xujie1024.club">
-  <title>Archives: 2018/6 | Jyo的个人博客</title>
+  <title>使用jwt在复杂系统中做权限验证 | Jyo的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="程序猿,程序猿,搭建,前端,后端,js,javascript,java,python,html,编程,代码,博客,教程,jquery,spring,spring mvc,mybatis,mysql">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jyo的个人博客">
-<meta property="og:url" content="https://www.xujie1024.club/archives/2018/06/index.html">
+  <meta name="description" content="一、预备知识1、JWT是什么​    JWT全称Json web token，官网对他的介绍如下  由介绍可知，JWT是为了网络应用环境间传递声明而执行的一种开放的基于RFC7519方法的产业标准。简单来说，JWT就是token的一种产业标准，他规定了token的格式、加密算法、声明等等。">
+<meta name="keywords" content="博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用jwt在复杂系统中做权限验证">
+<meta property="og:url" content="https://www.xujie1024.club/2020/05/03/jwt/index.html">
 <meta property="og:site_name" content="Jyo的个人博客">
-<meta property="og:description" content="程序猿,程序猿,搭建,前端,后端,js,javascript,java,python,html,编程,代码,博客,教程,jquery,spring,spring mvc,mybatis,mysql">
+<meta property="og:description" content="一、预备知识1、JWT是什么​    JWT全称Json web token，官网对他的介绍如下  由介绍可知，JWT是为了网络应用环境间传递声明而执行的一种开放的基于RFC7519方法的产业标准。简单来说，JWT就是token的一种产业标准，他规定了token的格式、加密算法、声明等等。">
+<meta property="og:image" content="https://www.xujie1024.club/2020/05/03/jwt/img/image-20200505201624200.png">
+<meta property="og:image" content="https://www.xujie1024.club/2020/05/03/jwt/img/image-20200505212057945.png">
+<meta property="og:image" content="https://www.xujie1024.club/2020/05/03/jwt/img/image-20200505220613618.png">
+<meta property="og:image" content="https://www.xujie1024.club/2020/05/03/jwt/img/image-20200505232642825.png">
+<meta property="og:image" content="https://www.xujie1024.club/2020/05/03/jwt/img/image-20200506014133815.png">
+<meta property="og:image" content="https://www.xujie1024.club/2020/05/03/jwt/img/image-20200506022018123.png">
+<meta property="og:image" content="https://www.xujie1024.club/2020/05/03/jwt/img/image-20200506031127536.png">
+<meta property="og:updated_time" content="2020-05-05T20:06:26.386Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jyo的个人博客">
-<meta name="twitter:description" content="程序猿,程序猿,搭建,前端,后端,js,javascript,java,python,html,编程,代码,博客,教程,jquery,spring,spring mvc,mybatis,mysql">
+<meta name="twitter:title" content="使用jwt在复杂系统中做权限验证">
+<meta name="twitter:description" content="一、预备知识1、JWT是什么​    JWT全称Json web token，官网对他的介绍如下  由介绍可知，JWT是为了网络应用环境间传递声明而执行的一种开放的基于RFC7519方法的产业标准。简单来说，JWT就是token的一种产业标准，他规定了token的格式、加密算法、声明等等。">
+<meta name="twitter:image" content="https://www.xujie1024.club/2020/05/03/jwt/img/image-20200505201624200.png">
   
     <link rel="alternative" href="/atom.xml" title="Jyo的个人博客" type="application/atom+xml">
   
@@ -156,36 +166,150 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-jwt" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/14/intellij/" class="archive-article-date">
-  	<time datetime="2018-06-14T09:47:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-14</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/14/intellij/">intellij</a>
+    <h1 class="article-title" itemprop="name">
+      使用jwt在复杂系统中做权限验证
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/05/03/jwt/" class="archive-article-date">
+  	<time datetime="2020-05-03T13:31:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、预备知识"><a href="#一、预备知识" class="headerlink" title="一、预备知识"></a><strong>一、预备知识</strong></h2><h3 id="1、JWT是什么"><a href="#1、JWT是什么" class="headerlink" title="1、JWT是什么"></a>1、JWT是什么</h3><p>​    JWT全称Json web token，官网对他的介绍如下</p>
+<p><img src="/2020/05/03/jwt/img\image-20200505201624200.png" alt="image-20200505201624200"></p>
+<p>由介绍可知，JWT是为了网络应用环境间传递声明而执行的一种开放的基于RFC7519方法的产业标准。简单来说，JWT就是token的一种产业标准，他规定了token的格式、加密算法、声明等等。</p>
+<a id="more"></a>
+<h3 id="2、什么是token"><a href="#2、什么是token" class="headerlink" title="2、什么是token"></a>2、什么是token</h3><p>​    Token是服务端生成的一串字符串，以作客户端进行请求的一个令牌，当第一次登录后，服务器生成一个Token便将此Token返回给客户端，以后客户端只需带上这个Token前来请求数据即可，无需再次带上用户名和密码。</p>
+<p>​    token是一种实现web应用会话管理的方式，常见的web应用会话管理方式还有session，为了更好的了解token，我们先来看一下session是怎样进行会话管理的。</p>
+<h4 id="1-、基于session的会话管理"><a href="#1-、基于session的会话管理" class="headerlink" title="1)、基于session的会话管理"></a>1)、基于session的会话管理</h4><p><img src="/2020/05/03/jwt/img\image-20200505212057945.png" alt="image-20200505212057945"></p>
+<p>具体步骤：</p>
+<p>​    1.客户端第一次请求（登录）时，服务器会根据用户创建session对象，代表用户的一次会话过程，并将用户信息存入session中。服务器会给每个session分配一个sessionId，保证每个用户都有唯一的session对象。</p>
+<p>​    2.服务器在创建完session后，会把sessionId通过cookie的形式返回给客户端。</p>
+<p>​    3.客户端在之后的请求中都会携带sessionId，服务器根据客户端传来的sessionId进行匹配，找到该用户对应的session对象，获取登录成功的凭证，并返回用户所需要的信息。</p>
+<p>这种方式运用起来非常简单，但是如果服务的系统比较庞大，就可能出现以下问题：</p>
+<p>​    1.这种方式将会话信息存储在web服务器里面，所以在用户同时在线量比较多时，这些会话信息会占据比较多的内存；</p>
+<p>​    2.当应用采用集群部署的时候，会遇到多台web服务器之间如何做session共享的问题。比如用户在A服务器登录，但是请求被分配到B服务器，但是B服务器无法拿到A服务器的session。</p>
+<p>​    3.多个应用要共享session时，还会遇到跨域问题，因为不同的应用可能部署的主机不一样，需要在各个应用做好cookie跨域的处理。</p>
+<p>​    当然以上问题都可以通过不同的方案来解决，比如问题2，我们可以引入中间服务器，比如redis来缓存sessionId，服务器为用户生成的sessionId会存储到专门的数据库中，客户端每次请求携带的sessionId都会去这个专门的数据库进行匹配。</p>
+<h4 id="2-、基于Token的会话管理"><a href="#2-、基于Token的会话管理" class="headerlink" title="2)、基于Token的会话管理"></a>2)、基于Token的会话管理</h4><p><img src="/2020/05/03/jwt/img\image-20200505220613618.png" alt="image-20200505220613618"></p>
+<p>具体步骤：</p>
+<p>​    1.客户端第一次请求（登录）时，服务器会通过加密算法生成一串token，token与用户一一对应，并将token返回给客户端。</p>
+<p>​    2.客户端每次请求在Header中携带token，服务器通过解密算法解析token是否有效，如果有效返回用户所需要的的信息。</p>
+<p>​    使用token的最大优点就是实现了服务器端的无状态化，服务端无需存储token，只需负责创建token并验证token即可。由于token的无状态性，使用token进行会话不会出现上述的占用服务器内存、集群时的session共享问题。但是由于token的无状态性，使得我们无法主动使其失效，这就导致token在应用于复杂系统的时候会出现很多问题，比如用户在注销的时候我们只能在客户端使其失效，这种方式会带来很大的安全隐患。</p>
+<hr>
+<h2 id="二、JWT的组成原理"><a href="#二、JWT的组成原理" class="headerlink" title="二、JWT的组成原理"></a><strong>二、JWT的组成原理</strong></h2><h3 id="1、JWT的构成"><a href="#1、JWT的构成" class="headerlink" title="1、JWT的构成"></a>1、JWT的构成</h3><p>​    通过上一节，我们已经知道JWT是token的一种产业标准，那么JWT是怎样来定义token的呢。首先JWT是由三段信息构成的，三段信息都以.隔开,样例如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1ODg2ODk5MTQsInVzZXJJZCI6MSwiaWF0IjoxNTg4Njg4MTE0LCJqdGkiOiJKV1RfSUQifQ.ubCvxbhCdVvnAmD_oafpZJVLnR6G-OpOTdl8RREY4ZQ</div></pre></td></tr></table></figure>
+<p>构成字符串的第一部分称为头部，第二部分称为荷载，第三部分称为签名，以下是官网对他的介绍</p>
+<p><img src="/2020/05/03/jwt/img\image-20200505232642825.png" alt="image-20200505232642825"></p>
+<p><strong>Header</strong></p>
+<p>​    JWT的头部主要包含两部分信息，声明类型和声明的加密算法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;alg&quot;: &quot;HS256&quot;,</div><div class="line">  &quot;typ&quot;: &quot;JWT&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后对头部进行base64编码处理，这样就构成了第一部分</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">eyJhbGciOiJIUzI1NiJ9</div></pre></td></tr></table></figure>
+<p><strong>Playload</strong></p>
+<p>​    荷载区主要用来承载传递数据，主要包含三种类型<strong>标准中注册的声明、公共的声明、私有的声明</strong>。</p>
+<p>​    <strong>注册声明：</strong></p>
+<p>​        <strong>iss</strong>: jwt签发者</p>
+<p>​        <strong>sub</strong>: jwt所面向的用户</p>
+<p>​        <strong>aud</strong>: 接收jwt的一方</p>
+<p>​        <strong>exp</strong>: jwt的过期时间，必须大于签发时间</p>
+<p>​        <strong>nbf</strong>: 定义在什么时间之前，该jwt都是不可用的.</p>
+<p>​        <strong>iat</strong>: jwt的签发时间</p>
+<p>​        <strong>jti</strong>: jwt的唯一身份标识，主要用来作为一次性token,从而回避重放攻击。</p>
+<p>​    <strong>共有声明：</strong></p>
+<p>​                可以由用户自己定义，但是为了避免冲突，应该在<a href="https://www.iana.org/assignments/jwt/jwt.xhtml" target="_blank" rel="external">IANA JSON Web Token Registry</a>中定义这      些声明，或者为他们定义一个防冲突命名空间的URI。</p>
+<p>​    <strong>私有声明：</strong></p>
+<p>​                私有声明是提供者和消费者所共同定义的声明，一般添加用户的相关信息或其他业务需要的      必要信息.与标准声明最大的区别就是JWT的接收方在拿到JWT之后，知道怎么对准声明进行验证；      而私有声明需要自定义验证规则。</p>
+<p>​    比如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;exp&quot;:&quot;1588563855&quot;</div><div class="line">  &quot;userId&quot;: &quot;1&quot;,</div><div class="line">  &quot;userName&quot;: &quot;张三&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>​    对荷载进行base64编码处理，这样就构成了第二部分</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">eyJleHAiOjE1ODg2ODk5MTQsInVzZXJJZCI6MSwiaWF0IjoxNTg4Njg4MTE0LCJqdGkiOiJKV1RfSUQifQ</div></pre></td></tr></table></figure>
+<p>​    <strong>Signature</strong>:</p>
+<p>​    签名部分主要是对前面得到的经过base64编码后的Header和Playload以.分隔连接成字符串，然后自己定义一个加盐密钥，然后以Header中声明的加密算法对上述信息进行签名。因为Header和Playload都是用的base64编码处理，可以很轻易的还原，因此服务端定义的密钥尤为重要，一旦泄露就意味着客户端可以自我签发JWT了。</p>
+<p><strong>JWT原理图：</strong></p>
+<p><img src="/2020/05/03/jwt/img\image-20200506014133815.png" alt="image-20200506014133815"></p>
+<h3 id="2、JWT的应用"><a href="#2、JWT的应用" class="headerlink" title="2、JWT的应用"></a><strong>2、JWT的应用</strong></h3><p>​    由于JWT本质上就是token，因此使用JWT进行会话管理的原理与token一致，上面已经讲过。因此，此部分主要展示应用代码。目前主流语言基本都对JWT提供了支持，我选用的是<a href="https://github.com/jwtk/jjwt" target="_blank" rel="external">io.jsonwebtoken</a>，此类库是一个java类库。</p>
+<p>定义JwtUtils：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div></pre></td><td class="code"><pre><div class="line">//设置jwtId</div><div class="line">   private static String JWT_ID = &quot;JWT_ID&quot;;</div><div class="line"></div><div class="line">   //设置密钥</div><div class="line">   private static String security=&quot;my_key&quot;;</div><div class="line">   </div><div class="line">   //设置过期时间</div><div class="line">private static final long TOKEN_EXPIRED_TIME = 30 * 60 * 1000;</div><div class="line"></div><div class="line">/**</div><div class="line">    * 创建JWT</div><div class="line">    */</div><div class="line">   public static String buildJwt(Map&lt;String, Object&gt; claims, Long time)&#123;</div><div class="line">       SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;   //指定签名算法</div><div class="line">       Date now = new Date();</div><div class="line"></div><div class="line">       SecretKey secretKey = generalKey();</div><div class="line"></div><div class="line">       long nowMillis = System.currentTimeMillis();</div><div class="line">       //在payload添加声明</div><div class="line">       JwtBuilder builder = Jwts.builder()</div><div class="line">               .setClaims(claims)          //设置私有声明</div><div class="line">               .setId(JWT_ID)                  //设置jti(JWT ID)：是JWT的唯一标识</div><div class="line">               .setIssuedAt(now)           //iat: jwt的签发时间</div><div class="line">               .signWith(signatureAlgorithm, secretKey);//设置签名使用的签名算法和签名使用的秘钥</div><div class="line">       if (time &gt;= 0) &#123;</div><div class="line">           long expMillis = nowMillis + time;</div><div class="line">           Date exp = new Date(expMillis);</div><div class="line">           builder.setExpiration(exp);     //设置过期时间</div><div class="line">       &#125;</div><div class="line">       return builder.compact();</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   /**</div><div class="line">    * 验证jwt</div><div class="line">    */</div><div class="line">   public static Claims verifyJwt(String token) &#123;</div><div class="line">       //签名秘钥</div><div class="line">       SecretKey key = generalKey();</div><div class="line">       Claims claims = new DefaultClaims();</div><div class="line">       if(token == null || StringUtils.isEmpty(token))&#123;</div><div class="line"></div><div class="line">           return null;</div><div class="line">       &#125;</div><div class="line">       try &#123;</div><div class="line">           claims = Jwts.parser()  //得到DefaultJwtParser</div><div class="line">                   .setSigningKey(key)         //设置签名的秘钥</div><div class="line">                   .parseClaimsJws(token).getBody();</div><div class="line"></div><div class="line">           int userId = (Integer)claims.get(&quot;userId&quot;);</div><div class="line"></div><div class="line">           if (userId == 0) &#123;</div><div class="line">               //无效token</div><div class="line">               return null;</div><div class="line">           &#125;</div><div class="line"></div><div class="line">       &#125; catch(SignatureException | MalformedJwtException e) &#123;</div><div class="line">           //解析异常</div><div class="line">           return null;</div><div class="line">       &#125; catch(ExpiredJwtException e) &#123;</div><div class="line">		//过期异常</div><div class="line">           return claims;</div><div class="line">       &#125; catch (JwtException e) &#123;</div><div class="line">           //JWT其他异常</div><div class="line">           return null;</div><div class="line">       &#125;</div><div class="line">       return claims;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   /**</div><div class="line">    * 由字符串生成加密key</div><div class="line">    *</div><div class="line">    * @return</div><div class="line">    */</div><div class="line">   public static SecretKey generalKey() &#123;</div><div class="line">       byte[] encodedKey = Base64.decodeBase64(security);</div><div class="line">       SecretKey key = new SecretKeySpec(encodedKey, 0, encodedKey.length, &quot;AES&quot;);</div><div class="line">       return key;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   /**</div><div class="line">    * 根据userId生成token</div><div class="line">    */</div><div class="line">   public static String generateToken(int userId) &#123;</div><div class="line">       Map&lt;String, Object&gt; map = new HashMap&lt;&gt;();</div><div class="line">       map.put(&quot;userId&quot;, userId);</div><div class="line">       return buildJwt(map, TOKEN_EXPIRED_TIME);</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p>通过上述代码生成JWT后，服务器定义一个过滤器，客户端的每次请求都需要经过改过滤器过滤，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"> //登录、注册不进行Token验证</div><div class="line"> private static final Set&lt;String&gt; ALLOWED_PATHS = Collections.unmodifiableSet(new HashSet&lt;&gt;(</div><div class="line">         Arrays.asList(&quot;/user/login&quot;,&quot;/user/register&quot;)));</div><div class="line"></div><div class="line"> @Override</div><div class="line"> public void init(FilterConfig filterConfig) throws ServletException &#123;</div><div class="line"></div><div class="line"> &#125;</div><div class="line"></div><div class="line"> @Override</div><div class="line"> public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)</div><div class="line">         throws IOException &#123;</div><div class="line"></div><div class="line">     HttpServletRequest request = (HttpServletRequest) servletRequest;</div><div class="line">     HttpServletResponse response = (HttpServletResponse)servletResponse;</div><div class="line"></div><div class="line">     //验证accessToken是否有效</div><div class="line">     boolean isValid = isTokenValid(request);</div><div class="line">     if (isValid)&#123;</div><div class="line">        //有效直接放行</div><div class="line">        filterChain.doFilter(servletRequest, servletResponse);</div><div class="line">     &#125;else &#123;</div><div class="line">//校验失败返回相关信息</div><div class="line">          response.setContentType(&quot;text/json;charset=UTF-8&quot;);</div><div class="line">          response.setCharacterEncoding(&quot;UTF-8&quot;);</div><div class="line">          response.getWriter().write(&quot;身份验证失败！&quot;);</div><div class="line">     &#125;</div><div class="line"></div><div class="line"> &#125;</div><div class="line"></div><div class="line"> @Override</div><div class="line"> public void destroy() &#123;</div><div class="line"></div><div class="line"> &#125;</div><div class="line"> </div><div class="line"></div><div class="line"> /**</div><div class="line">  * 验证token是否失效</div><div class="line">  */</div><div class="line"> private boolean isTokenValid( HttpServletRequest request)&#123;</div><div class="line">     //不需要过滤的路径</div><div class="line">     String path = request.getRequestURI().substring(request.getContextPath().length()).replaceAll(&quot;[/]+$&quot;, &quot;&quot;);</div><div class="line">     boolean allowedPath = ALLOWED_PATHS.contains(path);</div><div class="line"></div><div class="line">     if(allowedPath)&#123;</div><div class="line">         //不做Token验证的直接放行</div><div class="line">         return true;</div><div class="line">     &#125;else &#123;</div><div class="line">         String accessToken = request.getHeader(&quot;authorization&quot;); //获取请求传来的token</div><div class="line">         Claims accessClaims = JwtUtils.verifyJwt(accessToken); //验证token</div><div class="line"></div><div class="line">//token验证无效</div><div class="line">         if (accessClaims == null) &#123;</div><div class="line">             </div><div class="line">             return false;</div><div class="line">         &#125;</div><div class="line"></div><div class="line">        return true;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>客户端每次请求在请求头中携带token</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">post(&apos;api/user/1&apos;, &#123;</div><div class="line">  headers: &#123;</div><div class="line">    &apos;authorization&apos;:token</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="三、在复杂系统中使用JWT"><a href="#三、在复杂系统中使用JWT" class="headerlink" title="三、在复杂系统中使用JWT"></a><strong>三、在复杂系统中使用JWT</strong></h2><p>​    由第一章的介绍我们知道了JWT无状态的特性，因此JWT可以很好的适配那些需要颁发一次性令牌的API。但是如果将JWT运用在一个复杂系统，我们至少需要考虑以下两个问题：</p>
+<p>1、JWT的主动失效问题。由于JWT是无状态的，服务器无法主动使JWT失效，导致一个用户可能对应多个有效的JWT。</p>
+<p>2、JWT的主动续时问题。由于JWT是无状态的，服务器无法主动让JWT增加有效时间，导致用户在正常使用的情况下出现验证失败的情况。</p>
+<p>因此我们不得不对JWT进行扩展，使其变得有状态，以满足当前场景的需求。</p>
+<h3 id="1、JWT的主动失效"><a href="#1、JWT的主动失效" class="headerlink" title="1、JWT的主动失效"></a><strong>1、JWT的主动失效</strong></h3><p>​    要让JWT变得有状态，就需要对他进行存储，并且用户应该与JWT一一对应，因此我选用了key-value型的缓存数据库redis，以用户id作为key，token作为value。用户在登录时，服务器会创建生成token，并以用户id作为key，token作为value存入redis。服务器在接收到客户点传来的token时除了验证token的有效性外，还需要判断此用户在redis中是否存在有效的token。在退出登录或者修改密码时，从redis中删除用户对应的token。</p>
+<p><img src="/2020/05/03/jwt/img\image-20200506022018123.png" alt="image-20200506022018123"></p>
+<p>具体步骤：</p>
+<p>​    1.客户端第一次请求（登录）时，服务器会通过加密算法生成一串token，把生成的token与用户一一对应存入redis，并把token返回至客户端。</p>
+<p>​    2.客户端每次请求在Header中携带token，服务器通过解密算法解析token是否有效，如果有效，去redis中查找改用户的token是否有效，有效则正确返回，否则则视为token失效，续重新登录。</p>
+<p>​    3.用户退出登录，从redis中删除用户对应的token，这样即使被删除的token在有效期内，在用户携带被删除的token访问服务器时，服务器仍然视此token为无效。以保证每个用户只有一个有效token。</p>
+<h3 id="2、JWT的主动续时"><a href="#2、JWT的主动续时" class="headerlink" title="2、JWT的主动续时"></a><strong>2、JWT的主动续时</strong></h3><p>​    要使JWT能够自动续时，这里引入了一个refreshToken，refreshToken也是根据JWT生成的token，只是refreshToken的过期时间比用来验证的token（称为accessToken）的过期时间要长。</p>
+<p><img src="/2020/05/03/jwt/img\image-20200506031127536.png" alt="image-20200506031127536"></p>
+<p>具体步骤：</p>
+<p>​    1.客户端第一次请求（登录）时，服务器会通过加密算法生成accessToken和refreshToken，把生成的accessToken与用户一一对应存入redis，并把accessToken和refreshToken返回至客户端。</p>
+<p>​    2.客户端每次请求在Header中携带accessToken和refreshToken，服务器通过解密算法解析token是否有效，服务器首先验证accessToke是否有效，有效则正确返回。若无效，判断是否属于过期异常，如果accessToke为过期异常，服务器会解析refreshToken，若无异常则重新生成accessToken和refreshToken,并用重新生成的accessToke覆盖掉redis中旧的accessToke，然后把accessToken和refreshToken一并返回给客户端。</p>
+<p>​    3.客户端收到重新生成的accessToken和refreshToken后，将新的accessToken和refreshToken覆盖掉本地中旧的accessToken和refreshToken，并携带新的accessToken和refreshToken重新请求此接口。</p>
+<p>​    4.用户退出登录，从redis中删除用户对应的accessToken。</p>
+<p>代码示例如下：</p>
+<p>定义JwtUtils：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div></pre></td><td class="code"><pre><div class="line">@Autowired</div><div class="line">private StringRedisTemplate stringRedisTemplate;</div><div class="line"></div><div class="line">public static JwtUtils jwtUtils;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 直接注入StringRedisTemplate无效，通过容器初始化给 StringRedisTemplate赋值</div><div class="line"> */</div><div class="line">@PostConstruct</div><div class="line">public void init()&#123;</div><div class="line">    jwtUtils = this;</div><div class="line">    jwtUtils.stringRedisTemplate = this.stringRedisTemplate;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//设置jwtId</div><div class="line">private static String JWT_ID = &quot;JWT_ID&quot;;</div><div class="line"></div><div class="line">//设置密钥</div><div class="line">private static String security;</div><div class="line"></div><div class="line">@Value(&quot;$&#123;token.security&#125;&quot;)</div><div class="line">public void setSecurity(String security)&#123;</div><div class="line">    this.security = security;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * 创建JWT</div><div class="line"> */</div><div class="line">public static String buildJwt(Map&lt;String, Object&gt; claims, Long time)&#123;</div><div class="line">    SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;   //指定签名算法</div><div class="line">    Date now = new Date();</div><div class="line"></div><div class="line">    SecretKey secretKey = generalKey();</div><div class="line"></div><div class="line">    long nowMillis = System.currentTimeMillis();</div><div class="line">    //在payload添加声明</div><div class="line">    JwtBuilder builder = Jwts.builder()</div><div class="line">            .setClaims(claims)          //设置私有声明</div><div class="line">            .setId(JWT_ID)                  //设置jti(JWT ID)：是JWT的唯一标识</div><div class="line">            .setIssuedAt(now)           //iat: jwt的签发时间</div><div class="line">            .signWith(signatureAlgorithm, secretKey);//设置签名使用的签名算法和签名使用的秘钥</div><div class="line">    if (time &gt;= 0) &#123;</div><div class="line">        long expMillis = nowMillis + time;</div><div class="line">        Date exp = new Date(expMillis);</div><div class="line">        builder.setExpiration(exp);     //设置过期时间</div><div class="line">    &#125;</div><div class="line">    return builder.compact();</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 验证jwt</div><div class="line"> */</div><div class="line">public static Claims verifyJwt(String token) &#123;</div><div class="line">    //签名秘钥</div><div class="line">    SecretKey key = generalKey();</div><div class="line">    Claims claims = new DefaultClaims();</div><div class="line">    if(token == null || StringUtils.isEmpty(token))&#123;</div><div class="line"></div><div class="line">        return null;</div><div class="line">    &#125;</div><div class="line">    try &#123;</div><div class="line">        claims = Jwts.parser()  //得到DefaultJwtParser</div><div class="line">                .setSigningKey(key)         //设置签名的秘钥</div><div class="line">                .parseClaimsJws(token).getBody();</div><div class="line"></div><div class="line">        int userId = (Integer)claims.get(&quot;userId&quot;);</div><div class="line"></div><div class="line">        claims.put(&quot;isExpired&quot;, false);</div><div class="line"></div><div class="line">        if (userId == 0) &#123;</div><div class="line">            //无效token</div><div class="line">            return null;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125; catch(SignatureException | MalformedJwtException e) &#123;</div><div class="line">        //解析异常</div><div class="line">        return null;</div><div class="line">    &#125; catch(ExpiredJwtException e) &#123;</div><div class="line">        //过期异常</div><div class="line">        claims.put(&quot;isExpired&quot;, true);</div><div class="line"></div><div class="line">        return claims;</div><div class="line">    &#125; catch (JwtException e) &#123;</div><div class="line">        //JWT其他异常</div><div class="line">        return null;</div><div class="line">    &#125;</div><div class="line">    return claims;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 由字符串生成加密key</div><div class="line"> *</div><div class="line"> * @return</div><div class="line"> */</div><div class="line">public static SecretKey generalKey() &#123;</div><div class="line">    byte[] encodedKey = Base64.decodeBase64(security);</div><div class="line">    SecretKey key = new SecretKeySpec(encodedKey, 0, encodedKey.length, &quot;AES&quot;);</div><div class="line">    return key;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 根据userId生成token</div><div class="line"> */</div><div class="line">public static String generateToken(int userId, long expiredTime) &#123;</div><div class="line">    Map&lt;String, Object&gt; map = new HashMap&lt;&gt;();</div><div class="line">    map.put(&quot;userId&quot;, userId);</div><div class="line">    return buildJwt(map, expiredTime);</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 生成token，并存入redis</div><div class="line"> */</div><div class="line">public static Map&lt;String, String&gt;  creatTokenAndInsertRedis(int userId)&#123;</div><div class="line"></div><div class="line">    String accessToken = generateToken(userId, Constant.ACCESS_TOKEN_EXPIRED_TIME); //权限验证token</div><div class="line">    String refreshToken = generateToken(userId, Constant.REFRESH_TOKEN_EXPIRED_TIME); //刷新token</div><div class="line"></div><div class="line">    Map&lt;String, String&gt; resMap = new HashMap&lt;String, String&gt;();</div><div class="line">    resMap.put(&quot;accessToken&quot;, accessToken);</div><div class="line">    resMap.put(&quot;refreshToken&quot;, refreshToken);</div><div class="line"></div><div class="line">    //accessToken存入Redis</div><div class="line">    jwtUtils.stringRedisTemplate.opsForValue().set(Constant.ACCESS_TOKEN_KEY + userId, accessToken);</div><div class="line"></div><div class="line">    return resMap;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>定义过滤器：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">   @Autowired</div><div class="line">   StringRedisTemplate stringRedisTemplate;</div><div class="line"></div><div class="line"></div><div class="line">   //登录、注册不进行Token验证</div><div class="line">   private static final Set&lt;String&gt; ALLOWED_PATHS = Collections.unmodifiableSet(new HashSet&lt;&gt;(</div><div class="line">           Arrays.asList(&quot;/user/login&quot;,&quot;/user/register&quot;)));</div><div class="line"></div><div class="line">   @Override</div><div class="line">   public void init(FilterConfig filterConfig) throws ServletException &#123;</div><div class="line"></div><div class="line">   &#125;</div><div class="line"></div><div class="line">   @Override</div><div class="line">   public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)</div><div class="line">           throws IOException &#123;</div><div class="line"></div><div class="line">       HttpServletRequest request = (HttpServletRequest) servletRequest;</div><div class="line">       HttpServletResponse response = (HttpServletResponse)servletResponse;</div><div class="line"></div><div class="line">       //验证accessToken是否有效</div><div class="line">       Map&lt;String, Object&gt; isValidMap = isTokenValid(request);</div><div class="line">       boolean isValid = (Boolean) isValidMap.get(&quot;isValid&quot;);</div><div class="line">       if (isValid)&#123;</div><div class="line">           //身份校验成功，直接放行</div><div class="line">          filterChain.doFilter(servletRequest, servletResponse);</div><div class="line">       &#125;else &#123;</div><div class="line"></div><div class="line">           //判断是否重新生成了token</div><div class="line">           if (isValidMap.get(&quot;refreshMap&quot;) == null) &#123;</div><div class="line">               //accessToken和refreshToken都过期，身份校验失败，输出相关信息</div><div class="line">               responseForClient(response, Constant.AUTH_FAIL_CODE_E1,  &quot;身份验证失败，请重新登录！&quot;);</div><div class="line">           &#125;else &#123;</div><div class="line">               //accessToken和refreshToken重新生成，返回重新生成的token</div><div class="line">               responseForClient(response, Constant.AUTH_FAIL_CODE_E2,  isValidMap.get(&quot;refreshMap&quot;));</div><div class="line">           &#125;</div><div class="line"></div><div class="line">       &#125;</div><div class="line"></div><div class="line">   &#125;</div><div class="line"></div><div class="line">   @Override</div><div class="line">   public void destroy() &#123;</div><div class="line"></div><div class="line">   &#125;</div><div class="line"></div><div class="line"></div><div class="line">   /**</div><div class="line">    * 验证token是否失效</div><div class="line">    */</div><div class="line">   private Map&lt;String, Object&gt; isTokenValid( HttpServletRequest request)&#123;</div><div class="line">       //不需要过滤的路径</div><div class="line">       String path = request.getRequestURI().substring(request.getContextPath().length()).replaceAll(&quot;[/]+$&quot;, &quot;&quot;);</div><div class="line">       boolean allowedPath = ALLOWED_PATHS.contains(path);</div><div class="line"></div><div class="line">       Map&lt;String, Object&gt; resMap = new HashMap&lt;String, Object&gt;();</div><div class="line"></div><div class="line">       if(allowedPath)&#123;</div><div class="line">           //不做Token验证的直接放行</div><div class="line">           resMap.put(&quot;isValid&quot;, true);</div><div class="line">           return resMap;</div><div class="line">       &#125;else &#123;</div><div class="line">           String accessToken = request.getHeader(&quot;AccessAuthorization&quot;); //获取请求传来的token</div><div class="line">           Claims accessClaims = JwtUtils.verifyJwt(accessToken); //验证accessToken</div><div class="line"></div><div class="line">           if (accessClaims == null) &#123;</div><div class="line">               resMap.put(&quot;isValid&quot;, false);</div><div class="line">               return resMap;</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           if ((boolean)accessClaims.get(&quot;isExpired&quot;)) &#123;</div><div class="line">               String refreshToken = request.getHeader(&quot;RefreshAuthorization&quot;); //获取请求传来的token</div><div class="line">               Claims refreshClaims = JwtUtils.verifyJwt(refreshToken); //验证refreshToken</div><div class="line"></div><div class="line">               //refreshToken有其他异常校验失败</div><div class="line">               if (refreshClaims == null) &#123;</div><div class="line"></div><div class="line">                   resMap.put(&quot;isValid&quot;, false);</div><div class="line">                   return resMap;</div><div class="line">               &#125;</div><div class="line"></div><div class="line">               //refreshToken过期校验失败</div><div class="line">               if ((boolean)refreshClaims.get(&quot;isExpired&quot;)) &#123;</div><div class="line"></div><div class="line">                   resMap.put(&quot;isValid&quot;, false);</div><div class="line">                   return resMap;</div><div class="line">               &#125;</div><div class="line"></div><div class="line">               //refreshToken有效,则重新生成accessToken和refreshToken,并将accessToken保存到redis</div><div class="line">               Map&lt;String, String&gt; refreshMap = JwtUtils.creatTokenAndInsertRedis((Integer) refreshClaims.get(&quot;userId&quot;));</div><div class="line"></div><div class="line">               resMap.put(&quot;isValid&quot;, false);</div><div class="line">               resMap.put(&quot;refreshMap&quot;, refreshMap);</div><div class="line"></div><div class="line">               return resMap;</div><div class="line">           &#125;else &#123;</div><div class="line">               //比较redis和request中的token</div><div class="line">               String uAccessToken = stringRedisTemplate.opsForValue().get(Constant.ACCESS_TOKEN_KEY+ accessClaims.get(&quot;userId&quot;));</div><div class="line">               if (uAccessToken == null || !uAccessToken.equals(accessToken)) &#123;</div><div class="line">                   resMap.put(&quot;isValid&quot;, false);</div><div class="line">                   return resMap;</div><div class="line">               &#125;</div><div class="line">               resMap.put(&quot;isValid&quot;, true);</div><div class="line">               return resMap;</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   @SneakyThrows</div><div class="line">   private void responseForClient(HttpServletResponse response, int statusCode,  Object resObject)&#123;</div><div class="line">       ResponseJson responseJson = new ResponseJson(statusCode, resObject);</div><div class="line"></div><div class="line">       Gson gson = new Gson();</div><div class="line">       String resJson =  gson.toJson(responseJson);</div><div class="line"></div><div class="line">       response.setContentType(&quot;text/json;charset=UTF-8&quot;);</div><div class="line">       response.setCharacterEncoding(&quot;UTF-8&quot;);</div><div class="line">       response.getWriter().write(resJson);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="四、结语"><a href="#四、结语" class="headerlink" title="四、结语"></a><strong>四、结语</strong></h2><p>​    虽然使用JWT在复杂系统中做权限认证有诸多优点，如不存在内存占用、方便集群、没有session共享的问题等。但是也仍然有一些弊端，如增加了复杂性、违背了JWT的无状态原则等。没有十全十美的解决方案，只有最适合自己的解决方案，在什么样的场景使用什么样的解决方案最合适才是我们需要考虑的首要问题。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/IMG_1125.JPG">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/IMG_1124.JPG">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -197,19 +321,135 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://www.xujie1024.club/2020/05/03/jwt/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/11/15/jsp-fn-function - 副本/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JSP及其相关技术</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="jwt" data-title="使用jwt在复杂系统中做权限验证" data-url="https://www.xujie1024.club/2020/05/03/jwt/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "https://www.xujie1024.club/2020/05/03/jwt/", 
+    sourceId: "jwt",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -236,8 +476,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

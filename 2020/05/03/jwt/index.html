@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://www.xujie1024.club/2020/05/03/jwt/img/image-20200506014133815.png">
 <meta property="og:image" content="https://www.xujie1024.club/2020/05/03/jwt/img/image-20200506022018123.png">
 <meta property="og:image" content="https://www.xujie1024.club/2020/05/03/jwt/img/image-20200506031127536.png">
-<meta property="og:updated_time" content="2020-05-05T20:06:26.386Z">
+<meta property="og:updated_time" content="2020-05-06T06:54:17.853Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用jwt在复杂系统中做权限验证">
 <meta name="twitter:description" content="一、预备知识1、JWT是什么​    JWT全称Json web token，官网对他的介绍如下  由介绍可知，JWT是为了网络应用环境间传递声明而执行的一种开放的基于RFC7519方法的产业标准。简单来说，JWT就是token的一种产业标准，他规定了token的格式、加密算法、声明等等。">
@@ -201,7 +201,7 @@
 <p>​    1.这种方式将会话信息存储在web服务器里面，所以在用户同时在线量比较多时，这些会话信息会占据比较多的内存；</p>
 <p>​    2.当应用采用集群部署的时候，会遇到多台web服务器之间如何做session共享的问题。比如用户在A服务器登录，但是请求被分配到B服务器，但是B服务器无法拿到A服务器的session。</p>
 <p>​    3.多个应用要共享session时，还会遇到跨域问题，因为不同的应用可能部署的主机不一样，需要在各个应用做好cookie跨域的处理。</p>
-<p>​    当然以上问题都可以通过不同的方案来解决，比如问题2，我们可以引入中间服务器，比如redis来缓存sessionId，服务器为用户生成的sessionId会存储到专门的数据库中，客户端每次请求携带的sessionId都会去这个专门的数据库进行匹配。</p>
+<p>​    当然以上问题都可以通过不同的方案来解决，比如我们可以引入中间服务器，比如用redis来缓存session，服务器为用户生成的sessionId会存储到专门的数据库中，客户端每次请求携带的sessionId都会去这个专门的数据库进行匹配。</p>
 <h4 id="2-、基于Token的会话管理"><a href="#2-、基于Token的会话管理" class="headerlink" title="2)、基于Token的会话管理"></a>2)、基于Token的会话管理</h4><p><img src="/2020/05/03/jwt/img\image-20200505220613618.png" alt="image-20200505220613618"></p>
 <p>具体步骤：</p>
 <p>​    1.客户端第一次请求（登录）时，服务器会通过加密算法生成一串token，token与用户一一对应，并将token返回给客户端。</p>

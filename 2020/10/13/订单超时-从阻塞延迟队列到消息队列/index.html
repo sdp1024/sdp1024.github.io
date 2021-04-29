@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://www.xujie1024.club/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img/UJ61UVCO2XGL80A0R.png">
 <meta property="og:image" content="https://www.xujie1024.club/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img/QC45J9UWN$N1Q09PYS.png">
 <meta property="og:image" content="https://www.xujie1024.club/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img/image-20210424002330642.png">
-<meta property="og:updated_time" content="2021-04-27T15:04:42.188Z">
+<meta property="og:updated_time" content="2021-04-29T16:28:20.006Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="订单超时-从阻塞延迟队列到消息队列">
 <meta name="twitter:description" content="1、DelayQueue1.1预备知识1.1.1 BlockingQueue与PriorityQueue1.BlockingQueue 大家都知道队列是一种先进先出（FIFO）的数据结构,我们从BlockingQueue的名字可以看出来，BlockingQueue是一种阻塞队列，BlockingQueue继承自Queue，其结构如下图所示">
@@ -200,16 +200,16 @@
       
         <h2 id="1、DelayQueue"><a href="#1、DelayQueue" class="headerlink" title="1、DelayQueue"></a>1、DelayQueue</h2><h3 id="1-1预备知识"><a href="#1-1预备知识" class="headerlink" title="1.1预备知识"></a>1.1预备知识</h3><h4 id="1-1-1-BlockingQueue与PriorityQueue"><a href="#1-1-1-BlockingQueue与PriorityQueue" class="headerlink" title="1.1.1 BlockingQueue与PriorityQueue"></a>1.1.1 BlockingQueue与PriorityQueue</h4><p><strong>1.BlockingQueue</strong></p>
 <p>大家都知道队列是一种先进先出（FIFO）的数据结构,我们从BlockingQueue的名字可以看出来，BlockingQueue是一种阻塞队列，BlockingQueue继承自Queue，其结构如下图所示</p>
-<a id="more"></a>
 <p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\image-20210424002136325.png" alt="image-20210424002136325"></p>
+<a id="more"></a>
 <p>从阻塞这个词可以看出，在某些情况下对阻塞队列的访问可能会造成阻塞。被阻塞的情况主要有如下两种： </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1. 当队列满了的时候进行入队列操作</div><div class="line">2. 当队列空了的时候进行出队列操作</div></pre></td></tr></table></figure>
 <p>因此，当一个线程试图对一个已经满了的队列进行入队列操作时，它将会被阻塞，除非有另一个线程做了出队列操作；同样，当一个线程试图对一个空队列进行出队列操作时，它将会被阻塞，除非有另一个线程进行了入队列操作。 </p>
-<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\CMUZCYHS.png" alt="CMUZ@$9@Z8Z8WQ(40P)CYHS"></p>
+<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\CMUZCYHS.png" alt="CMUZ@$9@Z8Z8WQ(40P)CYHS" style="zoom:80%;"></p>
 <p>负责生产的线程不断的制造新对象并插入到阻塞队列中，直到达到这个队列的上限值。队列达到上限值之后生产线程将会被阻塞，直到消费的线程对这个队列进行消费。同理，负责消费的线程不断的从队列中消费对象，直到这个队列为空，当队列为空时，消费线程将会被阻塞，除非队列中有新的对象被插入。 </p>
 <p><strong>2.PriorityQueue </strong></p>
 <p>传统的队列都是按先进先出的原则去处理队列中的元素，但是有的时候我们可能想要确定一个优先级，让队列按优先级进行出队操作。PriorityQueue就是这种类型的队列，PriorityQueue继承自AbstractQueue，AbstractQueue实现了Queue接口。PriorityQueue是基于优先堆的一个无界队列，这个优先队列中的元素可以默认自然排序或者通过提供的Comparator（比较器）在队列实例化时排序。 PriorityQueue是基于小根堆实现的</p>
-<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\1PDMR7HAPNPFKK1D.png" alt="1PDMR7HAPNPFKK1D"></p>
+<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\1PDMR7HAPNPFKK1D.png" alt="1PDMR7HAPNPFKK1D" style="zoom: 67%;"></p>
 <p>总结来说PriorityQueue就是按照自定义优先级排序的队列</p>
 <ul>
 <li>PriorityQueue是一个支持优先级的无界阻塞队列。</li>
@@ -217,7 +217,7 @@
 <li>可以通过构造参数Comparator来对元素进行排序。</li>
 </ul>
 <h4 id="1-1-2-Leader-Follower线程模型"><a href="#1-1-2-Leader-Follower线程模型" class="headerlink" title="1.1.2 Leader-Follower线程模型"></a>1.1.2 Leader-Follower线程模型</h4><p>在Leader-Follower线程模型中，所有线程会有三种身份中的一种：leader和follower，以及一个干活中的状态：proccesser。它的基本原则就是，永远最多只有一个leader。而所有follower都在等待成为leader。线程池启动时会自动产生一个Leader负责等待网络IO事件，当有一个事件产生时，Leader线程首先通知一个Follower线程将其提拔为新的Leader，然后自己就去干活了，去处理这个网络事件，处理完毕后加入Follower线程等待队列，等待下次成为Leader。</p>
-<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\CRFHIHM.png" alt="CRFHIHM"></p>
+<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\CRFHIHM.png" alt="CRFHIHM" style="zoom: 67%;"></p>
 <p>上图就是L/F多线程模型的状态变迁图，共6个关键点：</p>
 <p>（1）线程有3种状态：领导leading，处理processing，追随following</p>
 <p>（2）假设共N个线程，其中只有1个leading线程（等待任务），x个processing线程（处理），余下有N-1-x个following线程（空闲）</p>
@@ -229,31 +229,31 @@
 <p>DelayQueue是Leader-Follower模式的变种，消费者线程处于等待状态时，总是等待最先到期的元素，消费者线程尽量把时间花在处理任务上，最小化空等的时间，以提高线程的利用效率。 </p>
 <p>下面通过队列及消费者线程状态变化大致说明一下DelayQueue的运行过程。</p>
 <p><strong>初始状态：</strong></p>
-<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\image-20210424002150344.png" alt="image-20210424002150344"></p>
+<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\image-20210424002150344.png" alt="image-20210424002150344" style="zoom:80%;"></p>
 <p>因为队列是没有边界的，因此向队列中添加元素不会造成阻塞，添加操作相对简单，所以不考虑生产者线程，假设现在一共有三个消费者线程。</p>
 <p>队列中的元素按到期时间由小到大排序，对象1在2s后到期，因此对象1成为队头元素，消费者线程1通过竞争成为Leader线程，在等待2s后醒来处理对象1。</p>
 <p>消费者线程2和消费者线程3处于待命状态，等待处理下一个队头元素。</p>
 <p><strong>2s以后：</strong></p>
-<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\image-20210424002204347.png" alt="image-20210424002204347"></p>
+<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\image-20210424002204347.png" alt="image-20210424002204347" style="zoom:80%;"></p>
 <p>消费者线程1拿到对象1进行处理，此时消费者线程1成为Processer线程，同时向消费者线程2和消费者线程3发送信号。</p>
 <p>消费者线程2和消费者线程3同时争取领导权，假设消费者线程2拿到领导权成为Leader线程，此时对象2还有2s到期，消费者线程2会处于等待状态等待对象2到期。</p>
 <p><strong>2s以后：</strong></p>
-<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\image-20210424002214272.png" alt="image-20210424002214272"></p>
+<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\image-20210424002214272.png" alt="image-20210424002214272" style="zoom:80%;"></p>
 <p>消费者线程2拿到对象2进行处理，此时消费者线程2成为Processer线程，并向消费者线程3发送信号。</p>
 <p>此时由于只剩一个消费者线程，因此消费者线程3成为Leader线程，准备处理对象3。</p>
 <p><strong>新插入对象6：</strong></p>
-<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\image-20210424002223313.png" alt="image-20210424002223313"></p>
+<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\image-20210424002223313.png" alt="image-20210424002223313" style="zoom:80%;"></p>
 <p>由于对象6在1s后到期，因此对象6取代对象3成为队头元素，消费者线程3(Leader)将在1s后处理对象6。</p>
 <p><strong>1s以后：</strong></p>
-<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\image-20210424002231704.png" alt="image-20210424002231704"></p>
+<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\image-20210424002231704.png" alt="image-20210424002231704" style="zoom:80%;"></p>
 <p>此时消费者线程3处理对象6成为Processer。</p>
 <p><strong>又1s以后：</strong></p>
 <p>此时会有两种情况。</p>
 <p>一种不好的结果：</p>
-<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\image-20210424002242284.png" alt="image-20210424002242284"></p>
+<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\image-20210424002242284.png" alt="image-20210424002242284" style="zoom:80%;"></p>
 <p>消费者线程3此时正在处理对象6，而如果此时消费者线程1和消费者线程2还没有处理完他们各自取得的对象，那么就无法进入等待状态(Followering)，那么即将到期的对象3一定会延迟处理。</p>
 <p>另一种好的结果：</p>
-<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\image-20210424002256608.png" alt="image-20210424002256608"></p>
+<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\image-20210424002256608.png" alt="image-20210424002256608" style="zoom:80%;"></p>
 <p>另一种我们期待的结果是此时消费者线程1已经处理完对象1，消费者线程3等待对象6到期成为Processer线程之后，向消费者线程1发送信号，此时消费者线程1又成为Leader线程去处理即将到期的对象3。这个时候对象3的处理并不会产生延迟。</p>
 <h4 id="1-2-1-代码示例"><a href="#1-2-1-代码示例" class="headerlink" title="1.2.1  代码示例"></a>1.2.1  代码示例</h4><p>定义QueueDelayed实现Delayed接口，并重写getDelay()方法和compareTo()方法，用于模拟订单超时。示例如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QueueDelayed</span> <span class="keyword">implements</span> <span class="title">Delayed</span> </span>&#123;</div><div class="line">    <span class="comment">/**默认延迟1分钟*/</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">long</span> DELAY = <span class="number">60</span> * <span class="number">1000L</span>;</div><div class="line">    <span class="comment">/**订单id*/</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> orderId;</div><div class="line">    <span class="comment">/**开始时间*/</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">long</span> startTime;</div><div class="line">    <span class="comment">/**到期时间*/</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">long</span> expire;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 无参构造器</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">QueueDelayed</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     *  有参构造器</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> orderId 订单id</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> startTime 订单创建时间</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">QueueDelayed</span><span class="params">(<span class="keyword">int</span> orderId, <span class="keyword">long</span> startTime)</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.orderId = orderId;</div><div class="line">        <span class="keyword">this</span>.startTime = startTime;</div><div class="line">        <span class="keyword">this</span>.expire = startTime + DELAY;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 元素是否到期可取出</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> unit</span></div><div class="line"><span class="comment">     * <span class="doctag">@return</span></span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">getDelay</span><span class="params">(TimeUnit unit)</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> unit.convert(<span class="keyword">this</span>.expire - System.currentTimeMillis(), TimeUnit.MILLISECONDS);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Delayed o)</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>)(<span class="keyword">this</span>.startTime - ((QueueDelayed)o).startTime);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -267,7 +267,7 @@
 <li>如果同一时刻取消的订单数过大，也就是并发量过大的话，会由于线程的堵塞出现订单延迟取消的情况。</li>
 </ul>
 <h2 id="2、使用RabbitMQ实现延迟队列"><a href="#2、使用RabbitMQ实现延迟队列" class="headerlink" title="2、使用RabbitMQ实现延迟队列"></a>2、使用RabbitMQ实现延迟队列</h2><h3 id="2-1-什么是消息队列"><a href="#2-1-什么是消息队列" class="headerlink" title="2.1 什么是消息队列"></a>2.1 什么是消息队列</h3><p>我们可以把消息队列看作是一个存放消息的容器，当我们需要使用消息的时候，直接从容器中取出消息供自己使用即可。</p>
-<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\VHNYCHDZINJ8ZKHRFVMV.png" alt="VHNYC~HDZINJ8ZKHRFVMV"> </p>
+<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\VHNYCHDZINJ8ZKHRFVMV.png" alt="VHNYC~HDZINJ8ZKHRFVMV" style="zoom:80%;"> </p>
 <p>消息队列是分布式系统中重要的组件之一。使用消息队列主要是为了通过异步处理提高系统性能和削峰、降低系统耦合性。 </p>
 <h3 id="2-2-为什么要使用消息队列"><a href="#2-2-为什么要使用消息队列" class="headerlink" title="2.2 为什么要使用消息队列"></a>2.2 为什么要使用消息队列</h3><p>使用消息队列主要有三点好处： </p>
 <ol>
@@ -276,24 +276,24 @@
 <li><strong>降低系统耦合性</strong></li>
 </ol>
 <p><strong>通过异步处理提高系统性能</strong></p>
-<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\8INVX92Q34108L8Y.png" alt="8INVX92Q34108L8Y"></p>
-<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\B3L11Y3H4JZRGPPVP8.png" alt="B3L11Y3H4JZRGPPVP8"></p>
+<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\8INVX92Q34108L8Y.png" alt="8INVX92Q34108L8Y" style="zoom:80%;"></p>
+<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\B3L11Y3H4JZRGPPVP8.png" alt="B3L11Y3H4JZRGPPVP8" style="zoom:80%;"></p>
 <p>将用户的请求数据存储到消息队列之后就立即返回结果。随后，系统再对消息进行消费。</p>
 <p><strong>削峰/限流</strong></p>
 <p>先将短时间高并发产生的事务消息存储在消息队列中，然后后端服务再慢慢根据自己的能力去消费这些消息，这样就避免直接把后端服务打垮掉。</p>
-<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\6NFSMUZVEAIVR.png" alt="$6NFSMUZVEAIVR"> </p>
+<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\6NFSMUZVEAIVR.png" alt="$6NFSMUZVEAIVR" style="zoom:80%;"> </p>
 <p> <strong>降低系统耦合性</strong></p>
 <p>生产者（客户端）发送消息到消息队列中去，接受者（服务端）处理消息，需要消费的系统直接去消息队列取消息进行消费即可而不需要和其他系统有耦合， 这显然也提高了系统的扩展性。</p>
-<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\I5Q2ZBKW9R2JE78C5HH.png" alt="I5Q2ZBKW9R2JE78C5HH"></p>
+<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\I5Q2ZBKW9R2JE78C5HH.png" alt="I5Q2ZBKW9R2JE78C5HH" style="zoom:80%;"></p>
 <h3 id="2-3-RabbitMQ"><a href="#2-3-RabbitMQ" class="headerlink" title="2.3 RabbitMQ"></a>2.3 RabbitMQ</h3><p>RabbitMQ 是采用 Erlang 语言实现 AMQP(Advanced Message Queuing Protocol，高级消息队列协议）的消息中间件， 整体上是RabbitMQ 一个生产者与消费者模型，主要负责接收、存储和转发消息。可以把消息传递的过程想象成：当你将一个包裹送到邮局，邮局会暂存并最终将邮件通过邮递员送到收件人的手上，RabbitMQ就好比由邮局、邮箱和邮递员组成的一个系统。从计算机术语层面来说，RabbitMQ 模型更像是一种交换机模型。</p>
-<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\UJ61UVCO2XGL80A0R.png" alt="UJ61UVCO2XGL80A0R"></p>
+<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\UJ61UVCO2XGL80A0R.png" alt="UJ61UVCO2XGL80A0R" style="zoom:80%;"></p>
 <p>关于RabbitMQ方面只介绍与今天内容有关的两个重要概念Exchange(交换器)和DLX(死信队列)。</p>
 <p><strong>Exchange(交换器)</strong></p>
 <p>上图有一个很重要的概念Exchange(交换器)，在 RabbitMQ 中，消息并不是直接被投递到 Queue(消息队列)中的，中间还必须经过 Exchange(交换器) 这一层，Exchange(交换器) 会把我们的消息分配到对应的 Queue(消息队列) 中。 </p>
 <p>Exchange(交换器)用来接收生产者发送的消息并将这些消息路由给服务器中的队列中。这里可以将RabbitMQ中的交换器看作一个简单的实体。 </p>
 <p>RabbitMQ 的 Exchange(交换器) 有4种类型，不同的类型对应着不同的路由策略<strong>：</strong>direct(默认)，fanout, topic, 和 headers，不同类型的Exchange转发消息的策略有所区别。 </p>
 <p>生产者将消息发给交换器的时候，一般会指定一个 RoutingKey(路由键)，用来指定这个消息的路由规则，而这个 RoutingKey 需要与交换器类型和绑定键(BindingKey)联合使用才能最终生效。 </p>
-<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\QC45J9UWN$N1Q09PYS.png" alt="QC45J9UWN$N1Q09PYS"></p>
+<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\QC45J9UWN$N1Q09PYS.png" alt="QC45J9UWN$N1Q09PYS" style="zoom:80%;"></p>
 <p> <strong>什么是死信队列</strong></p>
 <p>DLX（Dead Letter Exchanges）死信交换，死信队列本身也是一个普通的消息队列，在创建队列的时候，通过设置一些关键参数，可以将一个普通的消息队列设置为死信队列，与其它消息队列不同的是，其入栈的消息根据入栈时指定的过期时间/被拒绝/超出队列长度被移除，依次被转发到指定的消息队列中进行二次处理。</p>
 <p> <strong>为什么会产生死信</strong></p>
@@ -306,7 +306,7 @@
 </ul>
 <p>死信交换器实质上就是一个特指的交换器，死信交换机可以和任何一个普通的队列进行绑定，然后在业务队列出现死信的时候就会将数据发送到死信队列。</p>
 <h3 id="2-4-基于死信队列实现延时功能"><a href="#2-4-基于死信队列实现延时功能" class="headerlink" title="2.4 基于死信队列实现延时功能"></a>2.4 基于死信队列实现延时功能</h3><p>整体思路如下图所示：</p>
-<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\image-20210424002330642.png" alt="image-20210424002330642"></p>
+<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\image-20210424002330642.png" alt="image-20210424002330642" style="zoom:80%;"></p>
 <p>首先定义一个死信交换器，通过不同的bindingkey分别与TTL队列和DLX队列绑定。生产者产生消息，消息先通过匹配bindingkey到达TTL队列，到期（30s）之后，通过死信交换机匹配bindingkey放至DLX队列，消费者监听死信队列，队列中有消息就会进行消费。</p>
 <h3 id="2-5-代码示例"><a href="#2-5-代码示例" class="headerlink" title="2.5 代码示例"></a>2.5 代码示例</h3><p><strong>定义生产者</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Component</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MessageProvider</span> <span class="keyword">implements</span> <span class="title">RabbitTemplate</span>.<span class="title">ConfirmCallback</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">protected</span> RabbitTemplate rabbitTemplate; <span class="comment">//RabbitMQ模板消息实现类</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MessageProvider</span><span class="params">(RabbitTemplate rabbitTemplate)</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.rabbitTemplate = rabbitTemplate;</div><div class="line">        <span class="keyword">this</span>.rabbitTemplate.setMandatory(<span class="keyword">true</span>);</div><div class="line">        <span class="keyword">this</span>.rabbitTemplate.setConfirmCallback(<span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 消息发送确认</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> correlationData</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> ack</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> cause</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">confirm</span><span class="params">(CorrelationData correlationData, <span class="keyword">boolean</span> ack, String cause)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"回调时间："</span> + System.currentTimeMillis() + <span class="string">"  ,消息ID： "</span> + correlationData);</div><div class="line">        <span class="keyword">if</span> (ack) &#123;</div><div class="line">            System.out.println(<span class="string">"消息发送成功："</span> + System.currentTimeMillis());</div><div class="line">        &#125;<span class="keyword">else</span> &#123;</div><div class="line">            System.out.println(<span class="string">"消息发送失败： "</span> + cause);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendMessage</span><span class="params">(Order order, String expiration)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span> (order != <span class="keyword">null</span>) &#123;</div><div class="line">            String msg = JSON.toJSONString(order);</div><div class="line"></div><div class="line">            <span class="comment">// 执行发送消息到指定队列</span></div><div class="line">            CorrelationData correlationData = <span class="keyword">new</span> CorrelationData(String.valueOf(order.getOrderId()));</div><div class="line"></div><div class="line">            rabbitTemplate.convertAndSend(RabbitConstants.ORDER_TTL_EXCHANGE,</div><div class="line">                    RabbitConstants.ORDER_TTL_ROUTINGKEY, msg,</div><div class="line">                    message -&gt; &#123;</div><div class="line">                        <span class="comment">//设置延迟毫秒值</span></div><div class="line">                        message.getMessageProperties().setExpiration(expiration);</div><div class="line">                        <span class="keyword">return</span> message;</div><div class="line">                    &#125;,</div><div class="line">                    correlationData);</div><div class="line"></div><div class="line">            System.out.println(<span class="string">"消息发送时间："</span> + System.currentTimeMillis());</div><div class="line">        &#125;<span class="keyword">else</span> &#123;</div><div class="line">            System.out.println(<span class="string">"消息内容为空！"</span>);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>

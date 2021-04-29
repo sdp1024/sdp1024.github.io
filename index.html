@@ -180,6 +180,7 @@
       
         <h2 id="1、DelayQueue"><a href="#1、DelayQueue" class="headerlink" title="1、DelayQueue"></a>1、DelayQueue</h2><h3 id="1-1预备知识"><a href="#1-1预备知识" class="headerlink" title="1.1预备知识"></a>1.1预备知识</h3><h4 id="1-1-1-BlockingQueue与PriorityQueue"><a href="#1-1-1-BlockingQueue与PriorityQueue" class="headerlink" title="1.1.1 BlockingQueue与PriorityQueue"></a>1.1.1 BlockingQueue与PriorityQueue</h4><p><strong>1.BlockingQueue</strong></p>
 <p>大家都知道队列是一种先进先出（FIFO）的数据结构,我们从BlockingQueue的名字可以看出来，BlockingQueue是一种阻塞队列，BlockingQueue继承自Queue，其结构如下图所示</p>
+<p><img src="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/img\image-20210424002136325.png" alt="image-20210424002136325"></p>
         
           <a class="article-more-a" href="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/#more">more >></a>
         
@@ -392,92 +393,6 @@
 
 
   
-    <article id="post-intellij" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/14/intellij/">intellij</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/14/intellij/" class="archive-article-date">
-  	<time datetime="2018-06-14T09:47:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近在学着用intellij，所以找到一些常用的快捷操作记下，以便学习。</p>
-<h3 id="中文教程"><a href="#中文教程" class="headerlink" title="中文教程"></a>中文教程</h3><p><a href="https://youmeek.gitbooks.io/intellij-idea-tutorial/content/" target="_blank" rel="external">https://youmeek.gitbooks.io/intellij-idea-tutorial/content/</a></p>
-<h3 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键:"></a>常用快捷键:</h3><h4 id="【常规】"><a href="#【常规】" class="headerlink" title="【常规】"></a>【常规】</h4><ol>
-<li>Ctrl+Shift + Enter，语句完成</li>
-<li>“！”，否定完成，输入表达式时按 “！”键</li>
-<li>Ctrl+E，最近的文件</li>
-<li>Ctrl+Shift+E，最近更改的文件</li>
-<li>Shift+Click，可以关闭文件</li>
-<li>Ctrl+[ OR ]，可以跑到大括号的开头与结尾</li>
-<li>Ctrl+F12，可以显示当前文件的结构</li>
-<li>Ctrl+F7，可以查询当前元素在当前文件中的引用，然后按 F3 可以选择</li></ol>
-        
-          <a class="article-more-a" href="/2018/06/14/intellij/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/14/intellij/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-java枚举" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -554,9 +469,87 @@
 
 
   
+    <article id="post-git-error" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/10/git-error/">git命令行下clone提示error setting certificate verify locations解决办法</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/10/git-error/" class="archive-article-date">
+  	<time datetime="2018-01-10T13:33:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用git bash进行clone操作时出现问题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fatal: unable to access &apos;https://github.com/konsumer/arduinoscope.git/&apos;: error setting certificate verify locations:</div><div class="line">CAfile: E:\Program Files\Git\mingw64\bin\curl-ca-bundle.crt</div><div class="line">CApath: none</div></pre></td></tr></table></figure>
+<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>在stackoverflow中找到类似问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config --system http.sslcainfo &quot; E:\Program Files\Git\mingw64\bin\curl-ca-bundle.crt&quot;</div></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2018/01/10/git-error/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/10/git-error/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 

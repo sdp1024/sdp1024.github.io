@@ -6,21 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.xujie1024.club">
-  <title>JSP及其相关技术 | Jyo的个人博客</title>
+  <title>CAP理论 | Jyo的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JSP是什么?Java Server Pages(JSP)是一种支持动态内容开发的网页技术，它可以帮助开发人员通过利用特殊的JSP标签，并支持以&amp;lt;%开始并以%&amp;gt;作为结束标志插入Java代码到HTML页面。 JSP 本质是一个 Servlet，JSP 最终被转换成 Servlet 在 jvm 中解释执行，它的运行也需要容器的支持。在 JSP 中虽然也可以编写 Java 代码，但它更加偏向">
+  <meta name="description" content="分布式系统（distributed system）正变得越来越重要，大型网站几乎都是分布式的。分布式系统的最大难点，就是各个节点的状态如何同步。CAP 定理是这方面的基本定理，也是理解分布式系统的起点。">
 <meta name="keywords" content="博客">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JSP及其相关技术">
-<meta property="og:url" content="https://www.xujie1024.club/2019/11/15/jsp-fn-function/index.html">
+<meta property="og:title" content="CAP理论">
+<meta property="og:url" content="https://www.xujie1024.club/2021/03/13/CAP理论/index.html">
 <meta property="og:site_name" content="Jyo的个人博客">
-<meta property="og:description" content="JSP是什么?Java Server Pages(JSP)是一种支持动态内容开发的网页技术，它可以帮助开发人员通过利用特殊的JSP标签，并支持以&amp;lt;%开始并以%&amp;gt;作为结束标志插入Java代码到HTML页面。 JSP 本质是一个 Servlet，JSP 最终被转换成 Servlet 在 jvm 中解释执行，它的运行也需要容器的支持。在 JSP 中虽然也可以编写 Java 代码，但它更加偏向">
-<meta property="og:image" content="https://www.xujie1024.club/2019/11/15/jsp-fn-function/img/jsp生命周期.jpg">
-<meta property="og:updated_time" content="2019-11-19T12:48:38.436Z">
+<meta property="og:description" content="分布式系统（distributed system）正变得越来越重要，大型网站几乎都是分布式的。分布式系统的最大难点，就是各个节点的状态如何同步。CAP 定理是这方面的基本定理，也是理解分布式系统的起点。">
+<meta property="og:image" content="https://www.xujie1024.club/2021/03/13/CAP理论/img/0001.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/03/13/CAP理论/img/0002.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/03/13/CAP理论/img/0003.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/03/13/CAP理论/img/0004.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/03/13/CAP理论/img/0005.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/03/13/CAP理论/img/0006.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/03/13/CAP理论/img/0007.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/03/13/CAP理论/img/0008.png">
+<meta property="og:updated_time" content="2021-08-22T15:10:42.657Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JSP及其相关技术">
-<meta name="twitter:description" content="JSP是什么?Java Server Pages(JSP)是一种支持动态内容开发的网页技术，它可以帮助开发人员通过利用特殊的JSP标签，并支持以&amp;lt;%开始并以%&amp;gt;作为结束标志插入Java代码到HTML页面。 JSP 本质是一个 Servlet，JSP 最终被转换成 Servlet 在 jvm 中解释执行，它的运行也需要容器的支持。在 JSP 中虽然也可以编写 Java 代码，但它更加偏向">
-<meta name="twitter:image" content="https://www.xujie1024.club/2019/11/15/jsp-fn-function/img/jsp生命周期.jpg">
+<meta name="twitter:title" content="CAP理论">
+<meta name="twitter:description" content="分布式系统（distributed system）正变得越来越重要，大型网站几乎都是分布式的。分布式系统的最大难点，就是各个节点的状态如何同步。CAP 定理是这方面的基本定理，也是理解分布式系统的起点。">
+<meta name="twitter:image" content="https://www.xujie1024.club/2021/03/13/CAP理论/img/0001.png">
   
     <link rel="alternative" href="/atom.xml" title="Jyo的个人博客" type="application/atom+xml">
   
@@ -160,71 +167,57 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-jsp-fn-function" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-CAP理论" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JSP及其相关技术
+      CAP理论
     </h1>
   
 
         
-        <a href="/2019/11/15/jsp-fn-function/" class="archive-article-date">
-  	<time datetime="2019-11-15T14:51:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-15</time>
+        <a href="/2021/03/13/CAP理论/" class="archive-article-date">
+  	<time datetime="2021-03-13T06:31:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="JSP是什么"><a href="#JSP是什么" class="headerlink" title="JSP是什么?"></a><strong>JSP是什么?</strong></h2><p>Java Server Pages(JSP)是一种支持动态内容开发的网页技术，它可以帮助开发人员通过利用特殊的JSP标签，并支持以&lt;%开始并以%&gt;作为结束标志插入Java代码到HTML页面。</p>
-<p>JSP 本质是一个 Servlet，JSP 最终被转换成 Servlet 在 jvm 中解释执行，它的运行也需要容器的支持。在 JSP 中虽然也可以编写 Java 代码，但它更加偏向于页面视图的展现。在 MVC 架构模式中，就 JSP 和 Servlet 而言，C 通常由 Servlet 充当，V 通常由 JSP 来充当。</p>
-<p>JSP这门技术的最大的特点在于，写jsp就像在写html，但它相比html而言，html只能为用户提供静态内容，而Jsp技术允许在页面中嵌套java代码，为用户提供动态数据。</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><h2 id="JSP的运行原理"><a href="#JSP的运行原理" class="headerlink" title="JSP的运行原理"></a><strong>JSP的运行原理</strong></h2><p><strong>运行原理：</strong></p>
-<p>WEB容器（Servlet引擎）接收到以.jsp为扩展名的URL的访问请求时，它将把该访问请求交给JSP引擎去处理。Tomcat中的JSP引擎就是一个Servlet程序，它负责解释和执行JSP页面。</p>
-<p><strong>执行过程：</strong></p>
+        <p>分布式系统（distributed system）正变得越来越重要，大型网站几乎都是分布式的。分布式系统的最大难点，就是各个节点的状态如何同步。CAP 定理是这方面的基本定理，也是理解分布式系统的起点。</p>
+<a id="more"></a>
+<h1 id="1、分布式系统的三个指标"><a href="#1、分布式系统的三个指标" class="headerlink" title="1、分布式系统的三个指标"></a>1、分布式系统的三个指标</h1><p><img src="/2021/03/13/CAP理论/img\0001.png" alt="image-20200505201624200"></p>
+<p>对于一个分布式计算系统来说，不可能同时满足以下三点：</p>
 <ul>
-<li>客户端发出请求。</li>
-<li>Web容器将JSP转译成Servlet源代码。</li>
-<li>Web容器将产生的源代码进行编译。</li>
-<li>Web容器加载编译后的代码并执行。</li>
+<li>C Consistent 一致性 连贯性</li>
+<li>A  Availability 可用性</li>
+<li>P Partition Tolerance 分区容忍性</li>
 </ul>
-<p>每个JSP 页面在第一次被访问时，JSP引擎将它翻译成一个Servlet源程序，接着再把这个Servlet源程序编译成Servlet的class类文件，然后再由WEB容器（Servlet引擎）像调用普通Servlet程序一样的方式来装载和解释执行这个由JSP页面翻译成的Servlet程序。</p>
-<p>在jsp转译时会调用servlet：1.加载 -&gt;2.初始化 - &gt; 3.调用 - 4.销毁，servlet生命周期的具体过程如下：</p>
-<p>(1) 加载和实例化<br>如果Servlet容器还没实例化一个Servlet对象，此时容器装载和实例化一个 Servlet。创建出该 Servlet 类的一个实例。如果已经存在一个Servlet对象，此时不再创建新实例。</p>
-<p>(2) 初始化<br>在产生 Servlet 实例后，容器负责调用该 Servlet 实例的 init() 方法，在处理用户请求之前，来做一些额外的初始化工作。</p>
-<p>(3) 处理请求<br>当 Servlet 容器接收到一个 Servlet 请求时，便运行与之对应的 Servlet 实例的 service() 方法，service() 方法根据用户的请求调用相对应的doGet或doPost 方法来处理用户请求。然后再进入对应的方法中调用逻辑层的方法，实现对客户的响应。</p>
-<p>(4) 销毁<br>当 Servlet 容器决定将一个 Servlet 从服务器中移除时 ( 如 Servlet 文件被更新 )，便调用该 Servlet 实例的 destroy() 方法，在销毁该 Servlet 实例之前，来做一些其他的工作。</p>
-<p>其中，(1)(2)(4) 在 Servlet 的整个生命周期中只会被执行一次。</p>
-<p>servlet一旦被加载，一般不会从容器中删除，直至应用服务器关闭或重新启动。但当容器做内存回收动作时，servlet有可能被删除。也正是因为这个原因，第一次访问servlet所用的时间要大大多于以后访问所用的时间。</p>
-<p><img src="/2019/11/15/jsp-fn-function/img/jsp生命周期.jpg" alt="jsp执行过程图"></p>
-<hr>
-<h2 id="JSP中的四大作用域"><a href="#JSP中的四大作用域" class="headerlink" title="JSP中的四大作用域"></a><strong>JSP中的四大作用域</strong></h2><p><strong>四大作用域</strong><br>(1)pageContext：<br>    它的有效范围只在当前jsp页面里。 从把变量放到pageContext开始，到jsp页面结束，你都可以使用这个变量。</p>
-<p>(2)request：<br>    它的有效范围是当前请求周期。所谓请求周期，就是指从http请求发起，到服务器处理结束，返回响应的整个过程。在这个过程中可能使用forward的方式跳转了多个jsp页面，在这些页面里你都可以获取到这个变量。</p>
-<p>(3)session：<br>    它的有效范围是当前会话。所谓当前会话，就是指从用户打开浏览器开始，到用户关闭浏览器这中间的过程。这个过程可能包含多个请求响应。也就是说，只要用户不关浏览器，在这些页面里你都可以获取到这个变量。</p>
-<p>(4)application：<br>    它的有效范围是整个应用。整个应用是指从应用启动，到应用结束。application作用域里的变量，它们的存活时间是最长的，如果不进行手工删除，它们就一直可以使用。与上述三个不同的是，application里的变量可以被所有用户共用。如果用户甲的操作修改了application中的变量，用户乙访问时得到的是修改后的值。这在其他scope中都是不会发生的，page, request, session都是完全隔离的，无论如何修改都不会影响其他。</p>
-<p><strong>九大内置对象</strong><br>request、response、application、session、page、config、out、pageContext、exception</p>
-<hr>
-<h2 id="JSP中的El、JSTL"><a href="#JSP中的El、JSTL" class="headerlink" title="JSP中的El、JSTL"></a><strong>JSP中的El、JSTL</strong></h2><p><strong>jsp中的El表达式：</strong><br>${} ：可以自动获取域中对象，pageContext，request，session，application，EL找不到返回空白字符串。</p>
-<p><strong>jsp中的jstl：</strong><br>根据JSTL标签的功能，JSTL标签可以分为以下JSTL标签库组，可以在创建JSP页面中使用 </p>
-<ul>
-<li>核心标签</li>
-<li>列表内容</li>
-<li>格式化标签</li>
-<li>SQL标签</li>
-<li>XML标签</li>
-<li>JSTL函数</li>
-</ul>
-<p>这里着重说一下核心标签库和jstl函数。</p>
-<p><strong>jstl函数：</strong><br>1，导入相关的jstl包<br>2，要在使用jstl的页面中用taglib指令引入相关包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;%@ taglib prefix = &quot;fn&quot; uri = &quot;http://java.sun.com/jsp/jstl/functions&quot; %&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">1 	fn:contains() 	测试输入字符串是否包含指定的子字符串。</div><div class="line">2 	fn:containsIgnoreCase() 	测试输入字符串是否以不区分大小写的方式包含指定的子字符串。</div><div class="line">3 	fn:escapeXml() 	转义可解释为XML标记的字符。</div><div class="line">4 	fn:indexOf() 	返回指定子字符串第一次出现在字符串中的索引。</div><div class="line">5 	fn:endsWith() 	测试输入字符串是否以指定的后缀结尾。</div><div class="line">6 	fn:join() 	将数组的所有元素连接到字符串中。</div><div class="line">7 	fn:length() 	返回集合中的项目数，或字符串中的字符数。</div><div class="line">8 	fn:replace() 	返回一个由输入字符串替换所有出现的字符串所引起的字符串。</div><div class="line">9 	fn:split() 	将一个字符串拆分成一个子字符串数组</div><div class="line">10 	fn:startsWith() 	测试输入字符串是否以指定的前缀开头。</div><div class="line">11 	fn:substring() 	返回字符串的一个子集。</div><div class="line">12 	fn:substringAfter() 	返回特定子字符串后面的字符串的子集。</div><div class="line">13 	fn:substringBefore() 	返回字符串在特定子字符串之前的子集。</div><div class="line">14 	fn:toLowerCase() 	将字符串的所有字符转换为小写。</div><div class="line">15 	fn:toUpperCase() 	将字符串的所有字符转换为大写。</div><div class="line">16 	fn:trim() 	从字符串的两端删除空格。</div></pre></td></tr></table></figure>
-<p><strong>jsp中的核心标签：</strong><br>核心组标签是最常用的JSTL标签。 以下是在JSP中包含JSTL Core库的声明(导入)语法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;%@ taglib prefix = &quot;c&quot; uri = &quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">1 	&lt;c:out&gt; 	类似&lt;%= ...&gt;，但仅对于表达式使用。</div><div class="line">2 	&lt;c:set&gt; 	在“范围”中设置表达式求值的结果</div><div class="line">3 	&lt;c:remove&gt; 	删除范围变量(从指定的特定范围中)。</div><div class="line">4 	&lt;c:catch&gt; 	捕捉发生在其主体中的任何可抛出对象，并可选地暴露它。</div><div class="line">5 	&lt;c:if&gt; 		简单的条件标签，如果提供的条件为真，则对其主体进行评估。</div><div class="line">6 	&lt;c:choose&gt; 	简单的条件标签，用于建立互斥条件操作的上下文，标记为&lt;when&gt;和&lt;otherwise&gt;。</div><div class="line">7 	&lt;c:when&gt; 	如果条件评估为true，则包含&lt;choose&gt;的子标签。</div><div class="line">8 	&lt;c:otherwise&gt; 	&lt;when&gt;标签之后的&lt;choose&gt;子标签，只有当所有先前条件都被评估为false时才运行。</div><div class="line">9 	&lt;c:import&gt; 	检索绝对或相对URL，并将其内容公开到页面，&quot;var&quot;中的字符串或&quot;varReader&quot;中的&quot;Reader&quot;。</div><div class="line">10 	&lt;c:forEach&gt; 	基本的迭代标签，接受许多不同的集合类型，并支持子集和其他功能。</div><div class="line">11 	&lt;c:forTokens&gt; 	迭代令牌，由指定的分隔符来分隔。</div><div class="line">12 	&lt;c:param&gt; 	将参数添加到包含“import”标签的URL。</div><div class="line">13 	&lt;c:redirect&gt; 	重定向到新的URL。</div><div class="line">14 	&lt;c:url&gt; 	创建可选查询参数的URL</div></pre></td></tr></table></figure>
+<h1 id="二、Partition-tolerance"><a href="#二、Partition-tolerance" class="headerlink" title="二、Partition tolerance"></a>二、Partition tolerance</h1><p>先看 Partition tolerance，中文叫做”分区容错”。大多数分布式系统都分布在多个子网络。每个子网络就叫做一个区（partition）。分区容错的意思是，区间通信可能失败。</p>
+<p><img src="/2021/03/13/CAP理论/img/0002.png" alt="0002"></p>
+<p>上图中，G1 和 G2 是两台跨区的服务器。G1 向 G2 发送一条消息，G2 可能无法收到。系统设计的时候，必须考虑到这种情况。</p>
+<p>一般来说，分区容错无法避免，因此可以认为 CAP 的 P 总是成立。CAP 定理告诉我们，由于p的存在，剩下的 C 和 A 无法同时做到。</p>
+<h1 id="三、Consistency"><a href="#三、Consistency" class="headerlink" title="三、Consistency"></a>三、Consistency</h1><p>Consistency 中文叫做”一致性”。意思是，写操作之后的读操作，必须返回该值。举例来说，某条记录是 v0，用户向 G1 发起一个写操作，将其改为 v1。</p>
+<p><img src="/2021/03/13/CAP理论/img/0003.png" alt="0002"></p>
+<p>接下来，用户的读操作就会得到 v1。这就叫一致性。</p>
+<p><img src="/2021/03/13/CAP理论/img/0004.png" alt="0002"></p>
+<p>问题是，用户有可能向 G2 发起读操作，由于 G2 的值没有发生变化，因此返回的是 v0。G1 和 G2 读操作的结果不一致，这就不满足一致性了。</p>
+<p><img src="/2021/03/13/CAP理论/img/0005.png" alt="0002"></p>
+<p>为了让 G2 也能变为 v1，就要在 G1 写操作的时候，让 G1 向 G2 发送一条消息，要求 G2 也改成 v1。</p>
+<p><img src="/2021/03/13/CAP理论/img/0006.png" alt="0002"></p>
+<p>这样的话，用户向 G2 发起读操作，也能得到 v1。</p>
+<h1 id="四、Availability"><a href="#四、Availability" class="headerlink" title="四、Availability"></a>四、Availability</h1><p>Availability 中文叫做”可用性”，意思是只要收到用户的请求，服务器就必须给出回应。用户可以选择向 G1 或 G2 发起读操作。不管是哪台服务器，只要收到请求，就必须告诉用户，到底是 v0 还是 v1，否则就不满足可用性。</p>
+<h1 id="五、Consistency-和-Availability-的矛盾"><a href="#五、Consistency-和-Availability-的矛盾" class="headerlink" title="五、Consistency 和 Availability 的矛盾"></a>五、Consistency 和 Availability 的矛盾</h1><p>一致性和可用性，为什么不可能同时成立？答案很简单，因为可能通信失败（即出现分区容错）。</p>
+<p>如果保证 G2 的一致性，那么 G1 必须在写操作时，锁定 G2 的读操作和写操作。只有数据同步后，才能重新开放读写。锁定期间，G2 不能读写，没有可用性。</p>
+<p>如果保证 G2 的可用性，那么势必不能锁定 G2，所以一致性不成立。</p>
+<p>综上所述，G2 无法同时做到一致性和可用性。系统设计时只能选择一个目标。如果追求一致性，那么无法保证所有节点的可用性；如果追求所有节点的可用性，那就没法做到一致性。</p>
+<h1 id="六、可用性-最终一致性"><a href="#六、可用性-最终一致性" class="headerlink" title="六、可用性 + 最终一致性"></a>六、可用性 + 最终一致性</h1><p>现在很多分布式存储都采用可用性+最终一致性的方案，以Redis为例，<strong>当Redis多台机器分布在不同的网络中，如果出现网络故障，那么数据一致性和服务可用性无法兼顾，Redis系统对此必须做出选择，事实上Redis选择了可用性，或者说Redis选择了另外一种最终一致性。</strong></p>
+<p>Redis选择了最终一致性，<strong>也就是不保证主从数据在任何时刻都是一致的，</strong>并且Redis主从同步默认是异步的。</p>
+<p><img src="/2021/03/13/CAP理论/img/0007.png" alt="0002"></p>
+<p><img src="/2021/03/13/CAP理论/img/0008.png" alt="0002"></p>
 
       
 
@@ -325,7 +318,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://www.xujie1024.club/2019/11/15/jsp-fn-function/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://www.xujie1024.club/2021/03/13/CAP理论/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -339,18 +332,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/03/13/设计模式之单例模式/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          设计模式之单例模式
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/05/09/java枚举/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">枚举的用法</div>
+    <a href="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">订单超时-从阻塞延迟队列到消息队列</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -378,7 +362,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="jsp-fn-function" data-title="JSP及其相关技术" data-url="https://www.xujie1024.club/2019/11/15/jsp-fn-function/"></div>
+	<div class="ds-thread" data-thread-key="CAP理论" data-title="CAP理论" data-url="https://www.xujie1024.club/2021/03/13/CAP理论/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -401,8 +385,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://www.xujie1024.club/2019/11/15/jsp-fn-function/", 
-    sourceId: "jsp-fn-function",
+    url: "https://www.xujie1024.club/2021/03/13/CAP理论/", 
+    sourceId: "CAP理论",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };

@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://www.xujie1024.club/2019/10/06/IO模型/img/0002.png">
 <meta property="og:image" content="https://www.xujie1024.club/2019/10/06/IO模型/img/0003.png">
 <meta property="og:image" content="https://www.xujie1024.club/2019/10/06/IO模型/img/0004.png">
-<meta property="og:updated_time" content="2021-08-22T15:55:59.095Z">
+<meta property="og:updated_time" content="2021-08-22T16:12:14.932Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IO模型">
 <meta name="twitter:description" content="一、5种常见的IO模式 阻塞IO (blocking IO) 非阻塞IO (nonblocking IO) IO多路复用 (IO multiplexing) 信号驱动IO (signal driven IO)  忽略 异步IO (asynchronous IO)">
@@ -193,10 +193,8 @@
 <a id="more"></a>
 <h1 id="二、IO请求流程"><a href="#二、IO请求流程" class="headerlink" title="二、IO请求流程"></a>二、IO请求流程</h1><p>对于<strong>一次IO访问</strong>（<strong>这里以read举例</strong>）<strong>，数据会先被拷贝到操作系统内核的缓冲区中，然后才会从操作系统内核的缓冲区拷贝到应用程序的缓冲区，最后交给进程。所以说，</strong>当一个read操作发生时，它会经历<strong>两个阶段</strong>：　</p>
 <ol>
-<li><p>等待数据准备 (Waiting for the data to be ready)　　</p>
-</li>
-<li><p>将数据从内核拷贝到进程中 (Copying the data from the kernel to the process)</p>
-</li>
+<li>等待数据准备 (Waiting for the data to be ready)　　</li>
+<li>将数据从内核拷贝到进程中 (Copying the data from the kernel to the process)</li>
 </ol>
 <p>可以了解成：阻塞/非阻塞是指阶段1,synchronous/asynchronous是指阶段2。</p>
 <h1 id="三、阻塞IO"><a href="#三、阻塞IO" class="headerlink" title="三、阻塞IO"></a>三、阻塞IO</h1><p>synchronous阻塞 IO,这里 1 2 阶段都是阻塞的，用户进程请求后等待阶段1阻塞,阶段1完成后等待阶段2仍然阻塞,整个过程只需要一次系统调用。</p>
@@ -384,7 +382,7 @@
   
   
     <a href="/2018/05/09/java枚举/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">枚举的用法</div>
+      <div class="article-nav-title">枚举</div>
       <i class="icon-circle-right"></i>
     </a>
   

@@ -158,6 +158,91 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-设计模式之单例模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/13/设计模式之单例模式/">设计模式之单例模式</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/13/设计模式之单例模式/" class="archive-article-date">
+  	<time datetime="2020-03-13T05:55:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1、什么是单例模式"><a href="#1、什么是单例模式" class="headerlink" title="1、什么是单例模式"></a>1、什么是单例模式</h2><p>单例模式确保某个类只有一个实例，而且自行实例化并向整个系统提供这个实例。 这种模式涉及到一个单一的类，该类负责创建自己的对象，同时确保只有单个对象被创建。这个类提供了一种访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象。在计算机系统中，线程池、缓存、日志对象、对话框、打印机、显卡的驱动程序对象常被设计成单例。这些应用都或多或少具有资源管理器的功能。每台计算机可以有若干个打印机，但只能有一个Printer Spooler，以避免两个打印作业同时输出到打印机中。每台计算机可以有若干通信端口，系统应当集中管理这些通信端口，以避免一个通信端口同时被两个请求同时调用。总之，选择单例模式可以避免不一致状态，避免政出多头。</p>
+<p>单例模式有一下特点：</p>
+<p>1、单例类只能有一个实例。　　</p>
+<p>2、单例类必须自己创建自己的唯一实例。　　</p>
+<p>3、单例类必须给所有其他对象提供这一实例。</p>
+<p>单例模式有一下优点：</p>
+<ol>
+<li>在内存里只有一个实例，减少了内存的开销，尤其是频繁的创建和销毁实例。</li>
+<li>避免对资源的多重占用（比如写文件操作）。</li>
+</ol>
+        
+          <a class="article-more-a" href="/2020/03/13/设计模式之单例模式/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/13/设计模式之单例模式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-过滤器与拦截器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -445,84 +530,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/02/11/jsp-fn-function/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-git-error" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/10/git-error/">git命令行下clone提示error setting certificate verify locations解决办法</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/10/git-error/" class="archive-article-date">
-  	<time datetime="2018-01-10T13:33:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>使用git bash进行clone操作时出现问题：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fatal: unable to access &apos;https://github.com/konsumer/arduinoscope.git/&apos;: error setting certificate verify locations:</div><div class="line">CAfile: E:\Program Files\Git\mingw64\bin\curl-ca-bundle.crt</div><div class="line">CApath: none</div></pre></td></tr></table></figure>
-<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>在stackoverflow中找到类似问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config --system http.sslcainfo &quot; E:\Program Files\Git\mingw64\bin\curl-ca-bundle.crt&quot;</div></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2018/01/10/git-error/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/10/git-error/">展开全文 >></a>
         </p>
       
 

@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://www.xujie1024.club/2019/10/06/IO模型/img/0002.png">
 <meta property="og:image" content="https://www.xujie1024.club/2019/10/06/IO模型/img/0003.png">
 <meta property="og:image" content="https://www.xujie1024.club/2019/10/06/IO模型/img/0004.png">
-<meta property="og:updated_time" content="2021-08-22T16:12:14.932Z">
+<meta property="og:updated_time" content="2021-08-24T15:55:12.798Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IO模型">
 <meta name="twitter:description" content="一、5种常见的IO模式 阻塞IO (blocking IO) 非阻塞IO (nonblocking IO) IO多路复用 (IO multiplexing) 信号驱动IO (signal driven IO)  忽略 异步IO (asynchronous IO)">
@@ -183,7 +183,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="一、5种常见的IO模式"><a href="#一、5种常见的IO模式" class="headerlink" title="一、5种常见的IO模式"></a>一、5种常见的IO模式</h1><ul>
+        <h2 id="一、5种常见的IO模式"><a href="#一、5种常见的IO模式" class="headerlink" title="一、5种常见的IO模式"></a>一、5种常见的IO模式</h2><ul>
 <li>阻塞IO (blocking IO)</li>
 <li>非阻塞IO (nonblocking IO)</li>
 <li>IO多路复用 (IO multiplexing)</li>
@@ -191,13 +191,13 @@
 <li>异步IO (asynchronous IO)</li>
 </ul>
 <a id="more"></a>
-<h1 id="二、IO请求流程"><a href="#二、IO请求流程" class="headerlink" title="二、IO请求流程"></a>二、IO请求流程</h1><p>对于<strong>一次IO访问</strong>（<strong>这里以read举例</strong>）<strong>，数据会先被拷贝到操作系统内核的缓冲区中，然后才会从操作系统内核的缓冲区拷贝到应用程序的缓冲区，最后交给进程。所以说，</strong>当一个read操作发生时，它会经历<strong>两个阶段</strong>：　</p>
+<h2 id="二、IO请求流程"><a href="#二、IO请求流程" class="headerlink" title="二、IO请求流程"></a>二、IO请求流程</h2><p>对于<strong>一次IO访问</strong>（<strong>这里以read举例</strong>）<strong>，数据会先被拷贝到操作系统内核的缓冲区中，然后才会从操作系统内核的缓冲区拷贝到应用程序的缓冲区，最后交给进程。所以说，</strong>当一个read操作发生时，它会经历<strong>两个阶段</strong>：　</p>
 <ol>
 <li>等待数据准备 (Waiting for the data to be ready)　　</li>
 <li>将数据从内核拷贝到进程中 (Copying the data from the kernel to the process)</li>
 </ol>
 <p>可以了解成：阻塞/非阻塞是指阶段1,synchronous/asynchronous是指阶段2。</p>
-<h1 id="三、阻塞IO"><a href="#三、阻塞IO" class="headerlink" title="三、阻塞IO"></a>三、阻塞IO</h1><p>synchronous阻塞 IO,这里 1 2 阶段都是阻塞的，用户进程请求后等待阶段1阻塞,阶段1完成后等待阶段2仍然阻塞,整个过程只需要一次系统调用。</p>
+<h2 id="三、阻塞IO"><a href="#三、阻塞IO" class="headerlink" title="三、阻塞IO"></a>三、阻塞IO</h2><p>synchronous阻塞 IO,这里 1 2 阶段都是阻塞的，用户进程请求后等待阶段1阻塞,阶段1完成后等待阶段2仍然阻塞,整个过程只需要一次系统调用。</p>
 <p><img src="/2019/10/06/IO模型/img\0001.png" alt="image-20200505201624200"></p>
 <p>read为例：</p>
 <p>（1）进程发起read，进行recvfrom系统调用；</p>
@@ -205,7 +205,7 @@
 <p>（3）与此同时，进程阻塞（进程是自己选择阻塞与否），等待数据ing；</p>
 <p>（4）直到数据从内核拷贝到了用户空间，内核返回结果，进程解除阻塞。</p>
 <p>也就是说，<strong>内核准备数据</strong>和<strong>数据从内核拷贝到进程内存地址</strong>这两个过程都是阻塞的。</p>
-<h1 id="四、非阻塞IO"><a href="#四、非阻塞IO" class="headerlink" title="四、非阻塞IO"></a>四、非阻塞IO</h1><p> synchronous非阻塞IO,这里2是阻塞的，1是非阻塞的。</p>
+<h2 id="四、非阻塞IO"><a href="#四、非阻塞IO" class="headerlink" title="四、非阻塞IO"></a>四、非阻塞IO</h2><p> synchronous非阻塞IO,这里2是阻塞的，1是非阻塞的。</p>
 <ul>
 <li>用户进程轮询请求数据,没有数据时kernel返回错误状态,用户进程收到后会重试.</li>
 <li>某次请求后如果数据到达,kernel返回数据到达状态,阶段1结束,用户进程调用read,将数据从kernel拷贝到用户内存</li>
@@ -216,7 +216,7 @@
 <p>　　（3）用户进程判断结果是一个error时，它就知道数据还没有准备好，于是它可以再次发送read操作。一旦kernel中的数据准备好了，并且又再次收到了用户进程的system call；</p>
 <p>　　（4）那么它马上就将数据拷贝到了用户内存，然后返回。</p>
 <p>　　所以，nonblocking IO的特点是<strong>用户进程</strong>在<strong>内核准备数据的阶段</strong>需要<strong>不断的主动询问数据好了没有</strong>。</p>
-<h1 id="五、IO多路复用"><a href="#五、IO多路复用" class="headerlink" title="五、IO多路复用"></a>五、IO多路复用</h1><p>和阻塞IO一样是synchronous阻塞IO,这里的 1 2是阻塞的 ,唯一的区别是一个用户进程负责多个socket,也是IO多路复用的优势。</p>
+<h2 id="五、IO多路复用"><a href="#五、IO多路复用" class="headerlink" title="五、IO多路复用"></a>五、IO多路复用</h2><p>和阻塞IO一样是synchronous阻塞IO,这里的 1 2是阻塞的 ,唯一的区别是一个用户进程负责多个socket,也是IO多路复用的优势。</p>
 <p>基本原理就是</p>
 <ol>
 <li>select poll epoll请求数据,在阶段1被阻塞,当某个socket有数据到达了就通知用户进程</li>
@@ -232,22 +232,22 @@
 <p>所以，<strong>如果处理的连接数不是很高的话</strong>，使用<strong>select/epoll的web server不一定</strong>比使用<strong>多线程 + 阻塞 IO</strong>的web server性能更好，可能延迟还更大。</p>
 <p>select/epoll的优势<strong>并不是</strong>对于单个连接能处理得<strong>更快</strong>，而是在于能处理<strong>更多</strong>的连接。</p>
 <p>在IO multiplexing Model中，实际中，对于每一个socket，一般都设置成为non-blocking，但是，如上图所示，整个用户的process其实是一直被block的。只不过process是被select这个函数block，而不是被socket IO给block。</p>
-<h1 id="六、IO多路复用的实现"><a href="#六、IO多路复用的实现" class="headerlink" title="六、IO多路复用的实现"></a>六、IO多路复用的实现</h1><h2 id="6-1-select-poll"><a href="#6-1-select-poll" class="headerlink" title="6.1 select poll"></a>6.1 select poll</h2><p>首先前文已述I/O多路复用的本质就是用select/poll/epoll，去监听多个socket对象，如果其中的socket对象有变化，只要有变化，用户进程就知道了。</p>
+<h2 id="六、IO多路复用的实现"><a href="#六、IO多路复用的实现" class="headerlink" title="六、IO多路复用的实现"></a>六、IO多路复用的实现</h2><h3 id="6-1-select-poll"><a href="#6-1-select-poll" class="headerlink" title="6.1 select poll"></a>6.1 select poll</h3><p>首先前文已述I/O多路复用的本质就是用select/poll/epoll，去监听多个socket对象，如果其中的socket对象有变化，只要有变化，用户进程就知道了。</p>
 <p>select和poll都需要在返回后遍历文件描述符来获取已经就绪的socket,描述符越多效率越低,两者异同为</p>
 <ol>
 <li>select有最大数量限制,poll没有,但是数量过大都会影响性能(遍历文件描述符)</li>
 <li>select使用3个位图表示三种文件描述符,poll使用一个pollfd完成</li>
 </ol>
-<h2 id="6-2-epoll"><a href="#6-2-epoll" class="headerlink" title="6.2 epoll"></a>6.2 epoll</h2><p>epoll是select和poll的增强版,epoll通过epoll_ctl()来注册一个文件描述符,一旦基于某个文件描述符就绪时,内核会采用类似callback的回调机制,迅速激活这个文件描述符,当进程调用epoll_wait()时便得到通知(不再需要遍历文件描述符,通过监听回调的机制,也是epoll的魅力)</p>
+<h3 id="6-2-epoll"><a href="#6-2-epoll" class="headerlink" title="6.2 epoll"></a>6.2 epoll</h3><p>epoll是select和poll的增强版,epoll通过epoll_ctl()来注册一个文件描述符,一旦基于某个文件描述符就绪时,内核会采用类似callback的回调机制,迅速激活这个文件描述符,当进程调用epoll_wait()时便得到通知(不再需要遍历文件描述符,通过监听回调的机制,也是epoll的魅力)</p>
 <p>epoll相比于select和poll的高效在于以下事实：</p>
 <p>​    <em>同时连接的大量客户端在同一时刻可能只有很少处于就绪状态。</em></p>
 <p>如果同时处于就绪状态的客户端连接很多,那epoll相比select和poll也没什么优势了</p>
-<h2 id="6-3-select-poll-epoll的主要区别"><a href="#6-3-select-poll-epoll的主要区别" class="headerlink" title="6.3 select poll epoll的主要区别"></a>6.3 select poll epoll的主要区别</h2><ul>
+<h3 id="6-3-select-poll-epoll的主要区别"><a href="#6-3-select-poll-epoll的主要区别" class="headerlink" title="6.3 select poll epoll的主要区别"></a>6.3 select poll epoll的主要区别</h3><ul>
 <li>select是不断轮询去监听的socket，一个进程所能打开的最大连接数有限制，一般为1024个；</li>
 <li>poll还是采用轮询方式监听，只不过没有个数限制；</li>
 <li>epoll并不是采用轮询方式去监听了，而是当socket有变化时通过回调的方式主动告知用户进程。</li>
 </ul>
-<h1 id="七、异步IO"><a href="#七、异步IO" class="headerlink" title="七、异步IO"></a>七、异步IO</h1><p>asynchronous非阻塞 IO,完全的非阻塞。</p>
+<h2 id="七、异步IO"><a href="#七、异步IO" class="headerlink" title="七、异步IO"></a>七、异步IO</h2><p>asynchronous非阻塞 IO,完全的非阻塞。</p>
 <ol>
 <li>用户进程发起read操作后立即返回去做其他事,kernel收到asynchronous read后也立刻返回。</li>
 <li>在数据准备完成后,kernel将数据拷贝到用户内存,并发送给用户signa。</li>

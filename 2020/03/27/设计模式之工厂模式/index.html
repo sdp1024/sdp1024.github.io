@@ -6,17 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.xujie1024.club">
-  <title>Archives | Jyo的个人博客</title>
+  <title>设计模式之工厂模式 | Jyo的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="程序猿,程序猿,搭建,前端,后端,js,javascript,java,python,html,编程,代码,博客,教程,jquery,spring,spring mvc,mybatis,mysql">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jyo的个人博客">
-<meta property="og:url" content="https://www.xujie1024.club/archives/page/3/index.html">
+  <meta name="description" content="一、为什么要使用工厂模式工厂模式分为简单工厂模式，工厂方法模式和抽象工厂模式，其中工厂方法模式和抽象工厂模式属于设计模式中的创建型模式。其主要功能都是帮助我们把对象的实例化部分抽取了出来，目的是降低系统中代码耦合度，并且增强了系统的扩展性。Factroy要解决的问题是：希望能够创建一个对象，但创建过程比较复杂，希望对外隐藏这些细节。（如果不复杂，用构造函数就够了。）  工厂模式主要的意义：  将实">
+<meta name="keywords" content="博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式之工厂模式">
+<meta property="og:url" content="https://www.xujie1024.club/2020/03/27/设计模式之工厂模式/index.html">
 <meta property="og:site_name" content="Jyo的个人博客">
-<meta property="og:description" content="程序猿,程序猿,搭建,前端,后端,js,javascript,java,python,html,编程,代码,博客,教程,jquery,spring,spring mvc,mybatis,mysql">
+<meta property="og:description" content="一、为什么要使用工厂模式工厂模式分为简单工厂模式，工厂方法模式和抽象工厂模式，其中工厂方法模式和抽象工厂模式属于设计模式中的创建型模式。其主要功能都是帮助我们把对象的实例化部分抽取了出来，目的是降低系统中代码耦合度，并且增强了系统的扩展性。Factroy要解决的问题是：希望能够创建一个对象，但创建过程比较复杂，希望对外隐藏这些细节。（如果不复杂，用构造函数就够了。）  工厂模式主要的意义：  将实">
+<meta property="og:image" content="https://www.xujie1024.club/2020/03/27/设计模式之工厂模式/img/0001.png">
+<meta property="og:image" content="https://www.xujie1024.club/2020/03/27/设计模式之工厂模式/img/0002.png">
+<meta property="og:image" content="https://www.xujie1024.club/2020/03/27/设计模式之工厂模式/img/0003.png">
+<meta property="og:updated_time" content="2021-08-24T16:09:53.641Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jyo的个人博客">
-<meta name="twitter:description" content="程序猿,程序猿,搭建,前端,后端,js,javascript,java,python,html,编程,代码,博客,教程,jquery,spring,spring mvc,mybatis,mysql">
+<meta name="twitter:title" content="设计模式之工厂模式">
+<meta name="twitter:description" content="一、为什么要使用工厂模式工厂模式分为简单工厂模式，工厂方法模式和抽象工厂模式，其中工厂方法模式和抽象工厂模式属于设计模式中的创建型模式。其主要功能都是帮助我们把对象的实例化部分抽取了出来，目的是降低系统中代码耦合度，并且增强了系统的扩展性。Factroy要解决的问题是：希望能够创建一个对象，但创建过程比较复杂，希望对外隐藏这些细节。（如果不复杂，用构造函数就够了。）  工厂模式主要的意义：  将实">
+<meta name="twitter:image" content="https://www.xujie1024.club/2020/03/27/设计模式之工厂模式/img/0001.png">
   
     <link rel="alternative" href="/atom.xml" title="Jyo的个人博客" type="application/atom+xml">
   
@@ -156,36 +162,142 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-设计模式之工厂模式" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      设计模式之工厂模式
+    </h1>
+  
+
+        
+        <a href="/2020/03/27/设计模式之工厂模式/" class="archive-article-date">
+  	<time datetime="2020-03-27T12:33:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-27</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、为什么要使用工厂模式"><a href="#一、为什么要使用工厂模式" class="headerlink" title="一、为什么要使用工厂模式"></a>一、为什么要使用工厂模式</h2><p>工厂模式分为简单工厂模式，工厂方法模式和抽象工厂模式，其中工厂方法模式和抽象工厂模式属于设计模式中的创建型模式。其主要功能都是帮助我们把对象的实例化部分抽取了出来，目的是降低系统中代码耦合度，并且增强了系统的扩展性。Factroy要解决的问题是：<strong>希望能够创建一个对象，但创建过程比较复杂，希望对外隐藏这些细节。（</strong>如果不复杂，用构造函数就够了。<strong>）</strong></p>
+<p> <strong>工厂模式主要的意义：</strong></p>
+<ul>
+<li>将实例化过程与业务逻辑真正的解耦</li>
+<li>屏蔽复杂的对象创建逻辑</li>
+</ul>
+<a id="more"></a>
+<h2 id="二、简单工厂模式"><a href="#二、简单工厂模式" class="headerlink" title="二、简单工厂模式"></a>二、简单工厂模式</h2><p>简单工厂模式：专门定义一个类用来创建其它类的实例，被创建的实例通常都具有共同的父类。</p>
+<p>结构图如下：</p>
+<p><img src="/2020/03/27/设计模式之工厂模式/img\0001.png" alt="image-20200505201624200"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleFactory</span> </span>&#123;</div><div class="line">    <span class="class"><span class="keyword">interface</span> <span class="title">Computer</span></span>&#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printComputer</span><span class="params">()</span></span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">MacComputer</span> <span class="keyword">implements</span> <span class="title">Computer</span></span>&#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printComputer</span><span class="params">()</span></span>&#123;</div><div class="line">            System.out.println(<span class="string">"this is a MacComputer "</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">SurfaceComputer</span> <span class="keyword">implements</span> <span class="title">Computer</span></span>&#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printComputer</span><span class="params">()</span></span>&#123;</div><div class="line">            System.out.println(<span class="string">"this is a SurfaceComputer "</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">ComputerFactory</span></span>&#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> Computer <span class="title">createComputer</span><span class="params">(String type)</span></span>&#123;</div><div class="line">            Computer computer = <span class="keyword">null</span>;</div><div class="line">            <span class="keyword">if</span> (type.equals(<span class="string">"Mac"</span>)) &#123;</div><div class="line">                computer = <span class="keyword">new</span> MacComputer();</div><div class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(type.equals(<span class="string">"Surface"</span>))&#123;</div><div class="line">                computer = <span class="keyword">new</span> SurfaceComputer();</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> computer;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        SimpleFactory sf = <span class="keyword">new</span> SimpleFactory();</div><div class="line">        ComputerFactory factory = sf.new ComputerFactory();</div><div class="line">        System.out.println(<span class="string">"i buy a computer"</span>);</div><div class="line">        factory.createComputer(<span class="string">"Surface"</span>).printComputer();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>工厂模式的角色一般包括：</p>
+<ol>
+<li>具体工厂: 如上图的 ComputerFactory，它可以被客户端调用，其内部用于负责创建具体的对象。</li>
+<li>抽象产品类：如上图的 Computer，它描述了所有实例的公共接口。</li>
+<li>具体产品类：如上图的 MacComputer，实现抽象产品的接口，是工厂角色中要创建的具体实例。</li>
+</ol>
+<p><strong>简单工厂模式的优点从上面两种方式对比可以看出，工厂角色负责产生具体的实例对象，所以在工厂类中需要有必要的逻辑，通过客户的输入能够得到具体创建的实例；所以客户端就不需要感知具体对象是如何产生的，只需要将必要的信息提供给工厂即可。</strong></p>
+<p><strong>简单工厂模式的缺点：</strong></p>
+<ol>
+<li>简单工厂模式的工厂类单一，负责所有产品的创建，职责过重，一旦异常，整个系统将受影响。且工厂类代码会非常臃肿，违背高聚合原则。</li>
+<li>简单工厂模式是违反“开闭原则”，即对扩展开放，对修改关闭；因为如果要新增具体产品，就需要修改工厂类的代码。</li>
+</ol>
+<p><strong>应用场景</strong></p>
+<p><strong>对于产品种类相对较少的情况，考虑使用简单工厂模式。使用简单工厂模式的客户端只需要传入工厂类的参数，不需要关心如何创建对象的逻辑，可以很方便地创建所需产品。</strong></p>
+<h2 id="三、工厂方法模式"><a href="#三、工厂方法模式" class="headerlink" title="三、工厂方法模式"></a>三、工厂方法模式</h2><p>工厂方法模式由抽象工厂、具体工厂、抽象产品和具体产品等4个要素构成。工厂方法模式是对简单工厂模式的进一步抽象化，其好处是可以使系统在不修改原来代码的情况下引进新的产品，即满足开闭原则。</p>
+<p><strong>工厂方法模式的主要角色如下。</strong></p>
+<ol>
+<li>抽象工厂（Abstract Factory）：提供了创建产品的接口，调用者通过它访问具体工厂的工厂方法 newProduct() 来创建产品。</li>
+<li>具体工厂（ConcreteFactory）：主要是实现抽象工厂中的抽象方法，完成具体产品的创建。</li>
+<li>抽象产品（Product）：定义了产品的规范，描述了产品的主要特性和功能。</li>
+<li>具体产品（ConcreteProduct）：实现了抽象产品角色所定义的接口，由具体工厂来创建，它同具体工厂之间一一对应。</li>
+</ol>
+<p>结构图如下：</p>
+<p><img src="/2020/03/27/设计模式之工厂模式/img\0002.png" alt="image-20200505201624200"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FactoryMethod</span> </span>&#123;</div><div class="line">    <span class="class"><span class="keyword">interface</span> <span class="title">Computer</span></span>&#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printComputer</span><span class="params">()</span></span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">MacComputer</span> <span class="keyword">implements</span> <span class="title">Computer</span></span>&#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printComputer</span><span class="params">()</span></span>&#123;</div><div class="line">            System.out.println(<span class="string">"this is a MacComputer "</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">SurfaceComputer</span> <span class="keyword">implements</span> <span class="title">Computer</span></span>&#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printComputer</span><span class="params">()</span></span>&#123;</div><div class="line">            System.out.println(<span class="string">"this is a SurfaceComputer "</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">interface</span> <span class="title">ComputerFactory</span></span>&#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> Computer <span class="title">createComputer</span><span class="params">()</span></span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">MacComputerFactory</span> <span class="keyword">implements</span> <span class="title">ComputerFactory</span></span>&#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> Computer <span class="title">createComputer</span><span class="params">()</span></span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> MacComputer();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">SurfaceComputerFactory</span> <span class="keyword">implements</span> <span class="title">ComputerFactory</span></span>&#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> Computer <span class="title">createComputer</span><span class="params">()</span></span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> SurfaceComputer();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ClassNotFoundException, IllegalAccessException, InstantiationException </span>&#123;</div><div class="line">        System.out.println(<span class="string">"i buy a computer"</span>);</div><div class="line">        FactoryMethod mf = <span class="keyword">new</span> FactoryMethod();</div><div class="line"><span class="comment">//        ComputerFactory factory = mf.new MacComputerFactory();</span></div><div class="line">        ComputerFactory factory = mf.new SurfaceComputerFactory();</div><div class="line">        factory.createComputer().printComputer();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>优点：</strong></p>
+<ol>
+<li>用户只需要知道具体工厂的名称就可得到所要的产品，无须知道产品的具体创建过程。</li>
+<li>典型的解耦框架。高层模块只需要知道产品的抽象类，无须关心其他实现类。</li>
+<li>通过扩展来新增具体类的，符合开闭原则。</li>
+</ol>
+<p><strong>缺点：</strong></p>
+<ol>
+<li>类的个数容易过多，增加复杂度</li>
+<li>增加了系统的抽象性和理解难度</li>
+<li>抽象工厂只能生产一种产品，此弊端可使用抽象工厂模式解决。</li>
+</ol>
+<h2 id="四、抽象工厂模式"><a href="#四、抽象工厂模式" class="headerlink" title="四、抽象工厂模式"></a>四、抽象工厂模式</h2><p>抽象工厂模式是工厂方法模式的升级版本，工厂方法模式只生产一个等级的产品，而抽象工厂模式可生产多个等级的产品。<strong>工厂方法模式和抽象工厂模式基本类似，可以这么理解：当工厂只生产一个产品的时候，即为工厂方法模式，而工厂如果生产两个或以上的商品即变为抽象工厂模式。</strong></p>
+<p>使用抽象工厂模式一般要满足以下条件。</p>
+<ul>
+<li>系统中有多个产品族，每个具体工厂创建同一族但属于不同等级结构的产品。</li>
+<li>系统一次只可能消费其中某一族产品，即同族的产品一起使用。</li>
+</ul>
+<p><strong>抽象工厂模式的主要角色如下。</strong></p>
+<ol>
+<li>抽象工厂（Abstract Factory）：提供了创建产品的接口，它包含多个创建产品的方法 newProduct()，可以创建多个不同等级的产品。</li>
+<li>具体工厂（Concrete Factory）：主要是实现抽象工厂中的多个抽象方法，完成具体产品的创建。</li>
+<li>抽象产品（Product）：定义了产品的规范，描述了产品的主要特性和功能，抽象工厂模式有多个抽象产品。</li>
+<li>具体产品（ConcreteProduct）：实现了抽象产品角色所定义的接口，由具体工厂来创建，它同具体工厂之间是多对一的关系。</li>
+</ol>
+<p>抽象工厂模式的结构图如图 </p>
+<p><img src="/2020/03/27/设计模式之工厂模式/img\0003.png" alt="image-20200505201624200"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AbstractFactory</span> </span>&#123;</div><div class="line">    <span class="class"><span class="keyword">interface</span> <span class="title">Computer</span></span>&#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printComputer</span><span class="params">()</span></span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">MacComputer</span> <span class="keyword">implements</span> <span class="title">Computer</span></span>&#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printComputer</span><span class="params">()</span></span>&#123;</div><div class="line">            System.out.println(<span class="string">"this is a MacComputer "</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">SurfaceComputer</span> <span class="keyword">implements</span> <span class="title">Computer</span></span>&#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printComputer</span><span class="params">()</span></span>&#123;</div><div class="line">            System.out.println(<span class="string">"this is a SurfaceComputer "</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">interface</span> <span class="title">OperatingSystem</span></span>&#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printSystemOS</span><span class="params">()</span></span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">MacOperatingSystem</span> <span class="keyword">implements</span> <span class="title">OperatingSystem</span></span>&#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printSystemOS</span><span class="params">()</span> </span>&#123;</div><div class="line">            System.out.println(<span class="string">"this Operating System is MacOS"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">SurfaceOperatingSystem</span> <span class="keyword">implements</span> <span class="title">OperatingSystem</span></span>&#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printSystemOS</span><span class="params">()</span> </span>&#123;</div><div class="line">            System.out.println(<span class="string">"this Operating System is Windows10"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">interface</span> <span class="title">ProductionFactory</span></span>&#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> Computer <span class="title">createComputer</span><span class="params">()</span></span>;</div><div class="line">        <span class="function"><span class="keyword">public</span> OperatingSystem <span class="title">getOperatingSystem</span><span class="params">()</span></span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">MacProductionFactory</span> <span class="keyword">implements</span> <span class="title">ProductionFactory</span></span>&#123;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> Computer <span class="title">createComputer</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> MacComputer();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> OperatingSystem <span class="title">getOperatingSystem</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> MacOperatingSystem();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">SurfaceProductionFactory</span> <span class="keyword">implements</span> <span class="title">ProductionFactory</span></span>&#123;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> Computer <span class="title">createComputer</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> SurfaceComputer();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> OperatingSystem <span class="title">getOperatingSystem</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> SurfaceOperatingSystem();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        AbstractFactory af = <span class="keyword">new</span> AbstractFactory();</div><div class="line">        System.out.println(<span class="string">"i buy a Computer"</span>);</div><div class="line"><span class="comment">//        ProductionFactory factory = af.new MacProductionFactory();</span></div><div class="line">        ProductionFactory factory = af.new SurfaceProductionFactory();</div><div class="line">        factory.createComputer().printComputer();</div><div class="line">        System.out.println(<span class="string">"this computer's operating system is"</span>);</div><div class="line">        factory.getOperatingSystem().printSystemOS();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>抽象工厂模式除了具有工厂方法模式的优点外，其他主要优点如下。</p>
+<ul>
+<li>可以在类的内部对产品族中相关联的多等级产品共同管理，而不必专门引入多个新的类来进行管理。</li>
+<li>当需要产品族时，抽象工厂可以保证客户端始终只使用同一个产品的产品族。</li>
+<li>抽象工厂增强了程序的可扩展性，当增加一个新的产品族时，不需要修改原代码，满足开闭原则。</li>
+</ul>
+<p>缺点是：当产品族中需要增加一个<strong>新的产品时，所有的工厂类都需要进行修改</strong>。增加了系统的抽象性和理解难度。</p>
+<p>抽象工厂模式通常适用于以下场景：</p>
+<ol>
+<li>当需要创建的对象是一系列相互关联或相互依赖的产品族时，如电器工厂中的电视机、洗衣机、空调等。</li>
+<li>系统中有多个产品族，但每次只使用其中的某一族产品。如有人只喜欢穿某一个品牌的衣服和鞋。</li>
+<li>系统中提供了产品的类库，且所有产品的接口相同，客户端不依赖产品实例的创建细节和内部结构。</li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/IMG_1125.JPG">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/IMG_1124.JPG">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/15/Spring+Springboot常用注解/" class="archive-article-date">
-  	<time datetime="2017-12-15T13:50:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/15/Spring+Springboot常用注解/">Spring、SpringBoot常用注解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -197,174 +309,143 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://www.xujie1024.club/2020/03/27/设计模式之工厂模式/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/12/Springboot+Mybatis框架搭建/" class="archive-article-date">
-  	<time datetime="2017-12-12T13:49:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-12</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/05/03/jwt/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          使用jwt在复杂系统中做权限验证
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/03/13/设计模式之单例模式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">设计模式之单例模式</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/12/Springboot+Mybatis框架搭建/">搭建SpringBoot+Mybatis框架</a>
-    </h1>
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="设计模式之工厂模式" data-title="设计模式之工厂模式" data-url="https://www.xujie1024.club/2020/03/27/设计模式之工厂模式/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "https://www.xujie1024.club/2020/03/27/设计模式之工厂模式/", 
+    sourceId: "设计模式之工厂模式",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/12/SSM框架搭建/" class="archive-article-date">
-  	<time datetime="2017-11-12T12:47:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/12/SSM框架搭建/">搭建SSM框架</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/13/Tomcat快速入门/" class="archive-article-date">
-  	<time datetime="2017-10-13T15:31:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/13/Tomcat快速入门/">快速认识Tomcat</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/12/Maven快速入门/" class="archive-article-date">
-  	<time datetime="2017-09-12T12:47:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/12/Maven快速入门/">Maven笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/page/4/">4</a><a class="extend next" rel="next" href="/archives/page/4/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -392,8 +473,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

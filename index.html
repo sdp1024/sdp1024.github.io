@@ -390,6 +390,87 @@
 
 
   
+    <article id="post-设计模式之工厂模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/27/设计模式之工厂模式/">设计模式之工厂模式</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/27/设计模式之工厂模式/" class="archive-article-date">
+  	<time datetime="2020-03-27T12:33:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、为什么要使用工厂模式"><a href="#一、为什么要使用工厂模式" class="headerlink" title="一、为什么要使用工厂模式"></a>一、为什么要使用工厂模式</h2><p>工厂模式分为简单工厂模式，工厂方法模式和抽象工厂模式，其中工厂方法模式和抽象工厂模式属于设计模式中的创建型模式。其主要功能都是帮助我们把对象的实例化部分抽取了出来，目的是降低系统中代码耦合度，并且增强了系统的扩展性。Factroy要解决的问题是：<strong>希望能够创建一个对象，但创建过程比较复杂，希望对外隐藏这些细节。（</strong>如果不复杂，用构造函数就够了。<strong>）</strong></p>
+<p> <strong>工厂模式主要的意义：</strong></p>
+<ul>
+<li>将实例化过程与业务逻辑真正的解耦</li>
+<li>屏蔽复杂的对象创建逻辑</li>
+</ul>
+        
+          <a class="article-more-a" href="/2020/03/27/设计模式之工厂模式/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/27/设计模式之工厂模式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-设计模式之单例模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -446,84 +527,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/03/13/设计模式之单例模式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-过滤器与拦截器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/13/过滤器与拦截器/">过滤器与拦截器</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/13/过滤器与拦截器/" class="archive-article-date">
-  	<time datetime="2019-11-13T02:21:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="一、Filter"><a href="#一、Filter" class="headerlink" title="一、Filter"></a>一、Filter</h1><h2 id="1-1-什么是过滤器"><a href="#1-1-什么是过滤器" class="headerlink" title="1.1 什么是过滤器"></a>1.1 什么是过滤器</h2><p>Filter 过滤器主要是用来过滤用户请求的，它允许我们对用户请求进行前置处理和后置处理，比如实现 URL 级别的权限控制、过滤非法请求等等。Filter 过滤器是面向切面编程——AOP 的具体实现（AOP切面编程只是一种编程思想而已）。</p>
-<p>Filter 是依赖于 Servlet 容器，Filter接口就在 Servlet 包下面，属于 Servlet 规范的一部分。所以，很多时候我们也称其为“增强版 Servlet”。</p>
-<p>如果我们需要自定义 Filter 的话非常简单，只需要实现 javax.Servlet.Filter 接口，然后重写里面的 3 个方法即可。</p>
-        
-          <a class="article-more-a" href="/2019/11/13/过滤器与拦截器/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/13/过滤器与拦截器/">展开全文 >></a>
         </p>
       
 

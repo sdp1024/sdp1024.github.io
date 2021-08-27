@@ -158,32 +158,35 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-jsp-fn-function" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-IO模型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/11/jsp-fn-function/">JSP及其相关技术</a>
+      <a class="article-title" href="/2019/10/06/IO模型/">IO模型</a>
     </h1>
   
 
         
-        <a href="/2018/02/11/jsp-fn-function/" class="archive-article-date">
-  	<time datetime="2018-02-11T14:51:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-11</time>
+        <a href="/2019/10/06/IO模型/" class="archive-article-date">
+  	<time datetime="2019-10-06T14:36:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="JSP是什么"><a href="#JSP是什么" class="headerlink" title="JSP是什么?"></a><strong>JSP是什么?</strong></h2><p>Java Server Pages(JSP)是一种支持动态内容开发的网页技术，它可以帮助开发人员通过利用特殊的JSP标签，并支持以&lt;%开始并以%&gt;作为结束标志插入Java代码到HTML页面。</p>
-<p>JSP 本质是一个 Servlet，JSP 最终被转换成 Servlet 在 jvm 中解释执行，它的运行也需要容器的支持。在 JSP 中虽然也可以编写 Java 代码，但它更加偏向于页面视图的展现。在 MVC 架构模式中，就 JSP 和 Servlet 而言，C 通常由 Servlet 充当，V 通常由 JSP 来充当。</p>
-<p>JSP这门技术的最大的特点在于，写jsp就像在写html，但它相比html而言，html只能为用户提供静态内容，而Jsp技术允许在页面中嵌套java代码，为用户提供动态数据。</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
+        <h2 id="一、5种常见的IO模式"><a href="#一、5种常见的IO模式" class="headerlink" title="一、5种常见的IO模式"></a>一、5种常见的IO模式</h2><ul>
+<li>阻塞IO (blocking IO)</li>
+<li>非阻塞IO (nonblocking IO)</li>
+<li>IO多路复用 (IO multiplexing)</li>
+<li>信号驱动IO (signal driven IO)  忽略</li>
+<li>异步IO (asynchronous IO)</li>
+</ul>
         
-          <a class="article-more-a" href="/2018/02/11/jsp-fn-function/#more">more >></a>
+          <a class="article-more-a" href="/2019/10/06/IO模型/#more">more >></a>
         
       
 
@@ -207,7 +210,163 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/11/jsp-fn-function/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/10/06/IO模型/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-java枚举" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/02/java枚举/">枚举</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/02/java枚举/" class="archive-article-date">
+  	<time datetime="2018-02-02T10:32:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、枚举的定义"><a href="#一、枚举的定义" class="headerlink" title="一、枚举的定义"></a>一、枚举的定义</h2><p>枚举类型是Java 5中新增特性的一部分，它是一种特殊的数据类型，之所以特殊是因为它既是一种类(class)类型却又比类类型多了些特殊的约束，但是这些约束的存在也造就了枚举类型的简洁性、安全性以及便捷性。</p>
+<p>回忆一下下面的程序，这是在没有枚举类型时定义常量常见的方式：</p>
+        
+          <a class="article-more-a" href="/2018/02/02/java枚举/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/02/java枚举/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-jsp-fn-function" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/19/jsp-fn-function/">JSP及其相关技术</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/19/jsp-fn-function/" class="archive-article-date">
+  	<time datetime="2018-01-19T14:51:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="JSP是什么"><a href="#JSP是什么" class="headerlink" title="JSP是什么?"></a><strong>JSP是什么?</strong></h2><p>Java Server Pages(JSP)是一种支持动态内容开发的网页技术，它可以帮助开发人员通过利用特殊的JSP标签，并支持以&lt;%开始并以%&gt;作为结束标志插入Java代码到HTML页面。</p>
+<p>JSP 本质是一个 Servlet，JSP 最终被转换成 Servlet 在 jvm 中解释执行，它的运行也需要容器的支持。在 JSP 中虽然也可以编写 Java 代码，但它更加偏向于页面视图的展现。在 MVC 架构模式中，就 JSP 和 Servlet 而言，C 通常由 Servlet 充当，V 通常由 JSP 来充当。</p>
+<p>JSP这门技术的最大的特点在于，写jsp就像在写html，但它相比html而言，html只能为用户提供静态内容，而Jsp技术允许在页面中嵌套java代码，为用户提供动态数据。</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
+        
+          <a class="article-more-a" href="/2018/01/19/jsp-fn-function/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/19/jsp-fn-function/">展开全文 >></a>
         </p>
       
 
@@ -370,162 +529,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/12/15/Spring+Springboot常用注解/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Springboot+Mybatis框架搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/12/Springboot+Mybatis框架搭建/">搭建SpringBoot+Mybatis框架</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/12/Springboot+Mybatis框架搭建/" class="archive-article-date">
-  	<time datetime="2017-12-12T13:49:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近在学SpringBoot，因此用搭建了一个SpringBoot+Mybatis整合框架，记录下过程以便学习。</p>
-<h3 id="1、创建springboot项目"><a href="#1、创建springboot项目" class="headerlink" title="1、创建springboot项目"></a>1、创建springboot项目</h3><p>  选择File –&gt; New –&gt; Project –&gt;Spring Initialer –&gt; 点击<strong>Next</strong></p>
-<p><img src="/2017/12/12/Springboot+Mybatis框架搭建/img\image-20200801181748442.png" alt="image-20200801181748442"></p>
-        
-          <a class="article-more-a" href="/2017/12/12/Springboot+Mybatis框架搭建/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/12/Springboot+Mybatis框架搭建/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SSM框架搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/12/SSM框架搭建/">搭建SSM框架</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/12/SSM框架搭建/" class="archive-article-date">
-  	<time datetime="2017-11-12T12:47:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近比较闲，用SpringMVC+Mybatis搭了个架子，记录下过程以便学习。</p>
-<h3 id="1、创建maven项目"><a href="#1、创建maven项目" class="headerlink" title="1、创建maven项目"></a>1、创建maven项目</h3><p>打开idea，新建一个maven项目，File-&gt;New-&gt;Project -&gt;Maven-&gt;Create from archetype </p>
-<p><img src="/2017/11/12/SSM框架搭建/img\image-20200801145231474.png" alt="image-20200801145231474"></p>
-        
-          <a class="article-more-a" href="/2017/11/12/SSM框架搭建/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/12/SSM框架搭建/">展开全文 >></a>
         </p>
       
 

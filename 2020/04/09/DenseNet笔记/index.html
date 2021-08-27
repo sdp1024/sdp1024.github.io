@@ -6,17 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.xujie1024.club">
-  <title>Archives: 2018/5 | Jyo的个人博客</title>
+  <title>DenseNet笔记 | Jyo的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="程序猿,程序猿,搭建,前端,后端,js,javascript,java,python,html,编程,代码,博客,教程,jquery,spring,spring mvc,mybatis,mysql">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jyo的个人博客">
-<meta property="og:url" content="https://www.xujie1024.club/archives/2018/05/index.html">
+  <meta name="description" content="DenseNet是CVPR2017最佳paper。 在传统的卷积神经网络中，如果你有L层，那么就会有L个连接，但是在DenseNet中，会有L(L+1)/2个连接。简单讲，就是每一层的输入来自前面所有层的输出。如下图：x0是input，H1的输入是x0（input），H2的输入是x0和x1（x1是H1的输出）……">
+<meta name="keywords" content="博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DenseNet笔记">
+<meta property="og:url" content="https://www.xujie1024.club/2020/04/09/DenseNet笔记/index.html">
 <meta property="og:site_name" content="Jyo的个人博客">
-<meta property="og:description" content="程序猿,程序猿,搭建,前端,后端,js,javascript,java,python,html,编程,代码,博客,教程,jquery,spring,spring mvc,mybatis,mysql">
+<meta property="og:description" content="DenseNet是CVPR2017最佳paper。 在传统的卷积神经网络中，如果你有L层，那么就会有L个连接，但是在DenseNet中，会有L(L+1)/2个连接。简单讲，就是每一层的输入来自前面所有层的输出。如下图：x0是input，H1的输入是x0（input），H2的输入是x0和x1（x1是H1的输出）……">
+<meta property="og:image" content="https://www.xujie1024.club/2020/04/09/DenseNet笔记/img/0001.png">
+<meta property="og:image" content="https://www.xujie1024.club/2020/04/09/DenseNet笔记/img/0003.png">
+<meta property="og:image" content="https://www.xujie1024.club/2020/04/09/DenseNet笔记/img/0004.png">
+<meta property="og:image" content="https://www.xujie1024.club/2020/04/09/DenseNet笔记/img/0005.png">
+<meta property="og:image" content="https://www.xujie1024.club/2020/04/09/DenseNet笔记/img/0007.png">
+<meta property="og:image" content="https://www.xujie1024.club/2020/04/09/DenseNet笔记/img/0006.png">
+<meta property="og:image" content="https://www.xujie1024.club/2020/04/09/DenseNet笔记/img/0002.png">
+<meta property="og:updated_time" content="2021-08-27T16:58:44.587Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jyo的个人博客">
-<meta name="twitter:description" content="程序猿,程序猿,搭建,前端,后端,js,javascript,java,python,html,编程,代码,博客,教程,jquery,spring,spring mvc,mybatis,mysql">
+<meta name="twitter:title" content="DenseNet笔记">
+<meta name="twitter:description" content="DenseNet是CVPR2017最佳paper。 在传统的卷积神经网络中，如果你有L层，那么就会有L个连接，但是在DenseNet中，会有L(L+1)/2个连接。简单讲，就是每一层的输入来自前面所有层的输出。如下图：x0是input，H1的输入是x0（input），H2的输入是x0和x1（x1是H1的输出）……">
+<meta name="twitter:image" content="https://www.xujie1024.club/2020/04/09/DenseNet笔记/img/0001.png">
   
     <link rel="alternative" href="/atom.xml" title="Jyo的个人博客" type="application/atom+xml">
   
@@ -156,36 +166,90 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-DenseNet笔记" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/09/java枚举/" class="archive-article-date">
-  	<time datetime="2018-05-09T10:32:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-09</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/09/java枚举/">枚举</a>
+    <h1 class="article-title" itemprop="name">
+      DenseNet笔记
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/04/09/DenseNet笔记/" class="archive-article-date">
+  	<time datetime="2020-04-09T14:13:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>DenseNet是CVPR2017最佳paper。</p>
+<p>在传统的卷积神经网络中，如果你有L层，那么就会有L个连接，但是在DenseNet中，会有L(L+1)/2个连接。<strong>简单讲，就是每一层的输入来自前面所有层的输出。</strong>如下图：x0是input，H1的输入是x0（input），H2的输入是x0和x1（x1是H1的输出）……</p>
+<p><img src="/2020/04/09/DenseNet笔记/img\0001.png" alt="image-20200505201624200"></p>
+<a id="more"></a>
+<p>传统的网络在 l层的输出为：</p>
+<p><img src="/2020/04/09/DenseNet笔记/img\0003.png" alt="image-20200505201624200"></p>
+<p>对于ResNet，增加了来自上一层输入：</p>
+<p><img src="/2020/04/09/DenseNet笔记/img\0004.png" alt="image-20200505201624200"></p>
+<p>在DenseNet中，会连接前面所有层作为输入：</p>
+<p><img src="/2020/04/09/DenseNet笔记/img\0005.png" alt="image-20200505201624200"></p>
+<p> Hl 代表是非线性转化函数，它是一个组合操作，其可能包括一系列的BN(Batch Normalization)，ReLU，Pooling及Conv操作。</p>
+<p>特征传递方式是直接将前面所有层的特征concat后传到下一层，而不是前面层都要有一个箭头指向后面的所有层</p>
+<h3 id="1-DenseNet与ResNet对比"><a href="#1-DenseNet与ResNet对比" class="headerlink" title="1. DenseNet与ResNet对比"></a><strong>1. DenseNet与ResNet对比</strong></h3><p>•ResNet（深度残差网络，Deep residual network, ResNet）:通过建立前面层与后面层之间的“短路连接”，这有助于训练过程中梯度的反向传播，从而能训练出更深的CNN网络。</p>
+<p>•DenseNet：采用密集连接机制，即互相连接所有的层，每个层都会与前面所有层在channel维度上连接（concat）在一起，实现特征重用，作为下一层的输入。这样，不但减缓了梯度消失的现象，也使其可以在参数与计算量更少的情况下实现比ResNet更优的性能。</p>
+<p>对比于ResNet的Residual Block，创新性地提出Dense Block，在每一个Dense Block中，任何两层之间都有直接的连接，也就是说，网络每一层的输入都是前面所有层输出的并集，而该层所学习的特征图也会被直接传给其后面所有层作为输入。通过密集连接，缓解梯度消失问题，加强特征传播，鼓励特征复用，极大的减少了参数量。</p>
+<p><strong>不同结构的DenseNet组成：</strong></p>
+<p><img src="/2020/04/09/DenseNet笔记/img\0007.png" alt="image-20200505201624200" style="zoom:150%;"></p>
+<h3 id="2-DenseNet的优势："><a href="#2-DenseNet的优势：" class="headerlink" title="2. DenseNet的优势："></a><strong>2. DenseNet的优势</strong>：</h3><p><strong>1.更强的梯度流动：</strong>由于密集连接方式，DenseNet提升了梯度的反向传播，使得网络更容易训练。由于每层可以直达最后的误差信号，实现了隐式的“deep supervision”。误差信号可以很容易地传播到较早的层，所以较早的层可以从最终分类层获得直接监管（监督）。</p>
+<p> 减轻了vanishing-gradient（梯度消失）  过梯度消失问题在网络深度越深的时候越容易出现，原因就是输入信息和梯度信息在很多层之间传递导致的，而现在这种dense connection相当于每一层都直接连接input和loss，因此就可以减轻梯度消失现象，这样更深网络不是问题。</p>
+<p><img src="/2020/04/09/DenseNet笔记/img\0006.png" alt="image-20200505201624200" style="zoom: 67%;"></p>
+<p><strong>2.减少了参数数量</strong>：</p>
+<p>如下图所示，蓝色的特征是第n层提取出的特征在第m层重新恢复出来的结果(m&gt;n)，红色的特征是前m-1层都不曾出现过的新特征。上侧的传统结构可以看出无论是红色(k2个特征)还是蓝色(k1个特征)的特征都需要靠前面层的卷积才能得到；下侧的DenseNet(为了简化假设只有第n层直连到了第m层)可以看到只有红色的k2个特征才是卷积得到。比较而言下侧图就更节省参数。</p>
+<p><img src="/2020/04/09/DenseNet笔记/img\0002.png" alt="image-20200505201624200"></p>
+<p><strong>3.保存了低维度的特征</strong></p>
+<p>在标准的卷积网络中，最终输出只会利用提取最高层次的特征。而在DenseNet中，它使用了不同层次的特征，倾向于给出更平滑的决策边界。这也解释了为什么训练数据不足时DenseNet表现依旧良好。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/IMG_1125.JPG">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/IMG_1124.JPG">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -197,19 +261,144 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://www.xujie1024.club/2020/04/09/DenseNet笔记/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/04/12/设计模式之代理模式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          设计模式之代理模式
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2020/03/27/设计模式之工厂模式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">设计模式之工厂模式</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="DenseNet笔记" data-title="DenseNet笔记" data-url="https://www.xujie1024.club/2020/04/09/DenseNet笔记/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "https://www.xujie1024.club/2020/04/09/DenseNet笔记/", 
+    sourceId: "DenseNet笔记",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -236,8 +425,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

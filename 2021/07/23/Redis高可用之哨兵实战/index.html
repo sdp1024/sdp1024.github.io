@@ -6,17 +6,37 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.xujie1024.club">
-  <title>Archives | Jyo的个人博客</title>
+  <title>Redis高可用之哨兵实战 | Jyo的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="程序猿,程序猿,搭建,前端,后端,js,javascript,java,python,html,编程,代码,博客,教程,jquery,spring,spring mvc,mybatis,mysql">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jyo的个人博客">
-<meta property="og:url" content="https://www.xujie1024.club/archives/index.html">
+  <meta name="description" content="一、在同一台服务器中启动多个Redis实例由于自己资源有限，只有一台Linux服务器，因此需要在同一台服务器上启动多个Redis实例。 在一台设备运行多个redis-server实例实现比较简单整体思路就是把一个程序打开三份同时运行，redis默认占用6379端口，而同一个端口只能被一个程序占用，因此启动redis服务时需要改变默认的端口。">
+<meta name="keywords" content="博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis高可用之哨兵实战">
+<meta property="og:url" content="https://www.xujie1024.club/2021/07/23/Redis高可用之哨兵实战/index.html">
 <meta property="og:site_name" content="Jyo的个人博客">
-<meta property="og:description" content="程序猿,程序猿,搭建,前端,后端,js,javascript,java,python,html,编程,代码,博客,教程,jquery,spring,spring mvc,mybatis,mysql">
+<meta property="og:description" content="一、在同一台服务器中启动多个Redis实例由于自己资源有限，只有一台Linux服务器，因此需要在同一台服务器上启动多个Redis实例。 在一台设备运行多个redis-server实例实现比较简单整体思路就是把一个程序打开三份同时运行，redis默认占用6379端口，而同一个端口只能被一个程序占用，因此启动redis服务时需要改变默认的端口。">
+<meta property="og:image" content="https://www.xujie1024.club/2021/07/23/Redis高可用之哨兵实战/img/0001.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/07/23/Redis高可用之哨兵实战/img/0002.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/07/23/Redis高可用之哨兵实战/img/0003.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/07/23/Redis高可用之哨兵实战/img/0004.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/07/23/Redis高可用之哨兵实战/img/0005.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/07/23/Redis高可用之哨兵实战/img/0006.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/07/23/Redis高可用之哨兵实战/img/0007.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/07/23/Redis高可用之哨兵实战/img/0008.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/07/23/Redis高可用之哨兵实战/img/0009.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/07/23/Redis高可用之哨兵实战/img/0010.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/07/23/Redis高可用之哨兵实战/img/0011.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/07/23/Redis高可用之哨兵实战/img/0012.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/07/23/Redis高可用之哨兵实战/img/0013.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/07/23/Redis高可用之哨兵实战/img/0014.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/07/23/Redis高可用之哨兵实战/img/0015.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/07/23/Redis高可用之哨兵实战/img/0016.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/07/23/Redis高可用之哨兵实战/img/0017.png">
+<meta property="og:updated_time" content="2021-08-27T15:42:54.825Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jyo的个人博客">
-<meta name="twitter:description" content="程序猿,程序猿,搭建,前端,后端,js,javascript,java,python,html,编程,代码,博客,教程,jquery,spring,spring mvc,mybatis,mysql">
+<meta name="twitter:title" content="Redis高可用之哨兵实战">
+<meta name="twitter:description" content="一、在同一台服务器中启动多个Redis实例由于自己资源有限，只有一台Linux服务器，因此需要在同一台服务器上启动多个Redis实例。 在一台设备运行多个redis-server实例实现比较简单整体思路就是把一个程序打开三份同时运行，redis默认占用6379端口，而同一个端口只能被一个程序占用，因此启动redis服务时需要改变默认的端口。">
+<meta name="twitter:image" content="https://www.xujie1024.club/2021/07/23/Redis高可用之哨兵实战/img/0001.png">
   
     <link rel="alternative" href="/atom.xml" title="Jyo的个人博客" type="application/atom+xml">
   
@@ -156,122 +176,297 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Redis高可用之哨兵实战" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Redis高可用之哨兵实战
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/07/23/Redis高可用之哨兵实战/" class="archive-article-date">
+
+        
+        <a href="/2021/07/23/Redis高可用之哨兵实战/" class="archive-article-date">
   	<time datetime="2021-07-23T12:45:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-23</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/07/23/Redis高可用之哨兵实战/">Redis高可用之哨兵实战</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
+        
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/13/CAP理论/" class="archive-article-date">
-  	<time datetime="2021-03-13T06:31:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/13/CAP理论/">CAP理论</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
+    <div class="article-entry" itemprop="articleBody">
       
-        </div></section>
+        <h2 id="一、在同一台服务器中启动多个Redis实例"><a href="#一、在同一台服务器中启动多个Redis实例" class="headerlink" title="一、在同一台服务器中启动多个Redis实例"></a><strong>一、在同一台服务器中启动多个Redis实例</strong></h2><p>由于自己资源有限，只有一台Linux服务器，因此需要在同一台服务器上启动多个Redis实例。</p>
+<p>在一台设备运行多个redis-server实例实现比较简单整体思路就是把一个程序打开三份同时运行，redis默认占用6379端口，而同一个端口只能被一个程序占用，因此启动redis服务时需要改变默认的端口。</p>
+<a id="more"></a>
+<p>主要分为以下两步：</p>
+<ul>
+<li>在同一台设备运行三个redis实例，端口分别为6379、6380、6381</li>
+<li>拷贝三份redis.conf配置文件，分别修改以下属性</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>默认值</th>
+<th>6379</th>
+<th>6380</th>
+<th>6381</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>文件名</td>
+<td>redis.conf</td>
+<td>redis_6379.conf</td>
+<td>redis_6380.conf</td>
+<td>redis_6381.conf</td>
+</tr>
+<tr>
+<td>port</td>
+<td>6379</td>
+<td>6379</td>
+<td>6380</td>
+<td>6381</td>
+</tr>
+<tr>
+<td>pidfile</td>
+<td>/var/run/redis.pid</td>
+<td>/var/run/redis_6379.pid</td>
+<td>/var/run/redis_6380.pid</td>
+<td>/var/run/redis_6381.pid</td>
+</tr>
+<tr>
+<td>logfile</td>
+<td>“redis.log”</td>
+<td>“redis_6379.log”</td>
+<td>“redis_6380.log”</td>
+<td>“redis_6381.log”</td>
+</tr>
+<tr>
+<td>dbfilename</td>
+<td>dump.rdb</td>
+<td>dump_6379.rdb</td>
+<td>dump_6380.rdb</td>
+<td>dump_6381.rdb</td>
+</tr>
+</tbody>
+</table>
+<p>分别启动三个实例，使用netstat -lntp 查看正在监控中的tcp端口，如果6379、6380、6381三个端口都正常启动说明三个Redis实例正常启动。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ ./redis-server xxx/redis_6379.conf</div><div class="line">$ ./redis-server xxx/redis_6380.conf</div><div class="line">$ ./redis-server xxx/redis_6381.conf</div></pre></td></tr></table></figure>
+<p><img src="/2021/07/23/Redis高可用之哨兵实战/img/0001.png" alt="0001"></p>
+<p>Redis正式启动后，为了能让不同服务器的客户端访问，我们需要对Redis和Redis所在服务器进行相应的配置。</p>
+<p><strong>1、 Redis设置</strong></p>
+<p>进入Redis.conf文件</p>
+<p>1.找到bind 127.0.0.1，之后我们将其改为 bind 0.0.0.0(如未找到127.0.0.1只有0.0.0.0则代表我们已经修改好了)</p>
+<p>2.将protected-mode yes改成 protected-mode no</p>
+<p><strong>2、 服务器设置（以ubuntu为例）</strong></p>
+<p>我们需要在服务器的防火墙中添加6379端口号以向外暴露6379端口。</p>
+<p> 在防火墙中添加端口 6379</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost /]# firewall-cmd --zone=public --add-port=6379/tcp --permanent</div><div class="line">success</div></pre></td></tr></table></figure>
+<p>然后重启防火墙</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost /]# firewall-cmd --reload</div><div class="line">success</div></pre></td></tr></table></figure>
+<p>查询所有的开放的端口号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost /]# firewall-cmd --list-port</div><div class="line">6379/tcp</div></pre></td></tr></table></figure>
+<p>以相同的方式开放6380、6381端口。</p>
+<p>防火墙相关命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">systemctl stop firewalld.service #停止firewall</div><div class="line">systemctl disable firewalld.service #禁止firewall开机启动</div><div class="line">systemctl start firewalld.service   #开启防火墙</div></pre></td></tr></table></figure>
+<h2 id="二、Redis主从复制"><a href="#二、Redis主从复制" class="headerlink" title="二、Redis主从复制"></a><strong>二、Redis主从复制</strong></h2><h3 id="2-1-主从同步原理"><a href="#2-1-主从同步原理" class="headerlink" title="2.1 主从同步原理"></a><strong>2.1 主从同步原理</strong></h3><p>在Redis中，用户可以通过执行SALVEOF命令或者设置salveof选项，让一个服务器去复制(replicate)另一个服务器，我们称呼被复制的服务器为主服务器(master)，而对主服务器进行复制的服务器则被称为从服务器(salve)。</p>
+<p>replication主要依赖于以下三个机制:</p>
+<ul>
+<li>slave初次连接master时进行全量同步，slave服务器发送PSYNC命令，master收到命令生成RDB文件并发送到slave，slave读取RDB文件并全部载入</li>
+<li>当master和slave连接正常时,matser向slave发送命令来保持slave的更新,包括数据的写入,过期,逐出</li>
+<li>当slave与master的连接断开,slave重新连接之后,slave会尝试进行增量同步,只更新连接中断期间的数据（通过复制偏移量和复制积压缓冲区实现）</li>
+<li>当slave无法执行增量同步时,会执行全量同步</li>
+</ul>
+<p>复制功能分为两个操作过程：</p>
+<ul>
+<li><p>同步(sync)<strong>（初次连接或重连）</strong>：</p>
+<p>​            将从服务器的数据库状态<strong>更新至</strong>主服务器的数据库状态（从服务器发出同步请求）</p>
+</li>
+<li><p>命令传播(command propagate)<strong>（同步完成之后，master的每次更改都通过命令传播的方式传递到slave）</strong>：</p>
+<p>​            主服务器的数据库状态<strong>被修改</strong>，导致主从服务器的数据库状态<strong>不一致</strong>，让主从服务器的数据库状态<strong>重新回到一致状态</strong>。</p>
+</li>
+</ul>
+<p><img src="/2021/07/23/Redis高可用之哨兵实战/img/0002.png" alt="0002" style="zoom:80%;"></p>
+<h3 id="2-2-一主二从配置"><a href="#2-2-一主二从配置" class="headerlink" title="2.2 一主二从配置"></a><strong>2.2 一主二从配置</strong></h3><p>首先看一下redis.conf 配置文件中的各个参数，详解如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"># redis进程是否以守护进程的方式运行，yes为是，no为否(不以守护进程的方式运行会占用一个终端)。</div><div class="line">daemonize no</div><div class="line"># 指定redis进程的PID文件存放位置</div><div class="line">pidfile /var/run/redis.pid</div><div class="line"># redis进程的端口号</div><div class="line">port 6379</div><div class="line">#是否开启保护模式，默认开启。要是配置里没有指定bind和密码。开启该参数后，redis只会本地进行访问，拒绝外部访问。要是开启了密码和bind，可以开启。否则最好关闭设置为no。</div><div class="line">protected-mode yes</div><div class="line"># 绑定的主机地址</div><div class="line">bind 127.0.0.1</div><div class="line"># 客户端闲置多长时间后关闭连接，默认此参数为0即关闭此功能</div><div class="line">timeout 300</div><div class="line"># redis日志级别，可用的级别有debug.verbose.notice.warning</div><div class="line">loglevel verbose</div><div class="line"># log文件输出位置，如果进程以守护进程的方式运行，此处又将输出文件设置为stdout的话，就会将日志信息输出到/dev/null里面去了</div><div class="line">logfile stdout</div><div class="line"># 设置数据库的数量，默认为0可以使用select &lt;dbid&gt;命令在连接上指定数据库id</div><div class="line">databases 16</div><div class="line"># 指定在多少时间内刷新次数达到多少的时候会将数据同步到数据文件</div><div class="line">save &lt;seconds&gt; &lt;changes&gt;</div><div class="line"># 指定存储至本地数据库时是否压缩文件，默认为yes即启用存储</div><div class="line">rdbcompression yes</div><div class="line"># 指定本地数据库文件名</div><div class="line">dbfilename dump.db</div><div class="line"># 指定本地数据问就按存放位置</div><div class="line">dir ./</div><div class="line"># 指定当本机为slave服务时，设置master服务的IP地址及端口，在redis启动的时候他会自动跟master进行数据同步</div><div class="line">replicaof &lt;masterip&gt; &lt;masterport&gt;</div><div class="line"># 当master设置了密码保护时，slave服务连接master的密码</div><div class="line">masterauth &lt;master-password&gt;</div><div class="line"># 设置redis连接密码，如果配置了连接密码，客户端在连接redis是需要通过AUTH&lt;password&gt;命令提供密码，默认关闭</div><div class="line">requirepass footbared</div><div class="line"># 设置同一时间最大客户连接数，默认无限制。redis可以同时连接的客户端数为redis程序可以打开的最大文件描述符，如果设置 maxclients 0，表示不作限制。当客户端连接数到达限制时，Redis会关闭新的连接并向客户端返回 max number of clients reached 错误信息</div><div class="line">maxclients 128</div><div class="line"># 指定Redis最大内存限制，Redis在启动时会把数据加载到内存中，达到最大内存后，Redis会先尝试清除已到期或即将到期的Key。当此方法处理后，仍然到达最大内存设置，将无法再进行写入操作，但仍然可以进行读取操作。Redis新的vm机制，会把Key存放内存，Value会存放在swap区</div><div class="line">maxmemory&lt;bytes&gt;</div><div class="line"># 指定是否在每次更新操作后进行日志记录，Redis在默认情况下是异步的把数据写入磁盘，如果不开启，可能会在断电时导致一段时间内的数据丢失。因为redis本身同步数据文件是按上面save条件来同步的，所以有的数据会在一段时间内只存在于内存中。默认为no。</div><div class="line">appendonly no</div><div class="line"># 指定跟新日志文件名默认为appendonly.aof</div><div class="line">appendfilename appendonly.aof</div><div class="line"># 指定更新日志的条件，有三个可选参数 - no：表示等操作系统进行数据缓存同步到磁盘(快)，always：表示每次更新操作后手动调用fsync()将数据写到磁盘(慢，安全)， everysec：表示每秒同步一次(折衷，默认值)；</div><div class="line">appendfsync everysec</div></pre></td></tr></table></figure>
+<p>下面分别为3个Redis实例进行主从配置。</p>
+<h4 id="2-2-1、主机配置"><a href="#2-2-1、主机配置" class="headerlink" title="2.2.1、主机配置"></a><strong>2.2.1、主机配置</strong></h4><p>主机（192.168.25.128）需要改动的配置如下所示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">bind 0.0.0.0</div><div class="line">port 6379</div><div class="line">protected-mode no</div><div class="line">daemonize yes</div><div class="line">logfile redis_6379.log</div><div class="line">appendonly yes</div><div class="line">requirepass 123456</div><div class="line">masterauth 123456</div></pre></td></tr></table></figure>
+<ul>
+<li>bind：0.0.0.0</li>
+</ul>
+<p>Redis 默认只允许本机访问，把 bind 修改为 0.0.0.0 表示允许所有远程访问。如果想指定限制访问，可设置对应的 ip。</p>
+<ul>
+<li>port：6379</li>
+</ul>
+<p>监听端口默认为6379，想改其他也行。</p>
+<ul>
+<li>protected-mode：no</li>
+</ul>
+<p>关闭保护模式，可以外部访问。</p>
+<ul>
+<li>daemonize：yes</li>
+</ul>
+<p>设置为后台启动。</p>
+<ul>
+<li>logfile：./redis.log</li>
+</ul>
+<p>redis 日志文件</p>
+<ul>
+<li>appendonly yes</li>
+</ul>
+<p>开启AOF备份</p>
+<ul>
+<li>requirepass：123456</li>
+</ul>
+<p>设置 redis 连接密码。</p>
+<ul>
+<li>masterauth：123456</li>
+</ul>
+<p>slave 服务连接 master 的密码。</p>
+<h4 id="2-2-2、从机配置"><a href="#2-2-2、从机配置" class="headerlink" title="2.2.2、从机配置"></a><strong>2.2.2、从机配置</strong></h4><p>从机的配置和主机相似，不同的地方是需要使用replicaof指定主机（master）的IP地址和端口，需要注意的是老版本使用的是 slaveof，目前我使用的6.2.4版本要使用 replicaof ，如下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">bind 0.0.0.0</div><div class="line">port 6380</div><div class="line">protected-mode no</div><div class="line">daemonize yes</div><div class="line">logfile redis_6380.log</div><div class="line">appendonly yes</div><div class="line">requirepass 123456</div><div class="line">masterauth 123456</div><div class="line">replicaof 192.168.25.128 6379</div></pre></td></tr></table></figure>
+<ul>
+<li>replicaof 192.168.25.128 6379</li>
+</ul>
+<p>指定当本机为 slave 服务器，设置 master 服务的IP地址及端口，在 redis 启动的时候会自动跟 master 进行数据同步，所以两台从机都这样配置即可。</p>
+<p>由于我们搭建的集群需要自动容灾切换，主数据库可能会变成从数据库，所以三台机器上都需要同时设置 requirepass 和 masterauth 配置项。</p>
+<h4 id="2-2-3、数据同步"><a href="#2-2-3、数据同步" class="headerlink" title="2.2.3、数据同步"></a><strong>2.2.3、数据同步</strong></h4><p>进行上述配置后，分别启动三个Redis实例，至此主从结构搭建完毕，不出意外主从机已经可以数据同步，下面我们分别查看三台机器的信息，如下</p>
+<ul>
+<li>192.168.25.128 6379（主）</li>
+</ul>
+<p><img src="/2021/07/23/Redis高可用之哨兵实战/img/0003.png" alt="0003"></p>
+<ul>
+<li>192.168.25.128 6380（从1）</li>
+</ul>
+<p><img src="/2021/07/23/Redis高可用之哨兵实战/img/0004.png" alt="0004"></p>
+<ul>
+<li>192.168.25.128 6381（从2）</li>
+</ul>
+<p><img src="/2021/07/23/Redis高可用之哨兵实战/img/0005.png" alt="0005"></p>
+<p><strong>验证</strong></p>
+<p>在主服务器中添加几条数据，验证从服务器中是否同步，在主服务器中添加如下数据：</p>
+<p><img src="/2021/07/23/Redis高可用之哨兵实战/img/0006.png" alt="0006" style="zoom:150%;"></p>
+<p>两台从机已经获取到数据，证明主从搭建成功并可同步数据，如下所示：</p>
+<p><img src="/2021/07/23/Redis高可用之哨兵实战/img/0007.png" alt="0007" style="zoom:150%;"></p>
+<p><img src="/2021/07/23/Redis高可用之哨兵实战/img/0008.png" alt="0008" style="zoom:150%;"></p>
+<h2 id="三、哨兵模式"><a href="#三、哨兵模式" class="headerlink" title="三、哨兵模式"></a><strong>三、哨兵模式</strong></h2><h3 id="3-1-哨兵模式原理"><a href="#3-1-哨兵模式原理" class="headerlink" title="3.1 哨兵模式原理"></a><strong>3.1 哨兵模式原理</strong></h3><p>Redis Sentinel 是 Redis 官方推荐的高可用性(HA)解决方案，这是生产环境中最实用也是最常用的方案。</p>
+<p>Redis中的哨兵服务器是一个运行在哨兵模式下的Redis服务器，核心功能是监测主节点和从节点的运行情况，在主节点出现故障后，完成自动故障转移，让某个从节点升级为主节点，这个过程叫做<strong>主备切换</strong>(故障转移)。因此我们抛出两个问题：</p>
+<ol>
+<li>如何提前判断各个节点（尤其是主节点）的运行健康状况？</li>
+<li>当主节点宕机的时候如何从多个从节点中选出一个作为新的主节点并实现自动切换？</li>
+</ol>
+<p>Redis Sentinel主要有以下三个特点：</p>
+<ul>
+<li><strong>监控（Monitoring）：</strong>Sentinel 会不断地检查你的主服务器和从服务器是否运作正常。</li>
+<li><strong>提醒（Notification）：</strong>当被监控的某个 Redis 服务器出现问题时，Sentinel 可以通过 API 向管理员或者其他应用程序发送通知。</li>
+<li><strong>自动故障迁移（Automatic failover）：</strong>当一个主服务器不能正常工作时，Sentinel 会开始一次自动故障迁移操作， 它会将失效主服务器的其中一个从服务器升级为新的主服务器，并让失效主服务器的其他从服务器改为复制新的主服务器； 当客户端试图连接失效的主服务器时， 集群也会向客户端返回新主服务器的地址，使得集群可以使用新主服务器代替失效服务器。</li>
+</ul>
+<p><img src="/2021/07/23/Redis高可用之哨兵实战/img/0009.png" alt="0009"></p>
+<p><strong>监控</strong></p>
+<p>Sentinel节点需要监控master、slave以及其它Sentinel节点的状态。这一过程是通过Redis的pub/sub系统实现的。Redis Sentinel一共有三个定时监控任务，完成对各个节点发现和监控：</p>
+<ol>
+<li>监控主从拓扑信息：每隔10秒，每个Sentinel节点，会向master和slave发送INFO命令获取最新的拓扑结构；</li>
+<li>Sentinel节点信息交换：每隔2秒，每个Sentinel节点，会向Redis数据节点的<strong>sentinel</strong>:hello频道上，发送自身的信息，以及对主节点的判断信息。这样，Sentinel节点之间就可以交换信息；</li>
+<li>节点状态监控：每隔1秒，每个Sentinel节点，会向master、slave、其余Sentinel节点发送PING命令做心跳检测，来确认这些节点当前是否可达。</li>
+</ol>
+<p><strong>主观下线</strong></p>
+<ul>
+<li>Sentinel会以每秒一次的频率向与它创建命令连接的实例(包括主从服务器和其他的Sentinel)<strong>发送PING命令</strong>，通过PING命令返回的信息判断实例是否在线</li>
+<li>如果一个<strong>主服务器</strong>在down-after-milliseconds毫秒内连续向Sentinel发送<strong>无效回复</strong>，那么当前Sentinel就会<strong>主观认为</strong>该主服务器已经下线了，修改其flags状态为SRI_S_DOWN。。</li>
+</ul>
+<p><strong>客观下线</strong></p>
+<ul>
+<li>当Sentinel将一个主服务器判断为主观下线以后，为了确认该主服务器是否真的下线，它会向同样监视该主服务器的Sentinel<strong>询问</strong>，看它们是否也认为该主服务器是否下线（sentinel通过发送 SENTINEL is-master-down-by-addr ip port current_epoch runid，（ip：主观下线的服务id，port：主观下线的服务端口，current_epoch：sentinel的纪元，runid：*表示检测服务下线状态，如果是sentinel 运行id，表示用来选举领头sentinel）来询问其它sentinel是否同意服务下线。）。</li>
+<li>如果<strong>足够多</strong>的Sentinel认为该主服务器是下线的（一个sentinel接收另一个sentinel发来的is-master-down-by-addr后，提取参数，根据ip和端口，检测该服务时候在该sentinel主观下线，并且回复is-master-down-by-addr，回复包含三个参数：down_state（1表示已下线，0表示未下线），leader_runid（领头sentinal id），leader_epoch（领头sentinel纪元）。），那么就判定该主服务为客观下线，并对主服务器执行故障转移操作。（那么这个大多数是指多少呢？这其实就是分布式协调中的<strong>quorum</strong>判定了，大多数就是过半数，比如哨兵数量是3，那么大多数就是3/2+1=2个，哨兵数量是5，大多数就是5/2+1=3个。）</li>
+</ul>
+<p><strong>哨兵选举</strong></p>
+<p>如果发生了客观下线，那么哨兵节点会选举出一个Leader来进行实际的故障转移工作。Redis使用了Raft算法来实现哨兵领导者选举，大致思路如下：</p>
+<ol>
+<li>每个Sentinel节点都有资格成为领导者，当它主观认为某个数据节点宕机后，会向其他Sentinel节点发送sentinel is-master-down-by-addr命令，要求自己成为领导者；</li>
+<li>收到命令的Sentinel节点，如果没有同意过其他Sentinel节点的sentinel is-master-down-by-addr命令，将同意该请求，否则拒绝（每个Sentinel节点只有1票）；</li>
+<li>如果该Sentinel节点发现自己的票数已经大于等于MAX(quorum, num(sentinels)/2+1)（票数过半？），那么它将成为领导者；</li>
+<li>如果此过程没有选举出领导者，将进入下一次选举。</li>
+</ol>
+<p><strong>故障转移</strong></p>
+<p>选举出的Leader Sentinel节点将负责故障转移，也就是进行master/slave节点的主从切换。故障转移，首先要从slave节点中筛选出一个作为新的master，主要考虑以下slave信息：</p>
+<ol>
+<li>跟master断开连接的时长：如果一个slave跟master的断开连接时长已经超过了down-after-milliseconds的10倍，外加master宕机的时长，那么该slave就被认为不适合选举为master（断开时间越长越不合适）；</li>
+<li>slave的优先级配置：slave priority参数值越小，优先级就越高；</li>
+<li>复制offset：当优先级相同时，哪个slave复制了越多的数据（offset越靠后），优先级越高；</li>
+<li>run id：如果offset和优先级都相同，则哪个slave的run id越小，优先级越高。</li>
+</ol>
+<p>然后向这个从节点发送slaveof no one命令，让其成为主节点，通过slaveof 命令让其他从节点成为它的从节点，将已下线的主节点更新为新的主节点的从节点，将其他从节点的复制目标改完新的主节点，将旧的主服务器改为从服务器。</p>
+<p>总结来说就是 sentinel 可以监控一个或者多个 master-slaver 集群，定时对每个节点进行健康检查，可以通过 API 发送通知，并自动进行故障转移。<strong>使用了 redis sentinel 之后客户端不再直接连接 redis 节点获取服务，而是使用 sentinel 代理获取 redis 服务</strong>，类似 Nginx 的代理模式。那么这里又有一个新问题，就是<strong>如果 sentinel 宕机了，那么客户端就找不到 redis 服务了，所以 sentinel 本身也是需要支持高可用。</strong></p>
+<p><img src="/2021/07/23/Redis高可用之哨兵实战/img/0010.png" alt="0010"></p>
+<p><strong>Sentinel状态持久化</strong></p>
+<p>snetinel的状态会被持久化地写入sentinel的配置文件中。每次当收到一个新的配置时，或者新创建一个配置时，配置会被持久化到硬盘中，并带上配置的版本戳。这意味着，可以安全的停止和重启sentinel进程。</p>
+<h3 id="3-2-哨兵搭建"><a href="#3-2-哨兵搭建" class="headerlink" title="3.2 哨兵搭建"></a><strong>3.2 哨兵搭建</strong></h3><p>哨兵的配置主要就是修改sentinel.conf配置文件中的参数，在Redis安装目录即可看到此配置文件，各参数详解如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"># 哨兵sentinel实例运行的端口，默认26379  </div><div class="line">port 26379</div><div class="line"># 哨兵sentinel的工作目录</div><div class="line">dir /tmp</div><div class="line"># 是否开启保护模式，默认开启。</div><div class="line">protected-mode:no</div><div class="line"># 是否设置为后台启动。</div><div class="line">daemonize yes</div><div class="line"></div><div class="line"># 哨兵sentinel的日志文件</div><div class="line">logfile sentinel.log</div><div class="line"></div><div class="line"># 哨兵sentinel监控的redis主节点的 </div><div class="line">## ip：主机ip地址</div><div class="line">## port：哨兵端口号</div><div class="line">## master-name：可以自己命名的主节点名字（只能由字母A-z、数字0-9 、这三个字符&quot;.-_&quot;组成。）</div><div class="line">## quorum：当这些quorum个数sentinel哨兵认为master主节点失联 那么这时 客观上认为主节点失联了  </div><div class="line"># sentinel monitor &lt;master-name&gt; &lt;ip&gt; &lt;redis-port&gt; &lt;quorum&gt;  </div><div class="line"></div><div class="line"></div><div class="line"># 当在Redis实例中开启了requirepass，所有连接Redis实例的客户端都要提供密码。</div><div class="line"># sentinel auth-pass &lt;master-name&gt; &lt;password&gt;  </div><div class="line"></div><div class="line"></div><div class="line"># 指定主节点应答哨兵sentinel的最大时间间隔，超过这个时间，哨兵主观上认为主节点下线，默认30秒  </div><div class="line"># sentinel down-after-milliseconds &lt;master-name&gt; &lt;milliseconds&gt;</div><div class="line">sentinel down-after-milliseconds mymaster 30000  </div><div class="line"></div><div class="line"># 指定了在发生failover主备切换时，最多可以有多少个slave同时对新的master进行同步。这个数字越小，完成failover所需的时间就越长；反之，但是如果这个数字越大，就意味着越多的slave因为replication而不可用。可以通过将这个值设为1，来保证每次只有一个slave，处于不能处理命令请求的状态。</div><div class="line"># sentinel parallel-syncs &lt;master-name&gt; &lt;numslaves&gt;</div><div class="line">sentinel parallel-syncs mymaster 1  </div><div class="line"></div><div class="line"># 故障转移的超时时间failover-timeout，默认三分钟，可以用在以下这些方面：</div><div class="line">## 1. 同一个sentinel对同一个master两次failover之间的间隔时间。  </div><div class="line">## 2. 当一个slave从一个错误的master那里同步数据时开始，直到slave被纠正为从正确的master那里同步数据时结束。  </div><div class="line">## 3. 当想要取消一个正在进行的failover时所需要的时间。</div><div class="line">## 4.当进行failover时，配置所有slaves指向新的master所需的最大时间。不过，即使过了这个超时，slaves依然会被正确配置为指向master，但是就不按parallel-syncs所配置的规则来同步数据了</div><div class="line"># sentinel failover-timeout &lt;master-name&gt; &lt;milliseconds&gt;  </div><div class="line">sentinel failover-timeout mymaster 180000</div><div class="line"></div><div class="line"># 当sentinel有任何警告级别的事件发生时（比如说redis实例的主观失效和客观失效等等），将会去调用这个脚本。一个脚本的最大执行时间为60s，如果超过这个时间，脚本将会被一个SIGKILL信号终止，之后重新执行。</div><div class="line"># 对于脚本的运行结果有以下规则：  </div><div class="line">## 1. 若脚本执行后返回1，那么该脚本稍后将会被再次执行，重复次数目前默认为10。</div><div class="line">## 2. 若脚本执行后返回2，或者比2更高的一个返回值，脚本将不会重复执行。  </div><div class="line">## 3. 如果脚本在执行过程中由于收到系统中断信号被终止了，则同返回值为1时的行为相同。</div><div class="line"># sentinel notification-script &lt;master-name&gt; &lt;script-path&gt;  </div><div class="line"></div><div class="line"></div><div class="line"># 这个脚本应该是通用的，能被多次调用，不是针对性的。</div><div class="line"># sentinel client-reconfig-script &lt;master-name&gt; &lt;script-path&gt;</div></pre></td></tr></table></figure>
+<p>这里我们部署三个哨兵，使用3个哨兵1主2从的模式。每台服务器一个哨兵，配置方式相同，如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">//端口默认为26379。</div><div class="line">port 26379</div><div class="line">//关闭保护模式，可以外部访问。</div><div class="line">protected-mode no</div><div class="line">//设置为后台启动。</div><div class="line">daemonize yes</div><div class="line">//日志文件。</div><div class="line">logfile  &quot;sentinel_01.log&quot;</div><div class="line">//指定主机IP地址和端口，并且指定当有2台哨兵认为主机挂了，则对主机进行容灾切换。</div><div class="line">sentinel monitor mymaster 192.168.25.128 6379 2</div><div class="line">//当在Redis实例中开启了requirepass，这里就需要提供密码。</div><div class="line">sentinel auth-pass mymaster 123456</div><div class="line">//这里设置了主机多少秒无响应，则认为挂了。</div><div class="line">sentinel down-after-milliseconds mymaster 30000</div><div class="line">//主备切换时，最多有多少个slave同时对新的master进行同步，这里设置为默认的1。</div><div class="line">snetinel parallel-syncs mymaster 1</div><div class="line">//故障转移的超时时间，这里设置为三分钟。</div><div class="line">sentinel failover-timeout mymaster 180000</div></pre></td></tr></table></figure>
+<p>其他两个哨兵跟上面的配置一样，因为在同一台机器，所以需要改一下端口号和日志文件名。</p>
+<p>完成设置后进行防火墙设置，命令如下，这里根据自己设置的端口进行更改。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --add-port=26379/tcp --permanent --zone=public</div><div class="line"></div><div class="line">#重启防火墙(修改配置后要重启防火墙)</div><div class="line">firewall-cmd --reload</div></pre></td></tr></table></figure>
+<p>进行以上配置后，分别启动三个哨兵：</p>
+<p><img src="/2021/07/23/Redis高可用之哨兵实战/img/0011.png" alt="0011" style="zoom:150%;"></p>
+<p>使用netstat -lntp命令查看是否启动成功：</p>
+<p><img src="/2021/07/23/Redis高可用之哨兵实战/img/0012.png" alt="0012" style="zoom:80%;"></p>
+<p>查看哨兵详细信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">./redis-cli -p 26379</div><div class="line">info</div></pre></td></tr></table></figure>
+<p><img src="/2021/07/23/Redis高可用之哨兵实战/img/0013.png" alt="0013"></p>
+<p>可以看到，我们分别设置了一主两从三个哨兵。集群拓扑结构图如下：</p>
+<p><img src="/2021/07/23/Redis高可用之哨兵实战/img/0014.png" alt="0014"></p>
+<h2 id="四、容灾切换"><a href="#四、容灾切换" class="headerlink" title="四、容灾切换"></a><strong>四、容灾切换</strong></h2><p>我们模拟主机宕机，将主机 redis 服务关闭，如下</p>
+<p><img src="/2021/07/23/Redis高可用之哨兵实战/img/0015.png" alt="0015"></p>
+<p>现在我们去看三台服务器的情况，发现刚才的主机（192.168.231.130  <strong>6379</strong>）已经变成了从机，并且哨兵（Sentinel）通过选举机制选举了从机（192.168.231.131  <strong>6381</strong>）作为了新的主机，如下</p>
+<p><img src="/2021/07/23/Redis高可用之哨兵实战/img/0016.png" alt="0016"></p>
+<p>进入192.168.231.131  <strong>6381</strong> 可以看到它已经由从机（slave）变为了主机（master），并且成功连接从机，如下：</p>
+<p><img src="/2021/07/23/Redis高可用之哨兵实战/img/0017.png" alt="0017"></p>
+<p>需要注意的是，主从切换后配置文件已经被自动进行了更改，哨兵会在192.168.231.130  <strong>6379</strong> 这个Redis实例的配置文件后面追加一行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">replicaof 192.168.25.128 6381</div></pre></td></tr></table></figure>
+<p>指定当本机（192.168.231.130  <strong>6379</strong>）为 slave 服务器，设置 master 服务（192.168.231.130  <strong>6381</strong>）的IP地址及端口。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/IMG_1125.JPG">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/IMG_1124.JPG">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/" class="archive-article-date">
-  	<time datetime="2020-10-13T05:31:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/10/13/订单超时-从阻塞延迟队列到消息队列/">订单超时-从阻塞延迟队列到消息队列</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -283,98 +478,134 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://www.xujie1024.club/2021/07/23/Redis高可用之哨兵实战/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/03/jwt/" class="archive-article-date">
-  	<time datetime="2020-05-03T13:31:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-03</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2021/03/13/CAP理论/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CAP理论</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/03/jwt/">使用jwt在复杂系统中做权限验证</a>
-    </h1>
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Redis高可用之哨兵实战" data-title="Redis高可用之哨兵实战" data-url="https://www.xujie1024.club/2021/07/23/Redis高可用之哨兵实战/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "https://www.xujie1024.club/2021/07/23/Redis高可用之哨兵实战/", 
+    sourceId: "Redis高可用之哨兵实战",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/12/设计模式之代理模式/" class="archive-article-date">
-  	<time datetime="2020-04-12T13:14:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/12/设计模式之代理模式/">设计模式之代理模式</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/5/">5</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -402,8 +633,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

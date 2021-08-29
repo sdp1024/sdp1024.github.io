@@ -479,31 +479,35 @@
 
 
   
-    <article id="post-过滤器与拦截器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Apriori算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/13/过滤器与拦截器/">过滤器与拦截器</a>
+      <a class="article-title" href="/2019/12/09/Apriori算法/">Apriori算法笔记</a>
     </h1>
   
 
         
-        <a href="/2019/11/13/过滤器与拦截器/" class="archive-article-date">
-  	<time datetime="2019-11-13T02:21:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-13</time>
+        <a href="/2019/12/09/Apriori算法/" class="archive-article-date">
+  	<time datetime="2019-12-09T07:13:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、Filter"><a href="#一、Filter" class="headerlink" title="一、Filter"></a>一、Filter</h2><h3 id="1-1-什么是过滤器"><a href="#1-1-什么是过滤器" class="headerlink" title="1.1 什么是过滤器"></a>1.1 什么是过滤器</h3><p>Filter 过滤器主要是用来过滤用户请求的，它允许我们对用户请求进行前置处理和后置处理，比如实现 URL 级别的权限控制、过滤非法请求等等。Filter 过滤器是面向切面编程——AOP 的具体实现（AOP切面编程只是一种编程思想而已）。</p>
-<p>Filter 是依赖于 Servlet 容器，Filter接口就在 Servlet 包下面，属于 Servlet 规范的一部分。所以，很多时候我们也称其为“增强版 Servlet”。</p>
-<p>如果我们需要自定义 Filter 的话非常简单，只需要实现 javax.Servlet.Filter 接口，然后重写里面的 3 个方法即可。</p>
+        <h2 id="一、Apriori算法基础概念"><a href="#一、Apriori算法基础概念" class="headerlink" title="一、Apriori算法基础概念"></a>一、Apriori算法基础概念</h2><p>Apriori算法是第一个关联规则挖掘算法，也是最经典的算法。它利用逐层搜索的迭代方法找出数据库中项集的关系，以形成规则，其过程由连接（类矩阵运算）与剪枝（去掉那些没必要的中间结果）组成。</p>
+<p>选择物品间的关联规则也就是要寻找物品之间的潜在关系。要寻找这种关系，有两步，以超市为例</p>
+<ol>
+<li>找出频繁一起出现的物品集的集合，我们称之为<strong>频繁项集</strong>。比如一个超市的频繁项集可能有((啤酒,尿布),(鸡蛋,牛奶),(香蕉,苹果))</li>
+<li>在<strong>频繁项集</strong>的基础上，使用<strong>关联规则</strong>算法找出其中物品的<strong>关联结果</strong>。</li>
+</ol>
+<p>简单点说，就是先找频繁项集，再根据关联规则找关联物品。</p>
         
-          <a class="article-more-a" href="/2019/11/13/过滤器与拦截器/#more">more >></a>
+          <a class="article-more-a" href="/2019/12/09/Apriori算法/#more">more >></a>
         
       
 
@@ -527,7 +531,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/13/过滤器与拦截器/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/12/09/Apriori算法/">展开全文 >></a>
         </p>
       
 

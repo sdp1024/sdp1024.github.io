@@ -6,17 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.xujie1024.club">
-  <title>Tag: 博客 | Jyo的个人博客</title>
+  <title>Apriori算法笔记 | Jyo的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="程序猿,程序猿,搭建,前端,后端,js,javascript,java,python,html,编程,代码,博客,教程,jquery,spring,spring mvc,mybatis,mysql">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jyo的个人博客">
-<meta property="og:url" content="https://www.xujie1024.club/tags/博客/page/5/index.html">
+  <meta name="description" content="一、Apriori算法基础概念Apriori算法是第一个关联规则挖掘算法，也是最经典的算法。它利用逐层搜索的迭代方法找出数据库中项集的关系，以形成规则，其过程由连接（类矩阵运算）与剪枝（去掉那些没必要的中间结果）组成。 选择物品间的关联规则也就是要寻找物品之间的潜在关系。要寻找这种关系，有两步，以超市为例  找出频繁一起出现的物品集的集合，我们称之为频繁项集。比如一个超市的频繁项集可能有((啤酒,">
+<meta name="keywords" content="博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Apriori算法笔记">
+<meta property="og:url" content="https://www.xujie1024.club/2019/12/09/Apriori算法/index.html">
 <meta property="og:site_name" content="Jyo的个人博客">
-<meta property="og:description" content="程序猿,程序猿,搭建,前端,后端,js,javascript,java,python,html,编程,代码,博客,教程,jquery,spring,spring mvc,mybatis,mysql">
+<meta property="og:description" content="一、Apriori算法基础概念Apriori算法是第一个关联规则挖掘算法，也是最经典的算法。它利用逐层搜索的迭代方法找出数据库中项集的关系，以形成规则，其过程由连接（类矩阵运算）与剪枝（去掉那些没必要的中间结果）组成。 选择物品间的关联规则也就是要寻找物品之间的潜在关系。要寻找这种关系，有两步，以超市为例  找出频繁一起出现的物品集的集合，我们称之为频繁项集。比如一个超市的频繁项集可能有((啤酒,">
+<meta property="og:image" content="https://www.xujie1024.club/2019/12/09/Apriori算法/img/0001.png">
+<meta property="og:image" content="https://www.xujie1024.club/2019/12/09/Apriori算法/img/0002.png">
+<meta property="og:image" content="https://www.xujie1024.club/2019/12/09/Apriori算法/img/0003.png">
+<meta property="og:image" content="https://www.xujie1024.club/2019/12/09/Apriori算法/img/0004.png">
+<meta property="og:image" content="https://www.xujie1024.club/2019/12/09/Apriori算法/img/0005.png">
+<meta property="og:image" content="https://www.xujie1024.club/2019/12/09/Apriori算法/img/0006.png">
+<meta property="og:image" content="https://www.xujie1024.club/2019/12/09/Apriori算法/img/0007.png">
+<meta property="og:image" content="https://www.xujie1024.club/2019/12/09/Apriori算法/img/0008.png">
+<meta property="og:updated_time" content="2021-08-29T05:35:48.653Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jyo的个人博客">
-<meta name="twitter:description" content="程序猿,程序猿,搭建,前端,后端,js,javascript,java,python,html,编程,代码,博客,教程,jquery,spring,spring mvc,mybatis,mysql">
+<meta name="twitter:title" content="Apriori算法笔记">
+<meta name="twitter:description" content="一、Apriori算法基础概念Apriori算法是第一个关联规则挖掘算法，也是最经典的算法。它利用逐层搜索的迭代方法找出数据库中项集的关系，以形成规则，其过程由连接（类矩阵运算）与剪枝（去掉那些没必要的中间结果）组成。 选择物品间的关联规则也就是要寻找物品之间的潜在关系。要寻找这种关系，有两步，以超市为例  找出频繁一起出现的物品集的集合，我们称之为频繁项集。比如一个超市的频繁项集可能有((啤酒,">
+<meta name="twitter:image" content="https://www.xujie1024.club/2019/12/09/Apriori算法/img/0001.png">
   
     <link rel="alternative" href="/atom.xml" title="Jyo的个人博客" type="application/atom+xml">
   
@@ -156,36 +167,106 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Apriori算法" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Apriori算法笔记
+    </h1>
+  
+
+        
+        <a href="/2019/12/09/Apriori算法/" class="archive-article-date">
+  	<time datetime="2019-12-09T07:13:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-09</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、Apriori算法基础概念"><a href="#一、Apriori算法基础概念" class="headerlink" title="一、Apriori算法基础概念"></a>一、Apriori算法基础概念</h2><p>Apriori算法是第一个关联规则挖掘算法，也是最经典的算法。它利用逐层搜索的迭代方法找出数据库中项集的关系，以形成规则，其过程由连接（类矩阵运算）与剪枝（去掉那些没必要的中间结果）组成。</p>
+<p>选择物品间的关联规则也就是要寻找物品之间的潜在关系。要寻找这种关系，有两步，以超市为例</p>
+<ol>
+<li>找出频繁一起出现的物品集的集合，我们称之为<strong>频繁项集</strong>。比如一个超市的频繁项集可能有((啤酒,尿布),(鸡蛋,牛奶),(香蕉,苹果))</li>
+<li>在<strong>频繁项集</strong>的基础上，使用<strong>关联规则</strong>算法找出其中物品的<strong>关联结果</strong>。</li>
+</ol>
+<p>简单点说，就是先找频繁项集，再根据关联规则找关联物品。</p>
+<a id="more"></a>
+<h3 id="1-1-几个概念"><a href="#1-1-几个概念" class="headerlink" title="1.1 几个概念"></a>1.1 几个概念</h3><p>以一个超市的部分购买记录为例：</p>
+<p><img src="/2019/12/09/Apriori算法/img/0001.png" alt="image-20200505201624200"></p>
+<p><strong>1、支持度（Support）</strong>：指事件的发生概率，支持度可以理解为物品当前流行程度。计算公式如下：</p>
+<p><img src="/2019/12/09/Apriori算法/img/0002.png" alt="image-20200505201624200"></p>
+<p>用上面的例子来说：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">支持度 = （包含物品A的记录数量） / （总的记录数量）</div></pre></td></tr></table></figure>
+<p>用上面的超市记录举例，一共有五个交易，牛奶出现在三个交易中，故而{牛奶}的支持度为3/5。{鸡蛋}的支持度是4/5。牛奶和鸡蛋同时出现的次数是2，故而{牛奶，鸡蛋}的支持度为2/5。</p>
+<p><strong>2、置信度（Confidence）</strong>：指发生事件A的基础上发生事件B的概率，可以理解为如果购买物品A，有较大可能购买物品B。</p>
+<p><img src="/2019/12/09/Apriori算法/img/0003.png" alt="image-20200505201624200"></p>
+<p>用上面的例子来说：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">置信度(A -&gt; B) = （包含物品A和B的记录数量） / （包含 A 的记录数量）</div></pre></td></tr></table></figure>
+<p>​                置信度( A -&gt; B) = （包含物品A和B的记录数量） / （包含 A 的记录数量）              </p>
+<p>我们已经知道，(牛奶，鸡蛋)一起购买的次数是两次，鸡蛋的购买次数是4次。那么Confidence(牛奶-&gt;鸡蛋)的计算方式是Confidence(牛奶-&gt;鸡蛋)=2 / 4。</p>
+<p><strong>3、频繁项集</strong>：在所有训练元组中同时出现的次数超过人工定义的阈值（支持度）的项集称为频繁项集。</p>
+<p><strong>4、关联规则</strong>：关联规则就是在给定训练项集上频繁出现的项集与项集之间的一种紧密的联系，其中“频繁”是由人为设定的一个阈值即支持度 （support）来衡量，“紧密”也是由人为设定的一个关联阈值即置信度（confidence）来衡量的。</p>
+<p><strong>1.2 Apriori算法的性质</strong></p>
+<p>Apriori的作用是根据物品间的支持度找出物品中的频繁项集。通过上面我们知道，支持度越高，说明物品越受欢迎。那么支持度怎么决定呢？这个是我们主观决定的，我们会给Apriori提供一个最小支持度参数，然后Apriori会返回比这个最小支持度高的那些频繁项集。有人可能会发现，<strong>既然都知道了支持度的计算公式，那直接遍历所有组合计算它们的支持度不就可以了吗？</strong>确实可以通过遍历所有组合就能找出所有频繁项集。但问题是遍历所有组合花的时间太多，效率太低，假设有N个物品，那么一共需要计算2^N-1次。每增加一个物品，数量级是成指数增长。而Apriori就是一种找出频繁项集的高效算法。它的核心就是下面这句话：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">某个项集是频繁的，那么它的所有子集也是频繁的。</div><div class="line"></div><div class="line">如果一个项集是非频繁项集，那么它的所有超集也是非频繁项集。</div></pre></td></tr></table></figure>
+<p><img src="/2019/12/09/Apriori算法/img/0004.png" alt="image-20200505201624200" style="zoom: 50%;"></p>
+<p>如图所示，我们发现{A,B}这个项集是非频繁的，那么{A,B}这个项集的超集，{A,B,C},{A,B,D}等等也都是非频繁的，这些就都可以忽略不去计算。运用Apriori算法的思想，我们就能去掉很多非频繁的项集，大大简化计算量。</p>
+<h2 id="二、Apriori算法流程"><a href="#二、Apriori算法流程" class="headerlink" title="二、Apriori算法流程"></a>二、Apriori算法流程</h2><p>关联分析的目标包括两项：发现频繁项集和发现关联规则。首先需要找到频繁项集，然后才能获得关联规则。</p>
+<p>要使用Apriori算法，我们需要提供两个参数，<strong>数据集和最小支持度</strong>。我们从前面已经知道了Apriori会遍历所有的物品组合，使用递归算法，先遍历1个物品组合的情况，剔除掉支持度低于最小支持度的数据项，然后用剩下的物品进行组合。遍历2个物品组合的情况，再剔除不满足条件的组合。不断递归下去，直到不再有物品可以组合。</p>
+<p><strong>发现频繁项</strong></p>
+<p>以一个超市的交易记录为例：</p>
+<p><img src="/2019/12/09/Apriori算法/img/0005.png" alt="image-20200505201624200"></p>
+<p>Apriori算法发现频繁项集的过程如下：</p>
+<p><img src="/2019/12/09/Apriori算法/img/0006.png" alt="image-20200505201624200"></p>
+<p><strong>发现关联规则</strong></p>
+<p>我们的目标是通过频繁项集挖掘到隐藏的关联规则。还是以上篇的超市交易数据为例，我们发现了如下的频繁项集：</p>
+<p><img src="/2019/12/09/Apriori算法/img/0007.png" alt="image-20200505201624200"></p>
+<p>对于寻找关联规则来说，频繁1项集L1没有用处，因为L1中的每个集合仅有一个数据项，至少有两个数据项才能生成A→B这样的关联规则。</p>
+<p>设最小置信度取0.5，以L2为例，L2最终能够挖掘出9条关联规则：</p>
+<p><img src="/2019/12/09/Apriori算法/img/0008.png" alt="img" style="zoom:80%;"></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/IMG_1125.JPG">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/IMG_1124.JPG">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/22/intellij/" class="archive-article-date">
-  	<time datetime="2017-08-22T09:47:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/22/intellij/">intellij</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -197,136 +278,143 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://www.xujie1024.club/2019/12/09/Apriori算法/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/21/Idea快速入门/" class="archive-article-date">
-  	<time datetime="2017-08-21T15:31:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-21</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/03/13/设计模式之单例模式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          设计模式之单例模式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/11/13/过滤器与拦截器/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">过滤器与拦截器</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/21/Idea快速入门/">Idea快速入门</a>
-    </h1>
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Apriori算法" data-title="Apriori算法笔记" data-url="https://www.xujie1024.club/2019/12/09/Apriori算法/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "https://www.xujie1024.club/2019/12/09/Apriori算法/", 
+    sourceId: "Apriori算法",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/14/js-jquery/" class="archive-article-date">
-  	<time datetime="2017-08-14T12:03:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/14/js-jquery/">js  、jquery常见的dom操作</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/12/hexo-gitPages/" class="archive-article-date">
-  	<time datetime="2017-08-12T06:32:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/12/hexo-gitPages/">github pages + hexo 搭建个人博客站点</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/tags/博客/page/4/">&laquo; Prev</a><a class="page-number" href="/tags/博客/">1</a><span class="space">&hellip;</span><a class="page-number" href="/tags/博客/page/3/">3</a><a class="page-number" href="/tags/博客/page/4/">4</a><span class="page-number current">5</span>
-    </nav>
   
 
 
@@ -354,9 +442,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

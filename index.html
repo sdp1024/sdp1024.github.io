@@ -235,6 +235,87 @@
 
 
   
+    <article id="post-ShardingJDBC实战" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/05/17/ShardingJDBC实战/">Sharding-JDBC分库分表实战（整合Druid开启监控）</a>
+    </h1>
+  
+
+        
+        <a href="/2021/05/17/ShardingJDBC实战/" class="archive-article-date">
+  	<time datetime="2021-05-17T13:45:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、Sharding-JDBC基本原理"><a href="#一、Sharding-JDBC基本原理" class="headerlink" title="一、Sharding-JDBC基本原理"></a>一、Sharding-JDBC基本原理</h2><h3 id="1-1-基本概念"><a href="#1-1-基本概念" class="headerlink" title="1.1.  基本概念"></a>1.1.  基本概念</h3><p><strong>逻辑表</strong></p>
+<p>水平拆分的数据表的总称。例：订单数据表根据主键尾数拆分为10张表，分别是 t_order_0 、 t_order_1 到 t_order_9 ，他们的逻辑表名为 t_order 。</p>
+<p><strong>真实表</strong></p>
+<p>在分片的数据库中真实存在的物理表。即上个示例中的 t_order_0 到 t_order_9 。 </p>
+<p><strong>数据节点</strong></p>
+<p>数据分片的最小物理单元。由数据源名称和数据表组成，例： ds_0.t_order_0 。</p>
+        
+          <a class="article-more-a" href="/2021/05/17/ShardingJDBC实战/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/05/17/ShardingJDBC实战/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CAP理论" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -437,84 +518,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/07/19/安装GPU版本的pytorch（Anaconda环境）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-jwt" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/03/jwt/">使用jwt在复杂系统中做权限验证</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/03/jwt/" class="archive-article-date">
-  	<time datetime="2020-05-03T13:31:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、预备知识"><a href="#一、预备知识" class="headerlink" title="一、预备知识"></a><strong>一、预备知识</strong></h2><h3 id="1、JWT是什么"><a href="#1、JWT是什么" class="headerlink" title="1、JWT是什么"></a>1、JWT是什么</h3><p>​    JWT全称Json web token，官网对他的介绍如下</p>
-<p><img src="/2020/05/03/jwt/img\image-20200505201624200.png" alt="image-20200505201624200"></p>
-<p>由介绍可知，JWT是为了网络应用环境间传递声明而执行的一种开放的基于RFC7519方法的产业标准。简单来说，JWT就是token的一种产业标准，他规定了token的格式、加密算法、声明等等。</p>
-        
-          <a class="article-more-a" href="/2020/05/03/jwt/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/03/jwt/">展开全文 >></a>
         </p>
       
 

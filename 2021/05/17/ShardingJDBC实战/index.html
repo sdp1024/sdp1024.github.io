@@ -6,17 +6,33 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.xujie1024.club">
-  <title>Archives: 2021 | Jyo的个人博客</title>
+  <title>Sharding-JDBC分库分表实战（整合Druid开启监控） | Jyo的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="程序猿,程序猿,搭建,前端,后端,js,javascript,java,python,html,编程,代码,博客,教程,jquery,spring,spring mvc,mybatis,mysql">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jyo的个人博客">
-<meta property="og:url" content="https://www.xujie1024.club/archives/2021/index.html">
+  <meta name="description" content="一、Sharding-JDBC基本原理1.1.  基本概念逻辑表 水平拆分的数据表的总称。例：订单数据表根据主键尾数拆分为10张表，分别是 t_order_0 、 t_order_1 到 t_order_9 ，他们的逻辑表名为 t_order 。 真实表 在分片的数据库中真实存在的物理表。即上个示例中的 t_order_0 到 t_order_9 。  数据节点 数据分片的最小物理单元。由数据源名">
+<meta name="keywords" content="博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sharding-JDBC分库分表实战（整合Druid开启监控）">
+<meta property="og:url" content="https://www.xujie1024.club/2021/05/17/ShardingJDBC实战/index.html">
 <meta property="og:site_name" content="Jyo的个人博客">
-<meta property="og:description" content="程序猿,程序猿,搭建,前端,后端,js,javascript,java,python,html,编程,代码,博客,教程,jquery,spring,spring mvc,mybatis,mysql">
+<meta property="og:description" content="一、Sharding-JDBC基本原理1.1.  基本概念逻辑表 水平拆分的数据表的总称。例：订单数据表根据主键尾数拆分为10张表，分别是 t_order_0 、 t_order_1 到 t_order_9 ，他们的逻辑表名为 t_order 。 真实表 在分片的数据库中真实存在的物理表。即上个示例中的 t_order_0 到 t_order_9 。  数据节点 数据分片的最小物理单元。由数据源名">
+<meta property="og:image" content="https://www.xujie1024.club/2021/05/17/ShardingJDBC实战/img/0001.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/05/17/ShardingJDBC实战/img/0002.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/05/17/ShardingJDBC实战/img/0003.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/05/17/ShardingJDBC实战/img/0004.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/05/17/ShardingJDBC实战/img/0005.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/05/17/ShardingJDBC实战/img/0006.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/05/17/ShardingJDBC实战/img/0007.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/05/17/ShardingJDBC实战/img/0008.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/05/17/ShardingJDBC实战/img/0009.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/05/17/ShardingJDBC实战/img/0010.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/05/17/ShardingJDBC实战/img/0011.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/05/17/ShardingJDBC实战/img/0012.png">
+<meta property="og:image" content="https://www.xujie1024.club/2021/05/17/ShardingJDBC实战/img/0013.png">
+<meta property="og:updated_time" content="2021-08-30T17:05:54.508Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jyo的个人博客">
-<meta name="twitter:description" content="程序猿,程序猿,搭建,前端,后端,js,javascript,java,python,html,编程,代码,博客,教程,jquery,spring,spring mvc,mybatis,mysql">
+<meta name="twitter:title" content="Sharding-JDBC分库分表实战（整合Druid开启监控）">
+<meta name="twitter:description" content="一、Sharding-JDBC基本原理1.1.  基本概念逻辑表 水平拆分的数据表的总称。例：订单数据表根据主键尾数拆分为10张表，分别是 t_order_0 、 t_order_1 到 t_order_9 ，他们的逻辑表名为 t_order 。 真实表 在分片的数据库中真实存在的物理表。即上个示例中的 t_order_0 到 t_order_9 。  数据节点 数据分片的最小物理单元。由数据源名">
+<meta name="twitter:image" content="https://www.xujie1024.club/2021/05/17/ShardingJDBC实战/img/0001.png">
   
     <link rel="alternative" href="/atom.xml" title="Jyo的个人博客" type="application/atom+xml">
   
@@ -156,74 +172,228 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-ShardingJDBC实战" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/07/23/Redis高可用之哨兵实战/" class="archive-article-date">
-  	<time datetime="2021-07-23T12:45:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-23</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/07/23/Redis高可用之哨兵实战/">Redis高可用之哨兵实战</a>
+    <h1 class="article-title" itemprop="name">
+      Sharding-JDBC分库分表实战（整合Druid开启监控）
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/05/17/ShardingJDBC实战/" class="archive-article-date">
+        
+        <a href="/2021/05/17/ShardingJDBC实战/" class="archive-article-date">
   	<time datetime="2021-05-17T13:45:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-17</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/05/17/ShardingJDBC实战/">Sharding-JDBC分库分表实战（整合Druid开启监控）</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、Sharding-JDBC基本原理"><a href="#一、Sharding-JDBC基本原理" class="headerlink" title="一、Sharding-JDBC基本原理"></a>一、Sharding-JDBC基本原理</h2><h3 id="1-1-基本概念"><a href="#1-1-基本概念" class="headerlink" title="1.1.  基本概念"></a>1.1.  基本概念</h3><p><strong>逻辑表</strong></p>
+<p>水平拆分的数据表的总称。例：订单数据表根据主键尾数拆分为10张表，分别是 t_order_0 、 t_order_1 到 t_order_9 ，他们的逻辑表名为 t_order 。</p>
+<p><strong>真实表</strong></p>
+<p>在分片的数据库中真实存在的物理表。即上个示例中的 t_order_0 到 t_order_9 。 </p>
+<p><strong>数据节点</strong></p>
+<p>数据分片的最小物理单元。由数据源名称和数据表组成，例： ds_0.t_order_0 。</p>
+<a id="more"></a>
+<p><strong>绑定表</strong></p>
+<p>指分片规则一致的主表和子表。例如： t_order 表和 t_order_item 表，均按照 order_id 分片,绑定表之间的分区键完全相同，则此两张表互为绑定表关系。绑定表之间的多表关联查询不会出现笛卡尔积关联，关联查询效率将大大提升。举例说明，如果SQL为： </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> i.* <span class="keyword">FROM</span> t_order o <span class="keyword">JOIN</span> t_order_item i <span class="keyword">ON</span> o.order_id=i.order_id <span class="keyword">WHERE</span> o.order_id <span class="keyword">in</span> (<span class="number">10</span>,<span class="number">11</span>);</div></pre></td></tr></table></figure>
+<p>在不配置绑定表关系时，假设分片键 order_id 将数值10路由至第0片，将数值11路由至第1片，那么路由后的SQL应该为4条，它们呈现为笛卡尔积： </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> i.* <span class="keyword">FROM</span> t_order_0 o <span class="keyword">JOIN</span> t_order_item_0 i <span class="keyword">ON</span> o.order_id=i.order_id <span class="keyword">WHERE</span> o.order_id <span class="keyword">in</span> (<span class="number">10</span>, <span class="number">11</span>); </div><div class="line"><span class="keyword">SELECT</span> i.* <span class="keyword">FROM</span> t_order_0 o <span class="keyword">JOIN</span> t_order_item_1 i <span class="keyword">ON</span> o.order_id=i.order_id <span class="keyword">WHERE</span> o.order_id <span class="keyword">in</span> (<span class="number">10</span>, <span class="number">11</span>); </div><div class="line"><span class="keyword">SELECT</span> i.* <span class="keyword">FROM</span> t_order_1 o <span class="keyword">JOIN</span> t_order_item_0 i <span class="keyword">ON</span> o.order_id=i.order_id <span class="keyword">WHERE</span> o.order_id <span class="keyword">in</span> (<span class="number">10</span>, <span class="number">11</span>); </div><div class="line"><span class="keyword">SELECT</span> i.* <span class="keyword">FROM</span> t_order_1 o <span class="keyword">JOIN</span> t_order_item_1 i <span class="keyword">ON</span> o.order_id=i.order_id <span class="keyword">WHERE</span> o.order_id <span class="keyword">in</span> (<span class="number">10</span>, <span class="number">11</span>);</div></pre></td></tr></table></figure>
+<p>​    在配置绑定表关系后，路由的SQL应该为2条：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> i.* <span class="keyword">FROM</span> t_order_0 o <span class="keyword">JOIN</span> t_order_item_0 i <span class="keyword">ON</span> o.order_id=i.order_id <span class="keyword">WHERE</span> o.order_id <span class="keyword">in</span> (<span class="number">10</span>, <span class="number">11</span>); </div><div class="line"><span class="keyword">SELECT</span> i.* <span class="keyword">FROM</span> t_order_1 o <span class="keyword">JOIN</span> t_order_item_1 i <span class="keyword">ON</span> o.order_id=i.order_id <span class="keyword">WHERE</span> o.order_id <span class="keyword">in</span> (<span class="number">10</span>, <span class="number">11</span>);</div></pre></td></tr></table></figure>
+<p><strong>广播表</strong></p>
+<p>指所有的分片数据源中都存在的表，表结构和表中的数据在每个数据库中均完全一致。适用于数据量不大且需要与海量数据的表进行关联查询的场景，例如：字典表。</p>
+<p><strong>分片键</strong></p>
+<p>用于分片的数据库字段，是将数据库(表)水平拆分的关键字段。例：将订单表中的订单主键的尾数取模分片，则订单主键为分片字段。 SQL中如果无分片字段，将执行全路由，性能较差。 除了对单分片字段的支持，ShardingJdbc也支持根据多个字段进行分片。</p>
+<p><strong>分片算法</strong> </p>
+<p>通过分片算法将数据分片，支持通过 = 、 BETWEEN 和 IN 分片。分片算法需要应用方开发者自行实现，可实现的灵活度非常高。包括：精确分片算法 、范围分片算法 ，复合分片算法 等。例如：where order_id = ? 将采用精确分片算法，where order_id in (?,?,?)将采用精确分片算法，where order_id BETWEEN ? and ? 将采用范围分片算法，复合分片算法用于分片键有多个复杂情况。</p>
+<p><strong>分片策略</strong></p>
+<p>包含分片键和分片算法，由于分片算法的独立性，将其独立抽离。真正可用于分片操作的是分片键 + 分片算法，也就是分片策略。内置的分片策略大致可分为尾数取模、哈希、范围、标签、时间等。由用户方配置的分片策略则更加灵活，常用的使用行表达式配置分片策略，它采用Groovy表达式表示，如: t<em>user</em>$-&gt;{u_id % 8} 表示t_user表根据u_id模8，而分成8张表，表名称为 t_user_0 到 t_user_7 。</p>
+<p><strong>自增主键生成策略</strong></p>
+<p>通过在客户端生成自增主键替换以数据库原生自增主键的方式，做到分布式主键无重复。 </p>
+<h3 id="1-2-SQL解析"><a href="#1-2-SQL解析" class="headerlink" title="1.2.  SQL解析"></a>1.2.  SQL解析</h3><p>主要分为以下两步：当Sharding-JDBC接受到一条SQL语句时，会陆续执行 SQL解析 =&gt; 查询优化 =&gt; SQL路由 =&gt; SQL改写 =&gt; SQL执行 =&gt;结果归并 ，最终返回执行结果。 </p>
+<p><img src="/2021/05/17/ShardingJDBC实战/img/0001.png" alt="0001" style="zoom:80%;"></p>
+<p>SQL解析过程分为词法解析和语法解析。 词法解析器用于将SQL拆解为不可再分的原子符号，称为Token。并根据不同数据库方言所提供的字典，将其归类为关键字，表达式，字面量和操作符。 再使用语法解析器将SQL转换为抽象语法树。</p>
+<p>例如，以下SQL：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span>, <span class="keyword">name</span> <span class="keyword">FROM</span> t_user <span class="keyword">WHERE</span> <span class="keyword">status</span> = <span class="string">'ACTIVE'</span> <span class="keyword">AND</span> age &gt; <span class="number">18</span></div></pre></td></tr></table></figure>
+<p>解析之后的为抽象语法树见下图：</p>
+<p><img src="/2021/05/17/ShardingJDBC实战/img/0002.png" alt="0002" style="zoom:80%;"></p>
+<p>为了便于理解，抽象语法树中的关键字的Token用绿色表示，变量的Token用红色表示，灰色表示需要进一步拆分。</p>
+<p>最后，通过对抽象语法树的遍历去提炼分片所需的上下文，并标记有可能需要SQL改写(后边介绍)的位置。 供分片使用的解析上下文包含查询选择项（Select Items）、表信息（Table）、分片条件（Sharding Condition）、自增主键信息（Auto increment Primary Key）、排序信息（Order By）、分组信息（Group By）以及分页信息（Limit、Rownum、Top）。 </p>
+<h3 id="1-3-SQL路由"><a href="#1-3-SQL路由" class="headerlink" title="1.3.  SQL路由"></a>1.3.  SQL路由</h3><p>SQL路由就是把针对<strong>逻辑表</strong>的数据操作映射到对数据结点操作的过程。</p>
+<p>根据解析上下文匹配数据库和表的分片策略，并生成路由路径。 对于携带分片键的SQL，根据分片键操作符不同可以划分为单片路由(分片键的操作符是等号)、多片路由(分片键的操作符是IN)和范围路由(分片键的操作符是BETWEEN)，不携带分片键的SQL则采用广播路由。根据分片键进行路由的场景可分为直接路由、标准路由、笛卡尔路由等。</p>
+<p><strong>标准路由</strong></p>
+<p>标准路由是Sharding-Jdbc最为推荐使用的分片方式，它的适用范围是不包含关联查询或仅包含绑定表之间关联查询的SQL。 当分片运算符是等于号时，路由结果将落入单库（表），当分片运算符是BETWEEN或IN时，则路由结果不一定落入唯一的库（表），因此一条逻辑SQL最终可能被拆分为多条用于执行的真实SQL。 举例说明，如果按照 order_id 的奇数和偶数进行数据分片，一个单表查询的SQL如下： </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> t_order <span class="keyword">WHERE</span> order_id <span class="keyword">IN</span> (<span class="number">1</span>, <span class="number">2</span>);</div></pre></td></tr></table></figure>
+<p>那么路由的结果应为：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> t_order_0 <span class="keyword">WHERE</span> order_id <span class="keyword">IN</span> (<span class="number">1</span>, <span class="number">2</span>);</div><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> t_order_1 <span class="keyword">WHERE</span> order_id <span class="keyword">IN</span> (<span class="number">1</span>, <span class="number">2</span>);</div></pre></td></tr></table></figure>
+<p>绑定表的关联查询与单表查询复杂度和性能相当。举例说明，如果一个包含绑定表的关联查询的SQL如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> t_order o <span class="keyword">JOIN</span> t_order_item i <span class="keyword">ON</span> o.order_id=i.order_id <span class="keyword">WHERE</span> order_id <span class="keyword">IN</span> (<span class="number">1</span>, <span class="number">2</span>);</div></pre></td></tr></table></figure>
+<p>那么路由的结果应为：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> t_order_0 o <span class="keyword">JOIN</span> t_order_item_0 i <span class="keyword">ON</span> o.order_id=i.order_id <span class="keyword">WHERE</span> order_id <span class="keyword">IN</span> (<span class="number">1</span>,<span class="number">2</span>);</div><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> t_order_1 o <span class="keyword">JOIN</span> t_order_item_1 i <span class="keyword">ON</span> o.order_id=i.order_id <span class="keyword">WHERE</span> order_id <span class="keyword">IN</span> (<span class="number">1</span>,<span class="number">2</span>);</div></pre></td></tr></table></figure>
+<p>可以看到，SQL拆分的数目与单表是一致的。</p>
+<p><strong>笛卡尔路由</strong></p>
+<p>笛卡尔路由是最复杂的情况，它无法根据绑定表的关系定位分片规则，因此非绑定表之间的关联查询需要拆解为笛卡尔积组合执行。 如果上个示例中的SQL并未配置绑定表关系，那么路由的结果应为： </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> t_order_0 o <span class="keyword">JOIN</span> t_order_item_0 i <span class="keyword">ON</span> o.order_id=i.order_id <span class="keyword">WHERE</span> order_id <span class="keyword">IN</span> (<span class="number">1</span>,<span class="number">2</span>);</div><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> t_order_0 o <span class="keyword">JOIN</span> t_order_item_1 i <span class="keyword">ON</span> o.order_id=i.order_id <span class="keyword">WHERE</span> order_id <span class="keyword">IN</span> (<span class="number">1</span>,<span class="number">2</span>);</div><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> t_order_1 o <span class="keyword">JOIN</span> t_order_item_0 i <span class="keyword">ON</span> o.order_id=i.order_id <span class="keyword">WHERE</span> order_id <span class="keyword">IN</span> (<span class="number">1</span>,<span class="number">2</span>);</div><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> t_order_1 o <span class="keyword">JOIN</span> t_order_item_1 i <span class="keyword">ON</span> o.order_id=i.order_id <span class="keyword">WHERE</span> order_id <span class="keyword">IN</span> (<span class="number">1</span>,<span class="number">2</span>);</div></pre></td></tr></table></figure>
+<p>笛卡尔路由查询性能较低，需谨慎使用。 </p>
+<p><strong>全库表路由</strong></p>
+<p>对于不携带分片键的SQL，则采取广播路由的方式。根据SQL类型又可以划分为全库表路由、全库路由、全实例路由、单播路由和阻断路由这5种类型。其中全库表路由用于处理对数据库中与其逻辑表相关的所有真实表的操作，主要包括不带分片键的DQL(数据查询)和DML（数据操纵），以及DDL（数据定义）等。例如： </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> t_order <span class="keyword">WHERE</span> good_prority <span class="keyword">IN</span> (<span class="number">1</span>, <span class="number">10</span>);</div></pre></td></tr></table></figure>
+<p>则会遍历所有数据库中的所有表，逐一匹配逻辑表和真实表名，能够匹配得上则执行。路由后成为</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> t_order_0 <span class="keyword">WHERE</span> good_prority <span class="keyword">IN</span> (<span class="number">1</span>, <span class="number">10</span>);</div><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> t_order_1 <span class="keyword">WHERE</span> good_prority <span class="keyword">IN</span> (<span class="number">1</span>, <span class="number">10</span>);</div><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> t_order_2 <span class="keyword">WHERE</span> good_prority <span class="keyword">IN</span> (<span class="number">1</span>, <span class="number">10</span>);</div><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> t_order_3 <span class="keyword">WHERE</span> good_prority <span class="keyword">IN</span> (<span class="number">1</span>, <span class="number">10</span>);</div></pre></td></tr></table></figure>
+<h3 id="1-4-SQL改写"><a href="#1-4-SQL改写" class="headerlink" title="1.4.  SQL改写"></a>1.4.  SQL改写</h3><p>工程师面向<strong>逻辑表</strong>书写的SQL，并不能够直接在真实的数据库中执行，SQL改写用于将逻辑SQL改写为在真实数据库中可以正确执行的SQL。 如一个简单的例子，若逻辑SQL为： </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> order_id <span class="keyword">FROM</span> t_order <span class="keyword">WHERE</span> order_id=<span class="number">1</span>;</div></pre></td></tr></table></figure>
+<p>假设该SQL配置分片键order_id，并且order_id=1的情况，将路由至分片表1。那么改写之后的SQL应该为：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> order_id <span class="keyword">FROM</span> t_order_1 <span class="keyword">WHERE</span> order_id=<span class="number">1</span>;</div></pre></td></tr></table></figure>
+<p>再比如，Sharding-JDBC需要在结果归并时获取相应数据，但该数据并未能通过查询的SQL返回。 这种情况主要是针对GROUP BY和ORDER BY。结果归并时，需要根据 GROUP BY 和 ORDER BY 的字段项进行分组和排序，但如果原始SQL的选择项中若并未包含分组项或排序项，则需要对原始SQL进行改写。 先看一下原始SQL中带有结果归并所需信息的场景： </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> order_id, user_id <span class="keyword">FROM</span> t_order <span class="keyword">ORDER</span> <span class="keyword">BY</span> user_id;</div></pre></td></tr></table></figure>
+<p>由于使用user_id进行排序，在结果归并中需要能够获取到user_id的数据，而上面的SQL是能够获取到user_id数据的，因此无需补列。</p>
+<p>如果选择项中不包含结果归并时所需的列，则需要进行补列，如以下SQL： </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> order_id <span class="keyword">FROM</span> t_order <span class="keyword">ORDER</span> <span class="keyword">BY</span> user_id;</div></pre></td></tr></table></figure>
+<p>由于原始SQL中并不包含需要在结果归并中需要获取的user_id，因此需要对SQL进行补列改写。补列之后的SQL是： </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> order_id, user_id <span class="keyword">AS</span> ORDER_BY_DERIVED_0 <span class="keyword">FROM</span> t_order <span class="keyword">ORDER</span> <span class="keyword">BY</span> user_id;</div></pre></td></tr></table></figure>
+<h3 id="1-5-SQL执行"><a href="#1-5-SQL执行" class="headerlink" title="1.5.  SQL执行"></a>1.5.  SQL执行</h3><p>Sharding-JDBC采用一套自动化的执行引擎，负责将路由和改写完成之后的真实SQL安全且高效发送到底层数据源执行。 它不是简单地将SQL通过JDBC直接发送至数据源执行；也并非直接将执行请求放入线程池去并发执行。它更关注平衡数据源连接创建以及内存占用所产生的消耗，以及最大限度地合理利用并发等问题。 执行引擎的目标是自动化的平衡资源控制与执行效率，他能在以下两种模式自适应切换：</p>
+<p><strong>内存限制模式</strong> </p>
+<p>使用此模式的前提是，Sharding-JDBC对一次操作所耗费的数据库连接数量不做限制。 如果实际执行的SQL需要对某数据库实例中的200张表做操作，则对每张表创建一个新的数据库连接，并通过多线程的方式并发处理，以达成执行效率最大化。</p>
+<p><strong>连接限制模式</strong></p>
+<p>使用此模式的前提是，Sharding-JDBC严格控制对一次操作所耗费的数据库连接数量。 如果实际执行的SQL需要对某数据库实例中的200张表做操作，那么只会创建唯一的数据库连接，并对其200张表串行处理。 如果一次操作中的分片散落在不同的数据库，仍然采用多线程处理对不同库的操作，但每个库的每次操作仍然只创建一个唯一的数据库连接。</p>
+<p>内存限制模式适用于OLAP操作，可以通过放宽对数据库连接的限制提升系统吞吐量； 连接限制模式适用于OLTP操作，OLTP通常带有分片键，会路由到单一的分片，因此严格控制数据库连接，以保证在线系统数据库资源能够被更多的应用所使用，是明智的选择。</p>
+<h3 id="1-6-结果归并"><a href="#1-6-结果归并" class="headerlink" title="1.6.  结果归并"></a>1.6.  结果归并</h3><p>将从各个数据节点获取的多数据结果集，组合成为一个结果集并正确的返回至请求客户端，称为结果归并。</p>
+<p>Sharding-JDBC支持的结果归并从<strong>功能</strong>上可分为<strong>遍历、排序、分组、分页</strong>和<strong>聚合</strong>5种类型，它们是组合而非互斥的关系。</p>
+<p>归并引擎的整体结构划分如下图。</p>
+<p><img src="/2021/05/17/ShardingJDBC实战/img/0003.png" alt="0003" style="zoom:80%;"></p>
+<p>结果归并从结构划分可分为<strong>流式归并、内存归并和装饰者归并</strong>。流式归并和内存归并是互斥的，装饰者归并可以在流式归并和内存归并之上做进一步的处理。</p>
+<p><strong>内存归并</strong></p>
+<p>很容易理解，他是将所有分片结果集的数据都遍历并存储在内存中，再通过统一的分组、排序以及聚合等计算之后，再将其封装成为逐条访问的数据结果 </p>
+<p><strong>流式归并</strong></p>
+<p>是指每一次从数据库结果集中获取到的数据，都能够通过游标逐条获取的方式返回正确的单条数据，它与数据库原生的返回结果集的方式最为契合。</p>
+<p>下边举例说明排序归并的过程，如下图是一个通过分数进行排序的示例图，它采用流式归并方式。 图中展示了3张表返回的数据结果集，每个数据结果集已经根据分数排序完毕，但是3个数据结果集之间是无序的。 将3个数据结果集的当前游标指向的数据值进行排序，并放入优先级队列，t_score_0的第一个数据值最大，t_score_2的第一个数据值次之，t_score_1的第一个数据值最小，因此优先级队列根据t_score_0，t_score_2和t_score_1的方式排序队列。 </p>
+<p><img src="/2021/05/17/ShardingJDBC实战/img/0004.png" alt="0004" style="zoom:80%;"></p>
+<p>下图则展现了进行next调用的时候，排序归并是如何进行的。 通过图中我们可以看到，当进行第一次next调用时，排在队列首位的t_score_0将会被弹出队列，并且将当前游标指向的数据值（也就是100）返回至查询客户端，并且将游标下移一位之后，重新放入优先级队列。 而优先级队列也会根据t_score_0的当前数据结果集指向游标的数据值（这里是90）进行排序，根据当前数值，t_score_0排列在队列的最后一位。 之前队列中排名第二的t_score_2的数据结果集则自动排在了队列首位。 在进行第二次next时，只需要将目前排列在队列首位的t_score_2弹出队列，并且将其数据结果集游标指向的值返回至客户端，并下移游标，继续加入队列排队，以此类推。 当一个结果集中已经没有数据了，则无需再次加入队列。 </p>
+<p><img src="/2021/05/17/ShardingJDBC实战/img/0005.png" alt="0005" style="zoom:80%;"></p>
+<p>可以看到，对于每个数据结果集中的数据有序，而多数据结果集整体无序的情况下，Sharding-JDBC无需将所有的数据都加载至内存即可排序。 它使用的是流式归并的方式，每次next仅获取唯一正确的一条数据，极大的节省了内存的消耗。</p>
+<p><strong>装饰者归并</strong></p>
+<p> 是对所有的结果集归并进行统一的功能增强，比如归并时需要聚合SUM前，在进行聚合计算前，都会通过内存归并或流式归并查询出结果集。因此，聚合归并是在之前介绍的归并类型之上追加的归并能力，即装饰者模式。 </p>
+<h2 id="二、-水平分表分库"><a href="#二、-水平分表分库" class="headerlink" title="二、 水平分表分库"></a>二、 水平分表分库</h2><h3 id="2-1-为什么要分库分表"><a href="#2-1-为什么要分库分表" class="headerlink" title="2.1.  为什么要分库分表"></a>2.1.  为什么要分库分表</h3><p>随着我们的系统运行，存储在关系型数据库的数据量会越来越大，系统的访问的压力也会随之增大，如果一个库中的表数据超过了一定的数量，比如说mysql中的表数据达到千万级别，就需要考虑进行分库分表；</p>
+<p>其次随着表数据的不断增大，会发现，查询也随着变得缓慢，如果添加索引的话，会发现影响到了新增和删除的性能，如果我们将数据库分散到不同的表上，单表的索引大小就得到了控制，对索引以及表结构的变更会变得很方便和高效；</p>
+<p>当数据库实例的吞吐量达到性能的瓶颈时，我们需要扩展数据库实例，让每个数据库实例承担其中一部分数据库的请求，分解总体的大请求量的压力；</p>
+<p>简而言之就是数据拆分：将一个表结构分为多个表，或者将一个表数据分片后放入多个表，这些表可以放在同一个数据库里，也可以放到不同的数据库中，甚至可以放到不同的数据库实例中。</p>
+<h4 id="2-1-1-数据拆分的方式"><a href="#2-1-1-数据拆分的方式" class="headerlink" title="2.1.1. 数据拆分的方式"></a>2.1.1. 数据拆分的方式</h4><p>数据拆分有两种方式：</p>
+<ul>
+<li>垂直拆分： 根据业务的维度，将原本一个库中的表拆分多个表，每个库中表与原有的结构不同</li>
+<li>水平拆分： 根据分片算法，将一个库拆分成多个库，每个库依旧保留原有的结构</li>
+</ul>
+<p><strong>在实际的开发过程中，通常是先进行维度拆分形成微服务结构，然后再进行水平拆分</strong>。</p>
+<h3 id="2-2-需求说明"><a href="#2-2-需求说明" class="headerlink" title="2.2.  需求说明"></a>2.2.  需求说明</h3><p>人工创建两张表，t_order_1和t_order_2，这两张表是订单表拆分后的表，通过Sharding-Jdbc向订单表插入数据，按照一定的分片规则，主键为偶数的进入t_order_1，另一部分数据进入t_order_2，通过Sharding-Jdbc 查询数据，根据 SQL语句的内容从t_order_1或t_order_2查询数据。</p>
+<h3 id="2-3-创建数据库订单表"><a href="#2-3-创建数据库订单表" class="headerlink" title="2.3.  创建数据库订单表"></a>2.3.  创建数据库订单表</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">创建订单库order_db</div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> <span class="string">`order_db`</span> <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> <span class="string">'utf8'</span> <span class="keyword">COLLATE</span> <span class="string">'utf8_general_ci'</span>;</div><div class="line"></div><div class="line">在order_db中创建t_order_1、t_order_2表</div><div class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">`t_order_1`</span>;</div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`t_order_1`</span> (</div><div class="line"><span class="string">`order_id`</span> <span class="built_in">bigint</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'订单id'</span>,</div><div class="line"><span class="string">`price`</span> <span class="built_in">decimal</span>(<span class="number">10</span>, <span class="number">2</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'订单价格'</span>,</div><div class="line"><span class="string">`user_id`</span> <span class="built_in">bigint</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'下单用户id'</span>,</div><div class="line"><span class="string">`status`</span> <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_general_ci <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'订单状态'</span>,</div><div class="line">PRIMARY <span class="keyword">KEY</span> (<span class="string">`order_id`</span>) <span class="keyword">USING</span> BTREE</div><div class="line">) <span class="keyword">ENGINE</span> = <span class="keyword">InnoDB</span> <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> = utf8 <span class="keyword">COLLATE</span> = utf8_general_ci ROW_FORMAT = Dynamic;</div><div class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">`t_order_2`</span>;</div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`t_order_2`</span> (</div><div class="line"><span class="string">`order_id`</span> <span class="built_in">bigint</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'订单id'</span>,</div><div class="line"><span class="string">`price`</span> <span class="built_in">decimal</span>(<span class="number">10</span>, <span class="number">2</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'订单价格'</span>,</div><div class="line"><span class="string">`user_id`</span> <span class="built_in">bigint</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'下单用户id'</span>,</div><div class="line"><span class="string">`status`</span> <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_general_ci <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'订单状态'</span>,</div><div class="line">PRIMARY <span class="keyword">KEY</span> (<span class="string">`order_id`</span>) <span class="keyword">USING</span> BTREE</div><div class="line">) <span class="keyword">ENGINE</span> = <span class="keyword">InnoDB</span> <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> = utf8 <span class="keyword">COLLATE</span> = utf8_general_ci ROW_FORMAT = Dynamic;</div></pre></td></tr></table></figure>
+<h3 id="2-4-引入maven依赖"><a href="#2-4-引入maven依赖" class="headerlink" title="2.4.  引入maven依赖"></a>2.4.  引入maven依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.shardingsphere<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>shardingsphere-jdbc-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.0.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>sharding‐jdbc‐spring‐boot‐starter包和druid-spring-boot-starter包有冲突，sharding应换成sharding-jdbc-core包,可能是因为sharding‐jdbc‐spring‐boot‐starter封装了Druid。</p>
+<h3 id="2-5-整合druid并开启监控"><a href="#2-5-整合druid并开启监控" class="headerlink" title="2.5.  整合druid并开启监控"></a>2.5.  整合druid并开启监控</h3><p>1）定义配置类，读取配置文件中的值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment"> * @ConfigurationProperties 自动读取application.yml 或 application.properties</span></div><div class="line"><span class="comment"> * @PropertySource 读取指定文件，默认读取application.properties，</span></div><div class="line"><span class="comment"> * 如果非application.properties，则需要加classpath:</span></div><div class="line"><span class="comment"> * 如果有中文，需要encoding="UTF-8"</span></div><div class="line"><span class="comment"> * @PropertySource(value = "classpath:druid.properties",encoding="UTF-8")</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="meta">@Data</span></div><div class="line"><span class="meta">@Component</span></div><div class="line"><span class="comment">//@ConfigurationProperties(prefix = "spring.datasource") // 使用这种方式可以不需要@Value直接注入</span></div><div class="line"><span class="meta">@PropertySource</span>(<span class="string">"classpath:druid.properties"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DruidDataSourceSettings</span> </span>&#123;</div><div class="line">    <span class="comment">//如果没有指定$&#123;&#125;，将使用application.properties 的配置自动注入属性</span></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;spring.datasource.driver-class-name&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> String driverClassName;</div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;spring.datasource.url&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> String url;</div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;spring.datasource.username&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> String username;</div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;spring.datasource.password&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> String password;</div><div class="line"></div><div class="line">    <span class="comment">//$&#123;druid.initialSize&#125; 使用 druid.properties 的配置</span></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;druid.initialSize&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> initialSize;</div><div class="line"></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;druid.minIdle&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> minIdle;</div><div class="line"></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;druid.maxActive&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> maxActive;</div><div class="line"></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;druid.maxWait&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> maxWait;</div><div class="line"></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;druid.timeBetweenEvictionRunsMillis&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> <span class="keyword">long</span> timeBetweenEvictionRunsMillis;</div><div class="line"></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;druid.minEvictableIdleTimeMillis&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> <span class="keyword">long</span> minEvictableIdleTimeMillis;</div><div class="line"></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;druid.validationQuery&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> String validationQuery;</div><div class="line"></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;druid.testWhileIdle&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> testWhileIdle;</div><div class="line"></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;druid.testOnBorrow&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> testOnBorrow;</div><div class="line"></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;druid.testOnReturn&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> testOnReturn;</div><div class="line"></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;druid.filters&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> String filters;</div><div class="line"></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;druid.connectionProperties&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> String connectionProperties;</div><div class="line"></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;druid.useGlobalDataSourceStat&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> useGlobalDataSourceStat;</div><div class="line"></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;druid.webStatFilterEnabled&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> webStatFilterEnabled;</div><div class="line"></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;druid.webStatFilterUrlPatterns&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> String webStatFilterUrlPatterns;</div><div class="line"></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;druid.webStatFilterExclusions&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> String webStatFilterExclusions;</div><div class="line"></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;druid.profileEnable&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> String profileEnable;</div><div class="line"></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;druid.statViewServletEnabled&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> statViewServletEnabled;</div><div class="line"></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;druid.statViewServletResetEnable&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> String statViewServletResetEnable;</div><div class="line"></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;druid.statViewServletLoginUserName&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> String statViewServletLoginUserName;</div><div class="line"></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;druid.statViewServletLoginPassword&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> String statViewServletLoginPassword;</div><div class="line"></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;druid.statViewServletAllow&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> String statViewServletAllow;</div><div class="line"></div><div class="line">    <span class="meta">@Bean</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> PropertySourcesPlaceholderConfigurer <span class="title">propertyConfigure</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> PropertySourcesPlaceholderConfigurer();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>2）定义数据源</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Slf</span>4j</div><div class="line"><span class="meta">@Configuration</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DruidDataSourceConfig</span> </span>&#123;</div><div class="line">    <span class="meta">@Autowired</span></div><div class="line">    <span class="keyword">private</span> DruidDataSourceSettings druidSettings;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/*</span></div><div class="line"><span class="comment">     * 主数据源配置</span></div><div class="line"><span class="comment">     */</span></div><div class="line"><span class="comment">//    @Bean(name = "master")</span></div><div class="line">    <span class="function"><span class="keyword">public</span> DataSource <span class="title">masterDataSource</span><span class="params">()</span> <span class="keyword">throws</span> SQLException </span>&#123;</div><div class="line">        DruidDataSource ds = <span class="keyword">this</span>.setDruidConfig();</div><div class="line">        ds.setDriverClassName(druidSettings.getDriverClassName());</div><div class="line">        log.info(<span class="string">"=============================&gt;&gt;&gt;&gt;&gt;&gt;  "</span>+  druidSettings.getDriverClassName() + <span class="string">"&lt;&lt;&lt;&lt;&lt;&lt;============================="</span>);</div><div class="line">        ds.setUrl(druidSettings.getUrl1());</div><div class="line">        ds.setUsername(druidSettings.getUsername());</div><div class="line">        ds.setPassword(druidSettings.getPassword());</div><div class="line"></div><div class="line">        <span class="keyword">return</span> ds;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/*</span></div><div class="line"><span class="comment">     * 从数据源配置</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> DataSource <span class="title">slave1DataSource</span><span class="params">()</span> <span class="keyword">throws</span> SQLException </span>&#123;</div><div class="line">        DruidDataSource ds = <span class="keyword">this</span>.setDruidConfig();</div><div class="line">        ds.setDriverClassName(druidSettings.getDriverClassName());</div><div class="line">        ds.setUrl(druidSettings.getUrl2());</div><div class="line">        ds.setUsername(druidSettings.getUsername());</div><div class="line">        ds.setPassword(druidSettings.getPassword());</div><div class="line"></div><div class="line">        <span class="keyword">return</span> ds;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/*</span></div><div class="line"><span class="comment">     * 从DruidDataSourceSettings从获取配置信息</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">private</span> DruidDataSource <span class="title">setDruidConfig</span><span class="params">()</span> <span class="keyword">throws</span> SQLException</span>&#123;</div><div class="line">        DruidDataSource druidDataSource = <span class="keyword">new</span> DruidDataSource();</div><div class="line">        druidDataSource.setInitialSize(druidSettings.getInitialSize());</div><div class="line">        druidDataSource.setMinIdle(druidSettings.getMinIdle());</div><div class="line">        druidDataSource.setMaxActive(druidSettings.getMaxActive());</div><div class="line">        druidDataSource.setMaxWait(druidSettings.getMaxWait());</div><div class="line">        druidDataSource.setTimeBetweenEvictionRunsMillis(druidSettings.getTimeBetweenEvictionRunsMillis());</div><div class="line">        druidDataSource.setMinEvictableIdleTimeMillis(druidSettings.getMinEvictableIdleTimeMillis());</div><div class="line">        druidDataSource.setValidationQuery(druidSettings.getValidationQuery());</div><div class="line">        druidDataSource.setTestWhileIdle(druidSettings.isTestWhileIdle());</div><div class="line">        druidDataSource.setTestOnBorrow(druidSettings.isTestOnBorrow());</div><div class="line">        druidDataSource.setTestOnReturn(druidSettings.isTestOnReturn());</div><div class="line">        druidDataSource.setFilters(druidSettings.getFilters());</div><div class="line">        druidDataSource.setConnectionProperties(druidSettings.getConnectionProperties());</div><div class="line">        druidDataSource.setUseGlobalDataSourceStat(druidSettings.isUseGlobalDataSourceStat());</div><div class="line"></div><div class="line">        <span class="comment">/*</span></div><div class="line"><span class="comment">         * 如果配置的是druid.filters=stat,wall,log4j</span></div><div class="line"><span class="comment">         * 则 ds.getProxyFilters() 获取到的过滤器将有3个，包括默认的wall过滤器，</span></div><div class="line"><span class="comment">         * 此时即使我们添加同样一个wall过滤器，</span></div><div class="line"><span class="comment">         * 由于List是可重复集，那么我们添加的wall过滤器不会生效，</span></div><div class="line"><span class="comment">         * 系统还是用默认的wall过滤器， 所以，需要把原来的wall过滤器 去掉。</span></div><div class="line"><span class="comment">         * 当然，方便点的方法是，直接配置 druid.filters=stat,log4j 就可以了</span></div><div class="line"><span class="comment">         *     获取原proxyFilters并添加自定义的 wallFilter，</span></div><div class="line"><span class="comment">         *     注意不要通过new ArrayList&lt;&gt;()得到proxyFilters，</span></div><div class="line"><span class="comment">         *     否则会导致原 proxyFilters 里面配置的 file都丢失</span></div><div class="line"><span class="comment">         */</span></div><div class="line">        List&lt;Filter&gt; proxyFilters=druidDataSource.getProxyFilters();</div><div class="line">        proxyFilters.add(wallFilter());<span class="comment">//添加自己new的WallFilter</span></div><div class="line">        druidDataSource.setProxyFilters(proxyFilters);</div><div class="line"></div><div class="line">        <span class="keyword">return</span> druidDataSource;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/*</span></div><div class="line"><span class="comment">     * @Primary 告诉spring 在犹豫的时候优先选择哪一个具体的实现，</span></div><div class="line"><span class="comment">     * 对于多数据源，必须指定primary，否则报错有2个datasource，并且，只能指定一个primary</span></div><div class="line"><span class="comment">     */</span></div><div class="line">   <span class="meta">@Primary</span></div><div class="line">   <span class="meta">@Bean</span>(name = <span class="string">"dataSource"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> DataSource <span class="title">dataSource</span><span class="params">()</span> <span class="keyword">throws</span> SQLException</span>&#123;</div><div class="line">        <span class="comment">// sharding-jdbc设置</span></div><div class="line">        <span class="comment">//分库设置</span></div><div class="line">        Map&lt;String, DataSource&gt; dataSourceMap = <span class="keyword">new</span> HashMap&lt;&gt;(<span class="number">2</span>);</div><div class="line">        <span class="comment">//添加两个数据库database0和database1</span></div><div class="line">        dataSourceMap.put(<span class="string">"ds1"</span>, masterDataSource());</div><div class="line">        dataSourceMap.put(<span class="string">"ds2"</span>, slave1DataSource());</div><div class="line"></div><div class="line">        <span class="comment">// 指定分库分表的数据分布情况，配置数据节点，数据库分为ds1、ds2，表分为t_order_1、t_order_2</span></div><div class="line">        TableRuleConfiguration orderRuleConfiguration = <span class="keyword">new</span> TableRuleConfiguration(<span class="string">"t_order"</span>, <span class="string">"ds$&#123;1..2&#125;.t_order_$&#123;1..2&#125;"</span>);</div><div class="line">        <span class="comment">// 指定分库策略,以user_id为分片键，分片策略为user_id % 2 + 1，user_id为偶数操作ds1数据源，否则操作ds2</span></div><div class="line">       orderRuleConfiguration.setDatabaseShardingStrategyConfig(</div><div class="line">               <span class="keyword">new</span> InlineShardingStrategyConfiguration(<span class="string">"user_id"</span>, <span class="string">"ds$&#123;user_id % 2 + 1&#125;"</span>));</div><div class="line"></div><div class="line">        <span class="comment">// 指定t_order表的主键生成策略为snowflake</span></div><div class="line">        orderRuleConfiguration.setKeyGeneratorConfig(<span class="keyword">new</span> KeyGeneratorConfiguration(<span class="string">"SNOWFLAKE"</span>, <span class="string">"order_id"</span>));</div><div class="line">        <span class="comment">// 指定t_order表的分片策略，包括分片键和分片算法，偶数操作t_order_1表，否则操作t_order_2</span></div><div class="line">        orderRuleConfiguration.setTableShardingStrategyConfig(</div><div class="line">                <span class="keyword">new</span> InlineShardingStrategyConfiguration(<span class="string">"order_id"</span>, <span class="string">"t_order_$&#123;order_id % 2 + 1&#125;"</span>));</div><div class="line"></div><div class="line">        <span class="comment">// Sharding全局配置</span></div><div class="line">        ShardingRuleConfiguration shardingRuleConfiguration = <span class="keyword">new</span> ShardingRuleConfiguration();</div><div class="line">        shardingRuleConfiguration.getTableRuleConfigs().add(orderRuleConfiguration);</div><div class="line">        <span class="comment">// 配置全局字典表</span></div><div class="line">        List&lt;String&gt; broadcastTables = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        broadcastTables.add(<span class="string">"t_dict"</span>);</div><div class="line">        shardingRuleConfiguration.setBroadcastTables(broadcastTables);</div><div class="line">        <span class="comment">// 未参与分表分库的表，找不到分片规则时使用默认数据源</span></div><div class="line">        shardingRuleConfiguration.setDefaultDataSourceName(<span class="string">"ds1"</span>);</div><div class="line"></div><div class="line">        <span class="comment">// 设置配置属性</span></div><div class="line">        Properties properties = <span class="keyword">new</span> Properties();</div><div class="line">        properties.setProperty(<span class="string">"sql.show"</span>, <span class="string">"true"</span>); <span class="comment">// 打开sharding-jdbc sql输出日志</span></div><div class="line"></div><div class="line">        <span class="comment">// 创建数据源</span></div><div class="line">        DataSource dataSource = ShardingDataSourceFactory.createDataSource(dataSourceMap, shardingRuleConfiguration, properties);</div><div class="line"></div><div class="line">        <span class="keyword">return</span> dataSource;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// StatViewServlet配置</span></div><div class="line">    <span class="meta">@Bean</span></div><div class="line">    <span class="function"><span class="keyword">public</span> ServletRegistrationBean&lt;StatViewServlet&gt; <span class="title">statViewServlet</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">        <span class="comment">//创建servlet注册实体</span></div><div class="line">        ServletRegistrationBean&lt;StatViewServlet&gt; servletRegistrationBean = <span class="keyword">new</span> ServletRegistrationBean&lt;StatViewServlet&gt;(<span class="keyword">new</span> StatViewServlet(),<span class="string">"/druid/*"</span>);</div><div class="line">        <span class="comment">// 是否启用StatViewServlet（监控页面）默认值为false</span></div><div class="line">        servletRegistrationBean.setEnabled(<span class="keyword">true</span>);</div><div class="line">        <span class="comment">//设置ip白名单</span></div><div class="line">        servletRegistrationBean.addInitParameter(<span class="string">"allow"</span>,druidSettings.getStatViewServletAllow());</div><div class="line">        <span class="comment">//设置ip黑名单，如果allow与deny共同存在时,deny优先于allow</span></div><div class="line">        <span class="comment">//servletRegistrationBean.addInitParameter("deny","192.168.0.220");</span></div><div class="line">        <span class="comment">//设置控制台管理用户</span></div><div class="line">        servletRegistrationBean.addInitParameter(<span class="string">"loginUsername"</span>,druidSettings.getStatViewServletLoginUserName());</div><div class="line">        servletRegistrationBean.addInitParameter(<span class="string">"loginPassword"</span>,druidSettings.getStatViewServletLoginPassword());</div><div class="line">        <span class="comment">//是否可以重置数据</span></div><div class="line">        servletRegistrationBean.addInitParameter(<span class="string">"resetEnable"</span>,druidSettings.getStatViewServletResetEnable());</div><div class="line"></div><div class="line">        <span class="keyword">return</span> servletRegistrationBean;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// WebStatFilter配置</span></div><div class="line">    <span class="meta">@Bean</span></div><div class="line">    <span class="function"><span class="keyword">public</span> FilterRegistrationBean&lt;WebStatFilter&gt; <span class="title">webStatFilter</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">//创建过滤器</span></div><div class="line">        FilterRegistrationBean&lt;WebStatFilter&gt; filterRegistrationBean = <span class="keyword">new</span> FilterRegistrationBean&lt;WebStatFilter&gt;(<span class="keyword">new</span> WebStatFilter());</div><div class="line">        <span class="comment">// 是否启用StatFilter默认值false</span></div><div class="line">        filterRegistrationBean.setEnabled(<span class="keyword">true</span>);</div><div class="line">        <span class="comment">//设置过滤器过滤路径</span></div><div class="line">        filterRegistrationBean.addUrlPatterns(druidSettings.getWebStatFilterUrlPatterns());</div><div class="line">        <span class="comment">//忽略过滤的规则</span></div><div class="line">        filterRegistrationBean.addInitParameter(<span class="string">"exclusions"</span>, druidSettings.getWebStatFilterExclusions());</div><div class="line">        <span class="comment">// 配置profileEnable能够监控单个url调用的sql列表</span></div><div class="line">        filterRegistrationBean.addInitParameter(<span class="string">"profileEnable"</span>, druidSettings.getProfileEnable());</div><div class="line"></div><div class="line">        <span class="keyword">return</span> filterRegistrationBean;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//配置批量更新的Filter</span></div><div class="line">    <span class="meta">@Bean</span></div><div class="line">    <span class="function"><span class="keyword">public</span> WallFilter <span class="title">wallFilter</span><span class="params">()</span></span>&#123;</div><div class="line">        WallFilter wallFilter = <span class="keyword">new</span> WallFilter();</div><div class="line">        wallFilter.setConfig(wallConfig());</div><div class="line">        <span class="keyword">return</span> wallFilter;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//配置批量更新的wallConfig</span></div><div class="line">    <span class="meta">@Bean</span></div><div class="line">    <span class="function"><span class="keyword">public</span> WallConfig <span class="title">wallConfig</span><span class="params">()</span> </span>&#123;</div><div class="line">        WallConfig config = <span class="keyword">new</span> WallConfig();</div><div class="line">        config.setMultiStatementAllow(<span class="keyword">true</span>);<span class="comment">//允许一次执行多条语句</span></div><div class="line">        config.setNoneBaseStatementAllow(<span class="keyword">true</span>);<span class="comment">//允许一次执行多条语句</span></div><div class="line">        <span class="keyword">return</span> config;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>3）定义Mapper接口和mapper.xml映射文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Repository</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">OrderMapper</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">insertOrder</span><span class="params">(Order order)</span></span>;</div><div class="line"></div><div class="line">    <span class="function">List&lt;Order&gt; <span class="title">selectOrdersByIds</span><span class="params">(List&lt;Long&gt; orderIds)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"com.jyo.bigdata.mapper.OrderMapper"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"insertOrder"</span> <span class="attr">parameterType</span>=<span class="string">"com.jyo.bigdata.model.Order"</span>&gt;</span></div><div class="line">        insert into t_order(price,user_id,status) values (#&#123;price&#125;,#&#123;userId&#125;,#&#123;status&#125;)</div><div class="line">    <span class="tag">&lt;/<span class="name">insert</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectOrdersByIds"</span> <span class="attr">parameterType</span>=<span class="string">"list"</span> <span class="attr">resultType</span>=<span class="string">"com.jyo.bigdata.model.Order"</span>&gt;</span></div><div class="line">        select * from t_order</div><div class="line">        <span class="tag">&lt;<span class="name">where</span>&gt;</span></div><div class="line">            order_id in</div><div class="line">            <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">"orderIds"</span> <span class="attr">item</span>=<span class="string">"id"</span> <span class="attr">open</span>=<span class="string">"("</span> <span class="attr">close</span>=<span class="string">")"</span> <span class="attr">separator</span>=<span class="string">","</span>&gt;</span></div><div class="line">                #&#123;id&#125;</div><div class="line">            <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">where</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>4）开始测试</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RunWith</span>(SpringRunner.class)</div><div class="line"><span class="meta">@SpringBootTest</span>(classes = BigdataApplication.class)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OrderMapperTest</span> </span>&#123;</div><div class="line">    <span class="meta">@Autowired</span></div><div class="line">    <span class="keyword">private</span> OrderMapper orderMapper;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testInsertOrder</span><span class="params">()</span></span>&#123;</div><div class="line">        Order o = <span class="keyword">new</span> Order();</div><div class="line">        o.setPrice(<span class="keyword">new</span> BigDecimal(<span class="number">3.0</span>));</div><div class="line">        o.setUserId(<span class="number">1</span>);</div><div class="line">        o.setStatus(<span class="string">"未支付"</span>);</div><div class="line">        orderMapper.insertOrder(o);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">selectOrdersByIds</span><span class="params">()</span></span>&#123;</div><div class="line">        List&lt;Long&gt; ids = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        ids.add(<span class="number">634007838674386945L</span>);</div><div class="line">        ids.add(<span class="number">633776994487631872L</span>);</div><div class="line">        ids.add(<span class="number">634009201605083136L</span>);</div><div class="line"></div><div class="line">        orderMapper.selectOrdersByIds(ids);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-6-公共表"><a href="#2-6-公共表" class="headerlink" title="2.6. 公共表"></a>2.6. 公共表</h3><p>公共表属于系统中数据量较小，变动少，而且属于高频联合查询的依赖表。参数表、数据字典表等属于此类型。可以将这类表在每个数据库都保存一份，所有更新操作都同时发送到所有分库执行。</p>
+<p>1）分别在两个不同的数据库创建字典表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`t_dict`</span> (</div><div class="line">  <span class="string">`dict_id`</span> <span class="built_in">bigint</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'字典id'</span>,</div><div class="line">  <span class="string">`type`</span> <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'字典类型'</span>,</div><div class="line">  <span class="string">`code`</span> <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'字典编码'</span>,</div><div class="line">  <span class="string">`value`</span> <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'字典值'</span>,</div><div class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`dict_id`</span>) <span class="keyword">USING</span> BTREE</div><div class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8 ROW_FORMAT=DYNAMIC;</div></pre></td></tr></table></figure>
+<p>2）在配置文件中设置t_dict为字典表</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 配置全局字典表</span></div><div class="line">List&lt;String&gt; broadcastTables = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">broadcastTables.add(<span class="string">"t_dict"</span>);</div><div class="line">shardingRuleConfiguration.setBroadcastTables(broadcastTables);</div></pre></td></tr></table></figure>
+<p>之后向t_dict中操作数据时，会同时操作两个库的数据。</p>
+<h2 id="三、分表分库带来的问题"><a href="#三、分表分库带来的问题" class="headerlink" title="三、分表分库带来的问题"></a>三、分表分库带来的问题</h2><h3 id="3-1-事务的一致性问题"><a href="#3-1-事务的一致性问题" class="headerlink" title="3.1. 事务的一致性问题"></a>3.1. 事务的一致性问题</h3><p>由于分库分表把数据分在不同的库甚至不同服务器，不可避免的会带来<strong>分布式事务</strong>问题。</p>
+<p>Sharding-JDBC提供XA两段事务和Seata 柔性事务两种分布式事务解决方案。</p>
+<h4 id="3-1-1-XA两段事务"><a href="#3-1-1-XA两段事务" class="headerlink" title="3.1.1.  XA两段事务"></a>3.1.1.  XA两段事务</h4><p>分布式事务顾名思义就是要在分布式系统中实现事务，它其实是由多个本地事务组合而成。分布式事务用于在分布式系统中保证不同节点之间的数据一致性。</p>
+<p>在一系列微服务系统当中，假如不存在分布式事务，会发生什么呢？让我们以互联网中常用的交易业务为例子：</p>
+<p><img src="/2021/05/17/ShardingJDBC实战/img/0006.png" alt="0006" style="zoom:80%;"></p>
+<p>上图中包含了库存和订单两个独立的微服务，每个微服务维护了自己的数据库。在交易系统的业务逻辑中，一个商品在下单之前需要先调用库存服务，进行扣除库存，再调用订单服务，创建订单记录。</p>
+<p>正常情况下，两个数据库各自更新成功，两边数据维持着一致性。</p>
+<p><img src="/2021/05/17/ShardingJDBC实战/img/0007.png" alt="0007" style="zoom:80%;"></p>
+<p>但是，在非正常情况下，有可能库存的扣减完成了，随后的订单记录却因为某些原因插入失败。这个时候，两边数据就失去了应有的一致性。</p>
+<p><img src="/2021/05/17/ShardingJDBC实战/img/0008.png" alt="0008" style="zoom:80%;"></p>
+<p>分布式事务的实现有很多种，最具有代表性的是由<strong>Oracle Tuxedo</strong>系统提出的<strong>XA</strong>分布式事务协议。</p>
+<p>XA协议包含<strong>两阶段提交（2PC）</strong>和<strong>三阶段提交（3PC）</strong>两种实现：</p>
+<p><strong>两阶段提交（2PC）</strong></p>
+<p>二阶段提交是一种强一致性设计，在XA协议中包含着两个角色：事务协调者和事务参与者。2PC 引入一个事务协调者的角色来协调管理各参与者（也可称之为各本地资源）的提交和回滚，二阶段分别指的是准备（投票）和提交两个阶段。</p>
+<p><strong>准备阶段</strong>协调者会给各参与者发送准备命令，你可以把准备命令理解成除了提交事务之外啥事都做完了。</p>
+<p>同步等待所有资源的响应之后就进入第二阶段即提交阶段（注意提交阶段不一定是提交事务，也可能是回滚事务）。</p>
+<p><img src="/2021/05/17/ShardingJDBC实战/img/0009.png" alt="0009" style="zoom:80%;"></p>
+<p>在XA分布式事务的第一阶段，作为事务协调者的节点会首先向所有的参与者节点发送Prepare请求。</p>
+<p>在接到Prepare请求之后，每一个参与者节点会各自执行与事务有关的数据更新，写入Undo Log和Redo Log。如果参与者执行成功，暂时不提交事务，而是向事务协调节点返回“完成”消息。</p>
+<p>当事务协调者接到了所有参与者的返回消息，整个分布式事务将会进入第二阶段。</p>
+<p><img src="/2021/05/17/ShardingJDBC实战/img/0010.png" alt="0010" style="zoom:80%;"></p>
+<p>在XA分布式事务的第二阶段，如果事务协调节点在之前所收到都是正向返回，那么它将会向所有事务参与者发出Commit请求。</p>
+<p>接到Commit请求之后，事务参与者节点会各自进行本地的事务提交，并释放锁资源。当本地事务完成提交后，将会向事务协调者返回“完成”消息。当事务协调者接收到所有事务参与者的“完成”反馈，整个分布式事务完成。</p>
+<p>以上所描述的是XA两阶段提交的正向流程，接下来我们看一看失败情况的处理流程：</p>
+<p><img src="/2021/05/17/ShardingJDBC实战/img/0011.png" alt="0011" style="zoom:80%;"></p>
+<p><img src="/2021/05/17/ShardingJDBC实战/img/0012.png" alt="0012" style="zoom:80%;"></p>
+<p>在XA的第一阶段，如果某个事务参与者反馈失败消息，说明该节点的本地事务执行不成功，必须回滚。</p>
+<p>于是在第二阶段，事务协调节点向所有的事务参与者发送Abort请求。接收到Abort请求之后，各个事务参与者节点需要在本地进行事务的回滚操作，回滚操作依照Undo Log来进行。</p>
+<p><strong>2PC的不足</strong></p>
+<p><strong>1.性能问题</strong></p>
+<p>XA协议遵循强一致性。在事务执行过程中，各个节点占用着数据库资源，只有当所有节点准备完毕，事务协调者才会通知提交，参与者提交后释放资源。这样的过程有着非常明显的性能问题。</p>
+<p><strong>2.协调者单点故障问题</strong></p>
+<p>事务协调者是整个XA模型的核心，一旦事务协调者节点挂掉，参与者收不到提交或是回滚通知，参与者会一直处于中间状态无法完成事务。</p>
+<p><strong>3.丢失消息导致的不一致问题</strong></p>
+<p>在XA协议的第二个阶段，如果发生局部网络问题，一部分事务参与者收到了提交消息，另一部分事务参与者没收到提交消息，那么就导致了节点之间数据的不一致。</p>
+<h4 id="3-1-2-柔性事务"><a href="#3-1-2-柔性事务" class="headerlink" title="3.1.2.  柔性事务"></a>3.1.2.  柔性事务</h4><p>柔性事务（如分布式事务）为了满足可用性、性能与降级服务的需要，降低一致性（Consistency）与隔离性（Isolation）的要求，遵循 BASE 理论：</p>
+<p>（1）基本业务可用性（Basic Availability）</p>
+<p>（2）柔性状态（Soft state）</p>
+<p>（3）最终一致性（Eventual consistency）</p>
+<h3 id="3-2-跨节点关联查询"><a href="#3-2-跨节点关联查询" class="headerlink" title="3.2. 跨节点关联查询"></a>3.2. 跨节点关联查询</h3><p>在没有分库前，我们查询商品时可以通过对商品信息表和店铺信息表进行关联查询，但是垂直分库之后，商品信息和店铺信息可能不在一个数据库甚至不在一台服务器，无法关联查询。</p>
+<p>可将原关联查询分为两次查询，第一次查询的结果集中找出关联数据id，然后根基id发起第二次查询得到关联数据，然后将得到的数据进行拼装处理。</p>
+<h3 id="3-3-跨节点分页、排序问题"><a href="#3-3-跨节点分页、排序问题" class="headerlink" title="3.3.  跨节点分页、排序问题"></a>3.3.  跨节点分页、排序问题</h3><p>跨节点多苦进行查询时，limit分页，order by排序等问题，就变得比较复杂了。需要在不同的分片节点中（水平分表分库）的将数据排序并返回，然后将不同分片的结果进行汇总再次排序。由于商品信息的分布在各个数据库的数据可能是随机的，如果是取第N页，需要将所有节点前N页都取出来合并，再进行整体排序。在使用Max、Min、Sum、Count等函数进行计算的时候，与分页同理，也需要在每个分片上执行相应的函数，然后将各个分片的结果进行汇总再次计算，最终将结果返回。Sharding-jdbc对分片排序有优化（1.6 中的流式归并）。</p>
+<p><img src="/2021/05/17/ShardingJDBC实战/img/0013.png" alt="0013" style="zoom:50%;"></p>
+<h3 id="3-4-主键重复的问题"><a href="#3-4-主键重复的问题" class="headerlink" title="3.4. 主键重复的问题"></a>3.4. 主键重复的问题</h3><p>在分库分表的环境中，由于表中数据存在不同的数据库中，自增主键将无用武之地，某个分区数据库生成的Id无法保证全局唯一性，因此需要单独设计全局主键，以避免跨库主键重复问题。Sharding-jdbc提供生成分布式主键的算法。</p>
+<h3 id="3-5-公共表问题"><a href="#3-5-公共表问题" class="headerlink" title="3.5.  公共表问题"></a>3.5.  公共表问题</h3><p>在实际应用场景中，参数表、数据字典表等都是数据量较小，变动少，而且属于高频联合查询的依赖表。</p>
+<p>可将这类表在每个数据库中都保存一份，所有对公共表的更新操作都同时发送到所有分库执行。Sharding-jdbc中有广播表的概念，修改某一个库的广播表时会修改所有库中对应的表数据。</p>
+<h2 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h2><p>系统在设计之初就应该对业务数据的耦合松紧进行考量，从而进行垂直分库、垂直分表，使数据层架构清晰明了。若非必要，无需进行水平切分，应先从缓存技术着手降低对数据库的访问压力。如果缓存使用过后，数据库访问量还是非常大，可以考虑数据库读、写分离原则。若当前数据库压力依然大，且业务数据持续增长无法估量，最后可考虑水平分库、分表，单表拆分数据控制在1000万以内。</p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/IMG_1125.JPG">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/IMG_1124.JPG">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -235,57 +405,144 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://www.xujie1024.club/2021/05/17/ShardingJDBC实战/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/13/CAP理论/" class="archive-article-date">
-  	<time datetime="2021-03-13T06:31:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-13</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2021/07/23/Redis高可用之哨兵实战/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Redis高可用之哨兵实战
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/03/13/CAP理论/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CAP理论</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/13/CAP理论/">CAP理论</a>
-    </h1>
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="ShardingJDBC实战" data-title="Sharding-JDBC分库分表实战（整合Druid开启监控）" data-url="https://www.xujie1024.club/2021/05/17/ShardingJDBC实战/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "https://www.xujie1024.club/2021/05/17/ShardingJDBC实战/", 
+    sourceId: "ShardingJDBC实战",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -312,8 +569,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
